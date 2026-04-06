@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: rgb(150, 244, 244);
+    color: rgb(65, 31, 120);
+    padding: 100px;
+    margin: 100px;
+    border: 1px solid;
+}

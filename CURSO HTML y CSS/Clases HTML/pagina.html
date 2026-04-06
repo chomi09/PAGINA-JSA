@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café & Cacao | Productos Premium</title>
+    <style>
+        /* Estilos básicos y responsivos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: #3c2f2f;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com.org/1920x1080?coffee+beans') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #6f4e37;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4a574;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #6f4e37;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: #d4a574;
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .producto-card {
+            background: white;
+            border-radius: 100px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(104, 85, 31, 0.1);
+            transition: transform 0.3s;
+        }
+        .producto-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .producto-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .producto-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .producto-info h3 {
+            margin-bottom: 10px;
+            color: #6f4e37;
+        }
+
+        .precio {
+            font-size: 1.4rem;
+            color: #b8860b;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #6f4e37;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #8b5a2b;
+        }
+
+        .sobre-nosotros {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            background-color: #fff8f0;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .sobre-nosotros img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .texto-sobre {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        footer {
+            background-color: #3c2f2f;
+            color: #e8e1d9;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .redes {
+            margin: 20px 0;
+        }
+
+        .redes a {
+            color: #d4a574;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sobre-nosotros {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Café & Cacao</h1>
+        <p>Productos artesanales de origen. Sabor auténtico, calidad premium.</p>
+    </header>
+
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#piedepagina">piedepagina</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+
+        <!-- Sección Productos -->
+        <section id="productos">
+            <h2>Nuestros Productos</h2>
+            <div class="productos">
+
+                <!-- Café Arábica -->
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Café Arábica">
+                    <div class="producto-info">
+                        <h3>Café Arábica Premium</h3>
+                        <p>Granos 100% arábica tostados a la perfección. Notas a chocolate y nuez.</p>
+                        <div class="precio">$18.900 / 500g</div>
+                        <a href="#" class="btn">Comprar</a>
+                    </div>
+                </div>
+
+                <!-- Cacao en Polvo -->
+                <div class="producto-card">
+                    <img src="https://eu.kobotoolbox.org/api/v2/assets/aEoHLG9HroX4TqgVdxrPVm/data/708348736/attachments/attC49P7wVNs2nQZHUWRDiJU/" alt="Cacao en Polvo">
+                    <div class="producto-info">
+                        <h3>Cacao Puro Orgánico</h3>
+                        <p>100% cacao natural, sin azúcar añadido. Ideal para repostería y bebidas.</p>
+                        <div class="precio">$15.500 / 400g</div>
+                        <a href="#" class="btn">Comprar</a>
+                    </div>
+                </div>
+
+                <!-- Chocolate Artesanal -->
+                <div class="producto-card">
+                    <img src="img/1759155028719.jpg" alt="Chocolate Artesanal">
+                    <div class="producto-info">
+                        <h3>Chocolate 70% Cacao</h3>
+                        <p>Elaborado con cacao de finca propia. Intenso y equilibrado.</p>
+                        <div class="precio">$12.000 / 100g</div>
+                        <a href="#" class="btn">Comprar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección Sobre Nosotros -->
+        <section id="piedepagina">
+            <h2>Sobre Nosotros</h2>
+            <div class="sobre-nosotros">
+                <img src="https://images.unsplash.com/photo-1559058777-94688c96f80a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plantación de cacao">
+                <div class="texto-sobre">
+                    <h3>Desde la finca hasta tu taza</h3>
+                    <p>Somos productores directos de café y cacao en las montañas de Antioquia. Cultivamos con prácticas sostenibles, cosechamos a mano y procesamos con cuidado artesanal para garantizar la máxima calidad en cada grano y semilla.</p>
+                    <p>Con más de 20 años de experiencia, llevamos el auténtico sabor colombiano a tu hogar.</p>
+                    <a href="#" class="btn">Conoce nuestra historia</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer id="contacto">
+        <h3>Café & Cacao</h3>
+        <p>📍 Finca El Paraíso, Antioquia &bull; Colombia</p>
+        <p>📞 +57 300 123 4567 &bull; ✉️ info@cafe-cacao.co</p>
+        
+        <div class="redes">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+        <p>&copy; 2025 Café & Cacao. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

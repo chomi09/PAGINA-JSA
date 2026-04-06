@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones con GSAP</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+        /* --- ESTILOS CSS --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1a1a2e;
+            color: #e9e9f3;
+            margin: 0;
+            overflow: hidden; /* Oculta barras de desplazamiento durante las animaciones */
+        }
+
+        h1 {
+            color: #64ffda; /* Color vibrante */
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            /* El título estará oculto al principio para ser animado por GSAP */
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        .caja-contenedor {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #2e2e4a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .caja {
+            width: 100px;
+            height: 100px;
+            background-color: #ff64da;
+            margin: 30px auto;
+            border-radius: 10px;
+            cursor: pointer; /* Indica que es interactivo */
+            transition: box-shadow 0.2s;
+            /* La caja estará fuera de pantalla al principio */
+            opacity: 0;
+        }
+
+        .caja:hover {
+            box-shadow: 0 0 15px #ff64da;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #a0a0c0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="titulo-animado">¡Página Animada con GSAP!</h1>
+
+    <div class="caja-contenedor">
+        <p>Haz clic en la caja para ver la animación</p>
+        <div id="caja-interactiva" class="caja"></div>
+    </div>
+
+    <script>
+        // --- LÓGICA JAVASCRIPT CON GSAP ---
+
+        // 1. Obtener elementos HTML
+        const titulo = document.getElementById('titulo-animado');
+        const caja = document.getElementById('caja-interactiva');
+
+        // 2. Crear un Timeline para las animaciones iniciales (al cargar la página)
+        const timelineEntrada = gsap.timeline({
+            defaults: { duration: 1, ease: "power2.out" } // Animaciones por defecto
+        });
+
+        // Secuencia de Animación de Entrada:
+        timelineEntrada
+            // Paso 1: Animación del Título
+            .to(titulo, { 
+                y: 0, 
+                opacity: 1, 
+                duration: 1.2, 
+                ease: "elastic.out(1, 0.5)" // Efecto elástico para un inicio llamativo
+            })
+            // Paso 2: Animación de la Caja (Empieza 0.5 segundos después de que el título comience)
+            .fromTo(caja, 
+                { x: -500, rotation: -90, opacity: 0 }, // Estado Inicial: fuera a la izquierda
+                { x: 0, rotation: 0, opacity: 1, duration: 1, ease: "back.out(1.7)" }, // Estado Final: al centro
+                "<0.5" // Posicionamiento: Empieza 0.5 segundos ANTES de que termine la animación anterior
+            );
+
+
+        // 3. Animación Interactiva (Al hacer clic)
+
+        let isAnimating = false;
+
+        caja.addEventListener('click', () => {
+            // Prevenir clics múltiples mientras la animación está en curso
+            if (isAnimating) {
+                return;
+            }
+            
+            isAnimating = true;
+
+            // Definir una animación de "salto" para la caja
+            gsap.to(caja, {
+                y: -50,         // Sube 50px
+                rotation: 15,   // Rota ligeramente a la derecha
+                duration: 0.2, 
+                ease: "power1.out",
+                yoyo: true,     // Hace que la animación se reproduzca al revés
+                repeat: 1,      // Repite una vez (total: sube y baja)
+                scale: 1.1,     // Escala un poco al tocar
+                
+                // Función que se ejecuta cuando la animación termina
+                onComplete: () => {
+                    isAnimating = false;
+                    // También podemos cambiar el color de forma sutil al terminar
+                    gsap.to(caja, { 
+                        backgroundColor: "#ff99e6", 
+                        duration: 0.1, 
+                        yoyo: true, 
+                        repeat: 1 
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
