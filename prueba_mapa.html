@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mapa Cooperativa</title>
+    <style>
+        /* CRÍTICO: Si el alto es 0, el mapa no se ve aunque cargue bien */
+        #map {
+            height: 500px; 
+            width: 100%;
+            background-color: #f0f0f0; /* Para saber si el div existe */
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="font-family: Arial; color: #2e7d32;">Monitoreo de Parcelas Pichanaqui</h2>
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+            console.log("Iniciando mapa..."); // Esto saldrá en la consola (F12)
+            
+            const centro = { lat: -10.925, lng: -74.810 };
+            
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: centro,
+                mapTypeId: 'roadmap', //Otros mapas ROADMAP, SATELLITE, TERRAIN, HIBRID
+                gestureHandling: "cooperative"
+            });
+
+            const finca = new google.maps.Polygon({
+                paths: [
+                    { lat: -10.923, lng: -74.812 },
+                    { lat: -10.927, lng: -74.812 },
+                    { lat: -10.927, lng: -74.808 },
+                    { lat: -10.923, lng: -74.808 }
+                ],
+                strokeColor: "#228B22",
+                fillColor: "#32CD32",
+                fillOpacity: 0.4,
+                editable: true,
+                map: map
+            });
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD4JpT8TpygK0tYqAkWkZRsSNJ68D3_xE&callback=initMap" async defer></script>
+
+</body>
+</html>
