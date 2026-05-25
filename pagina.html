@@ -1,424 +1,1026 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cooperativa Agraria Cafetalera Juan Santos Atahualpa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style>
-        /* Estilos básicos y responsivos */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cooperativa Juan Santos Atahualpa</title>
 
-        body {
-            background-color: #f9f5f0;
-            color: #3c2f2f;
-            line-height: 1.6;
-            padding-top: 140px;
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'coop-green':      '#2d6a4f',
+            'coop-green-dark': '#1b4332',
+            'coop-green-mid':  '#40916c',
+            'coop-green-pale': '#d8f3dc',
+            'coop-beige':      '#f5f0e8',
+            'coop-cream':      '#fdf8f0',
+            'coop-brown':      '#6b4226',
+            'coop-brown-light':'#a0522d',
+            'coop-gold':       '#d4a017',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
         }
-        header {
-            text-align: center;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-            height: 60vh;
-        }
+      }
+    }
+  </script>
 
-        header h1 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            color: #61d26b;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 4px 4px 15px rgba(0,0,0,0.9);
-            margin: 0;
-            z-index: 10;
-            width: 95%;
-            text-align: center;
-        }
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-        header p {
-            position: absolute;
-            top: 58%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.8rem;
-            color: #f8edda;
-            margin: 0;
-            z-index: 10;
-            width: 95%;
-            text-align: center;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-        nav {
-            background-color: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(15px);
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
+  <style>
+    html { scroll-behavior: smooth; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 35px;
-            margin: 0 50px;
-            padding: 0;
-        }
+    /* Hero background */
+    .hero-bg {
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 40%, #40916c 70%, #52b788 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=80') center/cover no-repeat;
+      opacity: 0.18;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(27,67,50,0.7) 0%, rgba(27,67,50,0.55) 60%, rgba(27,67,50,0.85) 100%);
+    }
 
-        nav a {
-            color: white !important;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-            transition: color 0.3s;
-        }
+    /* Nav scroll effect */
+    .nav-scrolled {
+      background: rgba(27, 67, 50, 0.97) !important;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
 
-        nav a:hover {
-            color: #161514!important;
-            background-color: rgba(255,255,255,0.1);
-            padding: 8px 15px;
-            border-radius: 8px;
-        }
-        .nav-logo {
-            margin-right: 10px;
-        }
-        .logo-izquierda {
-            height: 200px;
-            filter: drop-shadow(0 0px 0px rgba(0,0,0,0,3));
-        }
-        .logo-izquierda:hover {
-            transform: scale(1.1);
-        }
+    /* Cards hover */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
 
-        main {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    /* Pie chart */
+    .pie-chart {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #2d6a4f 0%   35%,
+        #40916c 35%  55%,
+        #52b788 55%  70%,
+        #74c69d 70%  82%,
+        #95d5b2 82%  91%,
+        #d8f3dc 91%  100%
+      );
+      position: relative;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    .pie-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 100px; height: 100px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
 
-        section {
-            margin-bottom: 60px;
-        }
+    /* Timeline */
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #2d6a4f, #74c69d);
+      transform: translateX(-50%);
+    }
 
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: #6f4e37;
-            position: relative;
-        }
+    /* Scroll arrow bounce */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(10px); }
+    }
+    .bounce { animation: bounce 1.6s ease-in-out infinite; }
 
-        h2::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background-color: #d4a574;
-            display: block;
-            margin: 10px auto 0;
-        }
+    /* Section heading underline */
+    .heading-underline::after {
+      content: '';
+      display: block;
+      width: 60px; height: 4px;
+      background: #2d6a4f;
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
 
-        .productos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+    /* Fade-in on scroll (lightweight) */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
 
-        .producto-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
+    /* Form focus */
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #2d6a4f;
+      box-shadow: 0 0 0 3px rgba(45,106,79,0.15);
+    }
 
-        .producto-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .producto-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .producto-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .producto-info h3 {
-            margin-bottom: 10px;
-            color: #6f4e37;
-        }
-
-        .precio {
-            font-size: 1.4rem;
-            color: #b8860b;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #6f4e37;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #8b5a2b;
-        }
-
-        .sobre-nosotros {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-            background-color: #fff8f0;
-            padding: 40px;
-            border-radius: 15px;
-        }
-
-        .sobre-nosotros img {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .texto-sobre {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        footer {
-            background-color: #3c2f2f;
-            color: #e8e1d9;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .redes {
-            margin: 20px 0;
-        }
-
-        .redes a {
-            color: #d4a574;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            .sobre-nosotros {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-        
-            #carruselLimpio {
-                position: absolute;
-                top: 0; left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-            }
-            .carousel-inner {
-                overflow: hidden;
-                height: 100%;
-            }
-            .carousel-item {
-                height: 100%;
-                position: relative;
-                overflow: hidden;
-            }
-            .carousel-item:not(.duplicada) img {
-                width: 100%;
-                height: 100%;
-                object-position: center center;
-                display: block;
-                object-fit: cover;
-            }   
-            .izquierda, .derecha {
-                width: 50%;
-                height: 100%;
-                object-fit: cover;
-                display: inline-block;
-                float: left;
-            }
-
-            .izquierda {
-                object-position: right center;   
-            }
-
-            .derecha {
-                object-position: left center;     
-            }
-            .carousel-item img[src*="_DSC5408.jpg"] {
-                object-position: center top !important;
-            }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    /* Certification logos */
+    .cert-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border: 2px solid #d8f3dc;
+      border-radius: 8px;
+      background: white;
+      font-weight: 700;
+      font-size: 11px;
+      color: #2d6a4f;
+      letter-spacing: 0.05em;
+    }
+  </style>
 </head>
-<body>
-    
+<body class="font-sans bg-white text-gray-800 antialiased">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ═══════════════════════════════════════════════
+       NAV — Fixed, transparent → scrolled
+  ═══════════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+       style="background: rgba(27,67,50,0.15); backdrop-filter: blur(8px);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
 
-    <nav>
-        <ul>
-            <li class="nav-logo">
-                <img src="imagen/Logo.png" alt="Logo" class="logo-izquierda">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
+          <i class="ri-leaf-line text-coop-green text-2xl"></i>
+        </div>
+        <div>
+          <div class="text-white font-bold text-base leading-tight">Juan Santos</div>
+          <div class="text-green-200 text-xs font-medium leading-tight">Atahualpa</div>
+        </div>
+      </a>
+
+      <!-- Links (desktop) -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#inicio"         class="text-white/90 hover:text-white text-sm font-medium transition-colors">Inicio</a>
+        <a href="#sobre-nosotros" class="text-white/90 hover:text-white text-sm font-medium transition-colors">Sobre Nosotros</a>
+        <a href="#tecnologia"     class="text-white/90 hover:text-white text-sm font-medium transition-colors">Tecnología</a>
+        <a href="#beneficios"     class="text-white/90 hover:text-white text-sm font-medium transition-colors">Beneficios</a>
+        <a href="#exportaciones"  class="text-white/90 hover:text-white text-sm font-medium transition-colors">Exportaciones</a>
+        <a href="#contacto"       class="text-white/90 hover:text-white text-sm font-medium transition-colors">Contacto</a>
+      </div>
+
+      <!-- CTA -->
+      <a href="#contacto"
+         class="hidden lg:inline-flex items-center gap-2 bg-white text-coop-green font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-coop-green-pale transition-colors shadow-md">
+        Únete
+        <i class="ri-arrow-right-line"></i>
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="lg:hidden text-white text-2xl">
+        <i class="ri-menu-3-line"></i>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-coop-green-dark px-6 pb-4">
+      <div class="flex flex-col gap-3 pt-2">
+        <a href="#inicio"         class="text-white/90 py-2 border-b border-white/10 text-sm">Inicio</a>
+        <a href="#sobre-nosotros" class="text-white/90 py-2 border-b border-white/10 text-sm">Sobre Nosotros</a>
+        <a href="#tecnologia"     class="text-white/90 py-2 border-b border-white/10 text-sm">Tecnología</a>
+        <a href="#beneficios"     class="text-white/90 py-2 border-b border-white/10 text-sm">Beneficios</a>
+        <a href="#exportaciones"  class="text-white/90 py-2 border-b border-white/10 text-sm">Exportaciones</a>
+        <a href="#contacto"       class="text-white/90 py-2 text-sm">Contacto</a>
+        <a href="#contacto" class="mt-2 inline-flex justify-center bg-white text-coop-green font-semibold px-6 py-2 rounded-full text-sm">Únete</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════
+       HERO — #inicio
+  ═══════════════════════════════════════════════ -->
+  <section id="inicio" class="hero-bg min-h-screen flex flex-col items-center justify-center relative">
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30
+                  text-white text-sm font-semibold px-5 py-2 rounded-full mb-8">
+        <i class="ri-award-line text-coop-gold"></i>
+        100% Orgánico Certificado
+      </div>
+
+      <!-- Heading -->
+      <h2 class="text-green-200 text-xl md:text-2xl font-medium mb-3 tracking-wide uppercase">
+        Cooperativa Agraria Cafetalera
+      </h2>
+      <h1 class="text-white text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight">
+        Juan Santos<br/>Atahualpa
+      </h1>
+      <p class="text-green-100 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Cultivando calidad, comunidad y sostenibilidad desde 1987.
+        Unidos por el café peruano de altura.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#sobre-nosotros"
+           class="bg-white text-coop-green font-bold px-10 py-4 rounded-full text-base hover:bg-coop-green-pale transition-all shadow-xl hover:shadow-2xl">
+          Conócenos
+        </a>
+        <a href="#exportaciones"
+           class="border-2 border-white text-white font-bold px-10 py-4 rounded-full text-base hover:bg-white/10 transition-all">
+          Nuestro Café
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll arrow -->
+    <a href="#sobre-nosotros"
+       class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-white/70 hover:text-white bounce">
+      <i class="ri-arrow-down-line text-3xl"></i>
+    </a>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SOBRE NOSOTROS
+  ═══════════════════════════════════════════════ -->
+  <section id="sobre-nosotros" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Image column -->
+        <div class="relative fade-in">
+          <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=904&q=80"
+              alt="Agricultores trabajando juntos en la Cooperativa Juan Santos Atahualpa"
+              class="w-full h-[500px] object-cover"
+            />
+          </div>
+          <!-- Desde badge -->
+          <div class="absolute -bottom-6 -right-6 bg-coop-green text-white rounded-2xl px-6 py-4 shadow-xl text-center">
+            <div class="text-3xl font-black">1987</div>
+            <div class="text-green-200 text-xs font-medium mt-1">Desde</div>
+          </div>
+        </div>
+
+        <!-- Content column -->
+        <div class="fade-in">
+          <span class="text-coop-green font-semibold text-sm uppercase tracking-widest">Nuestra Historia</span>
+          <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-3 mb-6 heading-underline text-left">
+            Sobre Nosotros
+          </h2>
+          <p class="text-gray-600 text-base leading-relaxed mb-6">
+            Somos la <strong class="text-coop-green">Cooperativa Agraria Cafetalera Juan Santos Atahualpa</strong>,
+            una organización fundada en 1987 en las selvas de Perú, uniendo a cientos de familias
+            cafetaleras bajo un mismo propósito: producir café de alta calidad de manera sostenible
+            y justa.
+          </p>
+          <p class="text-gray-600 text-base leading-relaxed mb-8">
+            A lo largo de más de tres décadas, hemos construido una comunidad sólida basada en
+            el respeto al medio ambiente, la innovación tecnológica y el bienestar de nuestros
+            socios y sus familias.
+          </p>
+
+          <!-- Value cards -->
+          <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="text-center p-4 bg-coop-cream rounded-xl card-hover">
+              <i class="ri-cup-line text-coop-green text-2xl mb-2 block"></i>
+              <div class="font-bold text-gray-800 text-sm">Calidad</div>
+            </div>
+            <div class="text-center p-4 bg-coop-cream rounded-xl card-hover">
+              <i class="ri-group-line text-coop-green text-2xl mb-2 block"></i>
+              <div class="font-bold text-gray-800 text-sm">Comunidad</div>
+            </div>
+            <div class="text-center p-4 bg-coop-cream rounded-xl card-hover">
+              <i class="ri-plant-line text-coop-green text-2xl mb-2 block"></i>
+              <div class="font-bold text-gray-800 text-sm">Sostenibilidad</div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div>
+            <p class="text-sm text-gray-500 font-medium mb-3 uppercase tracking-wide">Certificaciones</p>
+            <div class="flex flex-wrap gap-3">
+              <div class="cert-badge"><i class="ri-shield-check-line mr-1"></i> USDA Organic</div>
+              <div class="cert-badge"><i class="ri-hand-heart-line mr-1"></i> Fair Trade</div>
+              <div class="cert-badge"><i class="ri-tree-line mr-1"></i> Rainforest Alliance</div>
+              <div class="cert-badge"><i class="ri-leaf-line mr-1"></i> EU Organic</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       TECNOLOGÍA E INNOVACIÓN
+  ═══════════════════════════════════════════════ -->
+  <section id="tecnologia" class="py-24 bg-coop-green-dark text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-green-300 font-semibold text-sm uppercase tracking-widest">Innovación al campo</span>
+        <h2 class="text-4xl md:text-5xl font-black mt-3 mb-4">Tecnología e Innovación</h2>
+        <p class="text-green-200 max-w-2xl mx-auto">
+          Liderando la digitalización del agro peruano con tecnología de punta para maximizar la calidad y el rendimiento.
+        </p>
+      </div>
+
+      <!-- Tech cards -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 fade-in">
+
+        <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-6 card-hover text-center">
+          <div class="w-14 h-14 bg-coop-green/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i class="ri-radar-line text-3xl text-green-300"></i>
+          </div>
+          <div class="text-4xl font-black text-white mb-1">15</div>
+          <div class="text-green-200 text-sm font-medium">Activos</div>
+          <div class="text-white font-semibold mt-2">Drones</div>
+          <p class="text-green-300 text-xs mt-2 leading-relaxed">Monitoreo aéreo de cultivos en tiempo real</p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-6 card-hover text-center">
+          <div class="w-14 h-14 bg-coop-green/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i class="ri-tablet-line text-3xl text-green-300"></i>
+          </div>
+          <div class="text-4xl font-black text-white mb-1">200+</div>
+          <div class="text-green-200 text-sm font-medium">Instalados</div>
+          <div class="text-white font-semibold mt-2">Sensores IoT</div>
+          <p class="text-green-300 text-xs mt-2 leading-relaxed">Control de humedad, temperatura y pH del suelo</p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-6 card-hover text-center">
+          <div class="w-14 h-14 bg-coop-green/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i class="ri-smartphone-line text-3xl text-green-300"></i>
+          </div>
+          <div class="text-4xl font-black text-white mb-1">1</div>
+          <div class="text-green-200 text-sm font-medium">Exclusiva</div>
+          <div class="text-white font-semibold mt-2">App Propia</div>
+          <p class="text-green-300 text-xs mt-2 leading-relaxed">Gestión de finca, ventas y trazabilidad desde el celular</p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 backdrop-blur rounded-2xl p-6 card-hover text-center">
+          <div class="w-14 h-14 bg-coop-green/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i class="ri-bar-chart-line text-3xl text-green-300"></i>
+          </div>
+          <div class="text-4xl font-black text-white mb-1">IA</div>
+          <div class="text-green-200 text-sm font-medium">Implementada</div>
+          <div class="text-white font-semibold mt-2">Inteligencia Artificial</div>
+          <p class="text-green-300 text-xs mt-2 leading-relaxed">Predicción de cosechas y detección temprana de plagas</p>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="fade-in">
+        <h3 class="text-center text-2xl font-bold text-white mb-12">Nuestra Evolución Tecnológica</h3>
+        <div class="relative max-w-3xl mx-auto">
+          <div class="timeline-line"></div>
+          <div class="space-y-10">
+
+            <div class="flex items-center gap-8">
+              <div class="flex-1 text-right pr-8">
+                <div class="text-coop-gold font-bold">2015</div>
+                <div class="text-white font-semibold">Primeros sensores IoT</div>
+                <div class="text-green-300 text-sm">Instalación piloto en 20 fincas</div>
+              </div>
+              <div class="w-4 h-4 bg-coop-gold rounded-full z-10 flex-shrink-0"></div>
+              <div class="flex-1 pl-8"></div>
+            </div>
+
+            <div class="flex items-center gap-8">
+              <div class="flex-1 text-right pr-8"></div>
+              <div class="w-4 h-4 bg-coop-gold rounded-full z-10 flex-shrink-0"></div>
+              <div class="flex-1 pl-8">
+                <div class="text-coop-gold font-bold">2018</div>
+                <div class="text-white font-semibold">Flota de drones</div>
+                <div class="text-green-300 text-sm">Monitoreo aéreo de 1,500 ha</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-8">
+              <div class="flex-1 text-right pr-8">
+                <div class="text-coop-gold font-bold">2021</div>
+                <div class="text-white font-semibold">App cooperativa</div>
+                <div class="text-green-300 text-sm">500+ socios conectados digitalmente</div>
+              </div>
+              <div class="w-4 h-4 bg-coop-gold rounded-full z-10 flex-shrink-0"></div>
+              <div class="flex-1 pl-8"></div>
+            </div>
+
+            <div class="flex items-center gap-8">
+              <div class="flex-1 text-right pr-8"></div>
+              <div class="w-4 h-4 bg-white rounded-full z-10 flex-shrink-0 ring-4 ring-coop-gold"></div>
+              <div class="flex-1 pl-8">
+                <div class="text-coop-gold font-bold">2025</div>
+                <div class="text-white font-semibold">IA en producción</div>
+                <div class="text-green-300 text-sm">Modelos predictivos para toda la cadena</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       BENEFICIOS Y SERVICIOS
+  ═══════════════════════════════════════════════ -->
+  <section id="beneficios" class="py-24 bg-coop-beige">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-coop-green font-semibold text-sm uppercase tracking-widest">Para nuestros socios</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-3 mb-4 heading-underline">Beneficios y Servicios</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Comprometidos con el bienestar de cada familia socia a través de un amplio portafolio de servicios.
+        </p>
+      </div>
+
+      <!-- Service cards -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 fade-in">
+
+        <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+          <div class="w-12 h-12 bg-coop-green-pale rounded-xl flex items-center justify-center mb-4">
+            <i class="ri-truck-line text-coop-green text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Equipamiento Agrícola</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Acceso a maquinaria moderna, herramientas y equipos de procesamiento en condiciones preferenciales.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+          <div class="w-12 h-12 bg-coop-green-pale rounded-xl flex items-center justify-center mb-4">
+            <i class="ri-money-dollar-circle-line text-coop-green text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Préstamos Solidarios</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Financiamiento a tasas preferenciales para mejorar tus cultivos, infraestructura y calidad de vida.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+          <div class="w-12 h-12 bg-coop-green-pale rounded-xl flex items-center justify-center mb-4">
+            <i class="ri-graduation-cap-line text-coop-green text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Capacitaciones</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Programas de formación en buenas prácticas agrícolas, gestión empresarial y uso de tecnología.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+          <div class="w-12 h-12 bg-coop-green-pale rounded-xl flex items-center justify-center mb-4">
+            <i class="ri-shopping-basket-line text-coop-green text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Canastas Familiares</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Programa de abastecimiento de productos básicos a precios justos para socios y sus familias.</p>
+        </div>
+
+        <div class="bg-coop-green text-white rounded-2xl p-6 card-hover shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 text-white/10 text-8xl font-black leading-none -mt-2 -mr-2">98%</div>
+          <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+            <i class="ri-shield-check-line text-white text-xl"></i>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2">Seguro Agrícola</h3>
+          <p class="text-green-100 text-sm leading-relaxed">Cobertura ante eventos climáticos, plagas y siniestros.</p>
+          <div class="mt-4 text-white font-bold">98% Cobertura</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+          <div class="w-12 h-12 bg-coop-green-pale rounded-xl flex items-center justify-center mb-4">
+            <i class="ri-route-line text-coop-green text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">Asistencia Técnica</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Ingenieros agrónomos visitando fincas regularmente para optimizar cada etapa del cultivo.</p>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="fade-in">
+        <h3 class="text-center text-2xl font-bold text-gray-900 mb-10">Lo que dicen nuestros socios</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <div class="flex gap-1 text-coop-gold text-sm mb-3">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed italic mb-4">
+              "Desde que me uní a la cooperativa, mis ingresos crecieron un 40%. La asistencia técnica y los préstamos cambiaron todo para mi familia."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-coop-green-pale flex items-center justify-center text-coop-green font-bold">CM</div>
+              <div>
+                <div class="font-semibold text-gray-800 text-sm">Carlos Mendoza</div>
+                <div class="text-gray-500 text-xs">Socio desde 2010, La Merced</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <div class="flex gap-1 text-coop-gold text-sm mb-3">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed italic mb-4">
+              "Los drones y los sensores nos ayudan a detectar problemas antes de que se vuelvan graves. La tecnología aquí es increíble para ser campo."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-coop-green-pale flex items-center justify-center text-coop-green font-bold">MQ</div>
+              <div>
+                <div class="font-semibold text-gray-800 text-sm">María Quispe</div>
+                <div class="text-gray-500 text-xs">Socia desde 2015, Pichanaki</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <div class="flex gap-1 text-coop-gold text-sm mb-3">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed italic mb-4">
+              "El seguro agrícola me salvó cuando vino el granizo. Gracias a la cooperativa, no perdí todo. Aquí somos una verdadera familia."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-coop-green-pale flex items-center justify-center text-coop-green font-bold">JR</div>
+              <div>
+                <div class="font-semibold text-gray-800 text-sm">José Rojas</div>
+                <div class="text-gray-500 text-xs">Socio desde 2008, Satipo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       EXPORTACIONES
+  ═══════════════════════════════════════════════ -->
+  <section id="exportaciones" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-coop-green font-semibold text-sm uppercase tracking-widest">Alcance global</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-3 mb-4 heading-underline">Exportaciones</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Nuestro café de altura llega a los mercados más exigentes del mundo.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-6 mb-16 fade-in">
+        <div class="text-center bg-coop-cream rounded-2xl p-8">
+          <div class="text-5xl font-black text-coop-green mb-2">2,450</div>
+          <div class="text-gray-500 font-medium">Toneladas exportadas / año</div>
+        </div>
+        <div class="text-center bg-coop-cream rounded-2xl p-8">
+          <div class="text-5xl font-black text-coop-green mb-2">28</div>
+          <div class="text-gray-500 font-medium">Países de destino</div>
+        </div>
+        <div class="text-center bg-coop-cream rounded-2xl p-8">
+          <div class="text-5xl font-black text-coop-green mb-2">12</div>
+          <div class="text-gray-500 font-medium">Certificaciones internacionales</div>
+        </div>
+      </div>
+
+      <!-- Pie chart + legend -->
+      <div class="flex flex-col lg:flex-row items-center gap-16 mb-20 fade-in">
+        <div class="flex-shrink-0">
+          <div class="pie-chart">
+            <div class="pie-center">
+              <i class="ri-global-line text-coop-green text-2xl"></i>
+              <div class="text-xs text-gray-500 mt-1">Destinos</div>
+            </div>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 flex-1">
+          <div class="flex items-center gap-3 p-4 bg-coop-cream rounded-xl">
+            <div class="w-4 h-4 rounded-full flex-shrink-0" style="background:#2d6a4f"></div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Europa</div>
+              <div class="text-gray-500 text-xs">35% — Alemania, Italia, Francia</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-coop-cream rounded-xl">
+            <div class="w-4 h-4 rounded-full flex-shrink-0" style="background:#40916c"></div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">EE.UU. & Canadá</div>
+              <div class="text-gray-500 text-xs">20% — Specialty coffee</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-coop-cream rounded-xl">
+            <div class="w-4 h-4 rounded-full flex-shrink-0" style="background:#52b788"></div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Asia Pacífico</div>
+              <div class="text-gray-500 text-xs">15% — Japón, Corea, Australia</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-coop-cream rounded-xl">
+            <div class="w-4 h-4 rounded-full flex-shrink-0" style="background:#74c69d"></div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">América Latina</div>
+              <div class="text-gray-500 text-xs">12% — Brasil, Colombia, Chile</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-coop-cream rounded-xl">
+            <div class="w-4 h-4 rounded-full flex-shrink-0" style="background:#95d5b2"></div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Medio Oriente</div>
+              <div class="text-gray-500 text-xs">9% — UAE, Arabia Saudita</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-coop-cream rounded-xl">
+            <div class="w-4 h-4 rounded-full flex-shrink-0" style="background:#d8f3dc"></div>
+            <div>
+              <div class="font-semibold text-gray-800 text-sm">Otros</div>
+              <div class="text-gray-500 text-xs">9% — Resto del mundo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product cards -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 fade-in">
+
+        <div class="rounded-2xl overflow-hidden shadow-md card-hover">
+          <div class="h-48 bg-gradient-to-br from-coop-green to-coop-green-mid flex items-center justify-center">
+            <i class="ri-cup-line text-7xl text-white/30"></i>
+          </div>
+          <div class="p-5 bg-white">
+            <div class="text-xs text-coop-green font-semibold uppercase tracking-wide mb-1">Estrella</div>
+            <h4 class="font-bold text-gray-800 mb-1">Café Orgánico Premium</h4>
+            <p class="text-gray-500 text-xs leading-relaxed">Altura 1800-2200 msnm. Notas a chocolate y frutos rojos.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-md card-hover">
+          <div class="h-48 bg-gradient-to-br from-coop-brown to-coop-brown-light flex items-center justify-center">
+            <i class="ri-award-line text-7xl text-white/30"></i>
+          </div>
+          <div class="p-5 bg-white">
+            <div class="text-xs text-coop-brown font-semibold uppercase tracking-wide mb-1">Especial</div>
+            <h4 class="font-bold text-gray-800 mb-1">Café de Especialidad</h4>
+            <p class="text-gray-500 text-xs leading-relaxed">Puntuación SCA 85+. Proceso honey y natural.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-md card-hover">
+          <div class="h-48 bg-gradient-to-br from-gray-600 to-gray-400 flex items-center justify-center">
+            <i class="ri-leaf-line text-7xl text-white/30"></i>
+          </div>
+          <div class="p-5 bg-white">
+            <div class="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Sin Cafeína</div>
+            <h4 class="font-bold text-gray-800 mb-1">Descafeinado Orgánico</h4>
+            <p class="text-gray-500 text-xs leading-relaxed">Proceso agua suizo. 100% libre de solventes químicos.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-md card-hover border-2 border-coop-gold">
+          <div class="h-48 bg-gradient-to-br from-yellow-700 to-coop-gold flex items-center justify-center">
+            <i class="ri-medal-line text-7xl text-white/30"></i>
+          </div>
+          <div class="p-5 bg-white">
+            <div class="text-xs text-coop-gold font-semibold uppercase tracking-wide mb-1">Premium</div>
+            <h4 class="font-bold text-gray-800 mb-1">Micro Lote Geisha</h4>
+            <p class="text-gray-500 text-xs leading-relaxed">Variedad geisha exclusiva. Edición limitada de altura.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quality commitments -->
+      <div class="grid md:grid-cols-3 gap-6 fade-in">
+        <div class="flex gap-4 p-6 bg-coop-cream rounded-2xl">
+          <div class="w-10 h-10 bg-coop-green-pale rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="ri-checkbox-circle-line text-coop-green text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 mb-1">Trazabilidad Total</h4>
+            <p class="text-gray-600 text-sm">De la finca a la taza con seguimiento QR en cada lote.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-6 bg-coop-cream rounded-2xl">
+          <div class="w-10 h-10 bg-coop-green-pale rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="ri-flight-takeoff-line text-coop-green text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 mb-1">Envío Express</h4>
+            <p class="text-gray-600 text-sm">Despacho en 72 horas a puertos de Lima y Callao.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-6 bg-coop-cream rounded-2xl">
+          <div class="w-10 h-10 bg-coop-green-pale rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="ri-earth-line text-coop-green text-lg"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 mb-1">Precio Justo</h4>
+            <p class="text-gray-600 text-sm">Fair Trade garantiza retribución justa al productor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACTO
+  ═══════════════════════════════════════════════ -->
+  <section id="contacto" class="py-24 bg-coop-beige">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-coop-green font-semibold text-sm uppercase tracking-widest">Escríbenos</span>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-3 mb-4 heading-underline">Contáctanos</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          ¿Deseas ser socio, comprar nuestro café o simplemente saber más? Estamos para ayudarte.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 fade-in">
+
+        <!-- Form -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-800 mb-6">Envíanos un mensaje</h3>
+          <form class="space-y-5" onsubmit="handleForm(event)">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5">Nombre completo</label>
+                <input type="text" placeholder="Tu nombre"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm transition-all bg-gray-50" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5">Correo electrónico</label>
+                <input type="email" placeholder="tu@correo.com"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm transition-all bg-gray-50" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">Teléfono</label>
+              <input type="tel" placeholder="+51 999 000 000"
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm transition-all bg-gray-50" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">Tipo de consulta</label>
+              <select class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm transition-all bg-gray-50 text-gray-700">
+                <option value="">Selecciona una opción</option>
+                <option>Quiero ser socio</option>
+                <option>Compra de café al por mayor</option>
+                <option>Importación / Exportación</option>
+                <option>Prensa y medios</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1.5">Mensaje</label>
+              <textarea rows="4" placeholder="Cuéntanos en qué podemos ayudarte..."
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm transition-all bg-gray-50 resize-none"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-coop-green text-white font-bold py-4 rounded-xl hover:bg-coop-green-dark transition-colors flex items-center justify-center gap-2">
+              <i class="ri-send-plane-line"></i>
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact info + map -->
+        <div class="space-y-6">
+          <div class="bg-white rounded-3xl p-8 shadow-sm">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Información de contacto</h3>
+            <div class="space-y-5">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-coop-green-pale rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="ri-phone-line text-coop-green"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500 mb-0.5">Teléfono</div>
+                  <div class="font-semibold text-gray-800">+51 (064) 532-100</div>
+                  <div class="text-gray-600 text-sm">+51 984 200 300</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-coop-green-pale rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="ri-mail-line text-coop-green"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500 mb-0.5">Correo</div>
+                  <div class="font-semibold text-gray-800">info@coopjuansatahualpa.pe</div>
+                  <div class="text-gray-600 text-sm">exportaciones@coopjuansatahualpa.pe</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-coop-green-pale rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="ri-map-pin-line text-coop-green"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500 mb-0.5">Dirección</div>
+                  <div class="font-semibold text-gray-800">Jr. Progreso 345, La Merced</div>
+                  <div class="text-gray-600 text-sm">Chanchamayo, Junín — Perú</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-coop-green-pale rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="ri-time-line text-coop-green"></i>
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500 mb-0.5">Horario de atención</div>
+                  <div class="font-semibold text-gray-800">Lun – Vie: 8:00 – 17:00</div>
+                  <div class="text-gray-600 text-sm">Sáb: 8:00 – 12:00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map embed -->
+          <div class="rounded-3xl overflow-hidden shadow-sm h-56">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3993.123456789!2d-75.321!3d-11.046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLa%20Merced%2C%20Chanchamayo!5e0!3m2!1ses!2spe!4v1234567890"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="bg-coop-green-dark text-white">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+              <i class="ri-leaf-line text-coop-green text-lg"></i>
+            </div>
+            <div>
+              <div class="font-bold text-sm leading-tight">Juan Santos Atahualpa</div>
+              <div class="text-green-300 text-xs">Cooperativa Agraria Cafetalera</div>
+            </div>
+          </div>
+          <p class="text-green-300 text-sm leading-relaxed mb-5">
+            Cultivando calidad, comunidad y sostenibilidad desde 1987 en las selvas de Perú.
+          </p>
+          <!-- Social -->
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors">
+              <i class="ri-facebook-circle-line text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors">
+              <i class="ri-instagram-line text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors">
+              <i class="ri-linkedin-box-line text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center transition-colors">
+              <i class="ri-youtube-line text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Nav links -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wide mb-4 text-green-200">Navegación</h4>
+          <ul class="space-y-2">
+            <li><a href="#inicio"         class="text-green-300 hover:text-white text-sm transition-colors">Inicio</a></li>
+            <li><a href="#sobre-nosotros" class="text-green-300 hover:text-white text-sm transition-colors">Sobre Nosotros</a></li>
+            <li><a href="#tecnologia"     class="text-green-300 hover:text-white text-sm transition-colors">Tecnología</a></li>
+            <li><a href="#beneficios"     class="text-green-300 hover:text-white text-sm transition-colors">Beneficios</a></li>
+            <li><a href="#exportaciones"  class="text-green-300 hover:text-white text-sm transition-colors">Exportaciones</a></li>
+            <li><a href="#contacto"       class="text-green-300 hover:text-white text-sm transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact brief -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wide mb-4 text-green-200">Contacto</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2 text-sm text-green-300">
+              <i class="ri-map-pin-line mt-0.5 flex-shrink-0"></i>
+              Jr. Progreso 345, La Merced<br/>Chanchamayo, Junín — Perú
             </li>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-    <header>
-        
-        <div id="carruselLimpio" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-wrap="true">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carruselLimpio" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#carruselLimpio" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#carruselLimpio" data-bs-slide-to="2"></button>
-                <button type="button" data-bs-target="#carruselLimpio" data-bs-slide-to="3"></button>
-                <button type="button" data-bs-target="#carruselLimpio" data-bs-slide-to="4"></button>
-            </div>
-
-
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="imagen/asamblea2.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="imagen/captura.jpg" alt="Cacao">
-                </div>
-                <div class="carousel-item">
-                    <img src="imagen/Logoatahualpa.jpg" alt="Plantación">
-                </div>
-                <div class="carousel-item duplicada">
-                    <img src="imagen/manuel.jpg" class="izquierda">
-                    <img src="imagen/manuel.jpg" class="derecha">
-                </div>
-                <div class="carousel-item duplicada">
-                    <img src="imagen/socios.jpg" class="izquierda">
-                    <img src="imagen/socios.jpg" class="derecha">
-                </div>
-            </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#carruselLimpio" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carruselLimpio" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
+            <li class="flex items-center gap-2 text-sm text-green-300">
+              <i class="ri-phone-line flex-shrink-0"></i>
+              +51 (064) 532-100
+            </li>
+            <li class="flex items-center gap-2 text-sm text-green-300">
+              <i class="ri-mail-line flex-shrink-0"></i>
+              info@coopjuansatahualpa.pe
+            </li>
+          </ul>
         </div>
-        <h1>Cooperativa Agraria Cafetalera Juan Santos Atahualpa</h1>
-        <p>Por una nueva historia</p>
-    </header>
-    
-    <main>
 
-        <!-- Sección Productos -->
-        <section id="productos">
-            <h2>Nuestros Productos</h2>
-            <div class="productos">
-
-                <!-- Café Arábica -->
-                <div class="producto-card">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Café Arábica">
-                    <div class="producto-info">
-                        <h3>Café Arábica Premium</h3>
-                        <p>Granos 100% arábica tostados a la perfección. Notas a chocolate y nuez.</p>
-                        <div class="precio">$18.900 / 500g</div>
-                        <a href="#" class="btn">Comprar</a>
-                    </div>
-                </div>
-
-                <!-- Cacao en Polvo -->
-                <div class="producto-card">
-                    <img src="https://images.unsplash.com/photo-1576673442511-7e39b4831a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cacao en Polvo">
-                    <div class="producto-info">
-                        <h3>Cacao Puro Orgánico</h3>
-                        <p>100% cacao natural, sin azúcar añadido. Ideal para repostería y bebidas.</p>
-                        <div class="precio">$15.500 / 400g</div>
-                        <a href="#" class="btn">Comprar</a>
-                    </div>
-                </div>
-
-                <!-- Chocolate Artesanal -->
-                <div class="producto-card">
-                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chocolate Artesanal">
-                    <div class="producto-info">
-                        <h3>Chocolate 70% Cacao</h3>
-                        <p>Elaborado con cacao de finca propia. Intenso y equilibrado.</p>
-                        <div class="precio">$12.000 / 100g</div>
-                        <a href="#" class="btn">Comprar</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Sección Sobre Nosotros -->
-        <section id="nosotros">
-            <h2>Sobre Nosotros</h2>
-            <div class="sobre-nosotros">
-                <img src="https://images.unsplash.com/photo-1559058777-94688c96f80a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plantación de cacao">
-                <div class="texto-sobre">
-                    <h3>Desde la finca hasta tu taza</h3>
-                    <p>Somos productores directos de café y cacao en las montañas de Antioquia. Cultivamos con prácticas sostenibles, cosechamos a mano y procesamos con cuidado artesanal para garantizar la máxima calidad en cada grano y semilla.</p>
-                    <p>Con más de 20 años de experiencia, llevamos el auténtico sabor colombiano a tu hogar.</p>
-                    <a href="#" class="btn">Conoce nuestra historia</a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Pie de página -->
-    <footer id="contacto">
-        <h3>Café & Cacao</h3>
-        <p>📍 Finca El Paraíso, Antioquia &bull; Colombia</p>
-        <p>📞 +57 300 123 4567 &bull; ✉️ info@cafe-cacao.co</p>
-        
-        <div class="redes">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <!-- Newsletter -->
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wide mb-4 text-green-200">Boletín Informativo</h4>
+          <p class="text-green-300 text-sm mb-4">Recibe noticias de la cooperativa y del mundo del café.</p>
+          <form onsubmit="handleNewsletter(event)" class="space-y-3">
+            <input type="email" placeholder="Tu correo electrónico"
+              class="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-sm text-white placeholder-green-400 focus:outline-none focus:border-white/50 transition-colors" />
+            <button type="submit"
+              class="w-full bg-coop-green hover:bg-coop-green-mid text-white font-semibold py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
+              <i class="ri-send-plane-line"></i>
+              Suscribirme
+            </button>
+          </form>
         </div>
-        
-        <p>&copy; 2025 Café & Cacao. Todos los derechos reservados.</p>
-    </footer>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-green-400 text-sm">
+          © 2025 Cooperativa Juan Santos Atahualpa. Todos los derechos reservados.
+        </p>
+        <div class="flex gap-6">
+          <a href="#" class="text-green-400 hover:text-white text-sm transition-colors">Política de Privacidad</a>
+          <a href="#" class="text-green-400 hover:text-white text-sm transition-colors">Términos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ─── Toast notification ─── -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden">
+    <div class="bg-coop-green text-white px-6 py-3 rounded-xl shadow-xl flex items-center gap-3 text-sm font-medium">
+      <i class="ri-checkbox-circle-line text-lg"></i>
+      <span id="toastMsg">Mensaje enviado exitosamente</span>
+    </div>
+  </div>
+
+
+  <script>
+    // ── Nav scroll effect ──────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('nav-scrolled', window.scrollY > 60);
+    });
+
+    // ── Mobile menu toggle ────────────────────────────
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // ── Fade-in on scroll ─────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Toast helper ───────────────────────────────────
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3500);
+    }
+
+    // ── Form submit ────────────────────────────────────
+    function handleForm(e) {
+      e.preventDefault();
+      showToast('¡Mensaje enviado exitosamente! Te contactaremos pronto.');
+      e.target.reset();
+    }
+
+    // ── Newsletter ─────────────────────────────────────
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('¡Suscripción exitosa! Bienvenido a nuestra comunidad.');
+      e.target.reset();
+    }
+
+    // ── Smooth scroll for mobile menu links ───────────
+    document.querySelectorAll('#mobileMenu a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.add('hidden');
+      });
+    });
+  </script>
 
 </body>
 </html>
