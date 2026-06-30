@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — CACJSA</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="contacto.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+        <div class="contenedor" id="navbar">
+            <div class="logo">
+                <img src="../img/Logoatahualpa.png" alt="CACJSA">
+            </div>
+            <nav class="sublista">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="innovacion.html">Innovación</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+            <select class="language">
+                <option>Español</option>
+                <option>English</option>
+                <option>Português</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Cabecera -->
+    <div class="page-header" style="background-image: url(../img/cafee.jpg);">
+        <div class="page-header-content">
+            <span class="page-eyebrow">Hablemos</span>
+            <h1>Contáctenos</h1>
+            <p>Importadores, distribuidores y visitantes son bienvenidos</p>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- ===== CONTACTO PRINCIPAL ===== -->
+        <section class="contacto-main">
+            <div style="text-align:center;">
+                <span class="sec-label">Disponibles para ti</span>
+                <h2 class="sec-title text-center">Ponerse en Contacto</h2>
+            </div>
+            <div class="contacto-grid">
+
+                <!-- INFO -->
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+
+                    <div class="contacto-dato">
+                        <div class="contacto-dato-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contacto-dato-texto">
+                            <strong>Correo de Exportaciones</strong>
+                            <span>exportaciones@cacjsa.pe</span>
+                        </div>
+                    </div>
+
+                    <div class="contacto-dato">
+                        <div class="contacto-dato-icon"><i class="fas fa-envelope-open"></i></div>
+                        <div class="contacto-dato-texto">
+                            <strong>Correo General</strong>
+                            <span>info@cacjsa.pe</span>
+                        </div>
+                    </div>
+
+                    <div class="contacto-dato">
+                        <div class="contacto-dato-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contacto-dato-texto">
+                            <strong>Teléfono / WhatsApp</strong>
+                            <span>+51 XXX XXX XXX</span>
+                            <span class="horario-nota">Lun – Vie, 8:00 AM – 5:00 PM (GMT-5)</span>
+                        </div>
+                    </div>
+
+                    <div class="contacto-dato">
+                        <div class="contacto-dato-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contacto-dato-texto">
+                            <strong>Dirección</strong>
+                            <span>Perené, Chanchamayo<br>Junín — Perú</span>
+                        </div>
+                    </div>
+
+                    <!-- Botón WhatsApp -->
+                    <button class="btn-whatsapp-contacto" onclick="window.open('https://wa.me/51XXXXXXXXX?text=Hola%2C%20quiero%20cotizar%20café%20de%20exportación','_blank')">
+                        <i class="fab fa-whatsapp"></i>
+                        Escríbenos por WhatsApp
+                    </button>
+
+                    <!-- Redes Sociales -->
+                    <div class="redes-contacto">
+                        <p>Síguenos</p>
+                        <div class="redes-iconos">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO -->
+                <div class="contacto-form-card">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form class="form-contacto" onsubmit="return false;">
+                        <div class="form-row">
+                            <input type="text" placeholder="Nombre o Empresa" required>
+                            <input type="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <input type="text" placeholder="País de origen">
+                        <select required>
+                            <option value="" disabled selected>Tipo de consulta</option>
+                            <option value="importar">Quiero importar café</option>
+                            <option value="distribuidor">Soy distribuidor</option>
+                            <option value="visitar">Quiero visitar la cooperativa</option>
+                            <option value="prensa">Medios / Prensa</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <textarea placeholder="Cuéntanos más sobre tu consulta..." rows="5"></textarea>
+                        <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+                    </form>
+                    <p class="form-nota">Respondemos en menos de 48 horas &middot; Todas las consultas son bienvenidas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MAPA ===== -->
+        <div class="contacto-mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5540.102031527385!2d-74.87483621155206!3d-10.929816507517808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910a2c9da8ad9cc7%3A0x37c7adba43d7a73c!2sCooperativa%20Agroecol%C3%B3gica%20Industrial%20Juan%20Santos%20Atahualpa!5e0!3m2!1ses-419!2spe!4v1778349079630!5m2!1ses-419!2spe"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <!-- ===== PREGUNTAS FRECUENTES ===== -->
+        <section class="faq-section">
+            <span class="sec-label">FAQ</span>
+            <h2 class="sec-title text-center">Preguntas Frecuentes</h2>
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        ¿Cuál es el volumen mínimo de exportación?
+                        <i class="faq-icon">+</i>
+                    </button>
+                    <div class="faq-respuesta">
+                        El volumen mínimo para exportación es de 1 contenedor de 20 pies (aproximadamente 275 sacos de 69 kg). Para pedidos menores, ofrecemos la opción de muestras gratuitas (250g – 1kg) para que puedas evaluar la calidad antes de comprometerte con un lote mayor.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        ¿Tienen muestras disponibles?
+                        <i class="faq-icon">+</i>
+                    </button>
+                    <div class="faq-respuesta">
+                        Sí. Enviamos muestras gratuitas de nuestros lotes actuales a cualquier parte del mundo. Solo necesitamos tu dirección de envío y el perfil de café que buscas (variedad, proceso, puntaje SCA objetivo). El costo de envío lo asume el importador para muestras fuera de Sudamérica.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        ¿Envían a mi país?
+                        <i class="faq-icon">+</i>
+                    </button>
+                    <div class="faq-respuesta">
+                        Exportamos a cualquier país con quien Perú tenga tratados comerciales vigentes. Actualmente tenemos envíos regulares a Alemania, Japón, EE.UU. y estamos negociando con Corea del Sur. Contáctanos indicando tu país y te informamos sobre el proceso logístico, documentación requerida y tiempos de tránsito.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        ¿Qué certificaciones tienen sus cafés?
+                        <i class="faq-icon">+</i>
+                    </button>
+                    <div class="faq-respuesta">
+                        Nuestros cafés cuentan con certificación Orgánica (NOP / EU Organic), Fair Trade (Fairtrade International) y Rainforest Alliance. Adicionalmente, ofrecemos documentación completa de trazabilidad por lote con coordenadas de finca, altitud, fecha de cosecha y proceso. Todo verificable mediante código QR.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pregunta">
+                        ¿Puedo visitar la cooperativa?
+                        <i class="faq-icon">+</i>
+                    </button>
+                    <div class="faq-respuesta">
+                        ¡Por supuesto! Recibimos a compradores internacionales, periodistas y estudiantes con previa coordinación. Durante la visita puedes conocer las fincas de nuestros socios, el centro de beneficio y participar en una sesión de catación. Contáctanos con al menos 2 semanas de anticipación para organizar tu visita.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <img class="footer-logo-img" src="../img/Logoatahualpa.png" alt="CACJSA">
+                    <p class="footer-desc">Cooperativa Agraria Cafetalera Juan Santos Atahualpa — llevando café de especialidad peruano al mundo desde 1987.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Páginas</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="innovacion.html">Innovación</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Exportación</h4>
+                    <ul>
+                        <li><a href="#">Catálogo de Lotes</a></li>
+                        <li><a href="#">Certificaciones</a></li>
+                        <li><a href="#">Proceso de Compra</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:exportaciones@cacjsa.pe">exportaciones@cacjsa.pe</a></li>
+                        <li><a href="#">+51 XXX XXX XXX</a></li>
+                        <li><a href="#">Perené, Junín — Perú</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Cooperativa Agraria Cafetalera Juan Santos Atahualpa.</span>
+                <span>Hecho con ❤️ desde Perú</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20quiero%20cotizar%20café" class="whatsapp-btn" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Navbar scroll
+        window.addEventListener('scroll', function () {
+            document.querySelector('.contenedor').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-pregunta').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const item = this.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+</html>
