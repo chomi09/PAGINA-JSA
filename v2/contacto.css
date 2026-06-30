@@ -1,0 +1,244 @@
+/* ============================================================
+   contacto.css — Página Contacto
+   ============================================================ */
+
+/* ===== SECCIÓN PRINCIPAL CONTACTO ===== */
+.contacto-main {
+    background: var(--crema);
+    padding: 80px 40px;
+}
+.contacto-grid {
+    max-width: 1100px;
+    margin: 48px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Columna izquierda — info */
+.contacto-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--verde-oscuro);
+    margin-bottom: 24px;
+}
+.contacto-dato {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+.contacto-dato-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--verde-claro-bg);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    color: var(--verde-oscuro);
+}
+.contacto-dato-texto strong {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--texto-dark);
+    margin-bottom: 3px;
+}
+.contacto-dato-texto span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--texto-gris);
+    line-height: 1.55;
+}
+.horario-nota {
+    font-size: 11px;
+    color: var(--dorado);
+    font-family: 'Inter', sans-serif;
+    margin-top: 2px;
+    display: block;
+}
+
+.btn-whatsapp-contacto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 24px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+    width: fit-content;
+    transition: background 0.25s, transform 0.2s;
+}
+.btn-whatsapp-contacto:hover { background: #1eb858; transform: translateY(-2px); }
+.btn-whatsapp-contacto i { font-size: 20px; }
+
+.redes-contacto {
+    margin-top: 28px;
+}
+.redes-contacto p {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--texto-gris);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+.redes-iconos { display: flex; gap: 10px; }
+.redes-iconos a {
+    width: 38px; height: 38px;
+    background: var(--verde-claro-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--verde-oscuro);
+    font-size: 16px;
+    transition: background 0.25s, color 0.25s;
+}
+.redes-iconos a:hover { background: var(--verde-oscuro); color: #fff; }
+
+/* Columna derecha — formulario */
+.contacto-form-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 36px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+}
+.contacto-form-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--verde-oscuro);
+    margin-bottom: 24px;
+}
+.form-contacto { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-contacto input,
+.form-contacto select,
+.form-contacto textarea {
+    width: 100%;
+    padding: 13px 18px;
+    border: 1.5px solid #E0E0E0;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--texto-dark);
+    background: var(--gris-fondo);
+    outline: none;
+    transition: border-color 0.25s, background 0.25s;
+    resize: none;
+}
+.form-contacto input:focus,
+.form-contacto select:focus,
+.form-contacto textarea:focus { border-color: var(--verde-principal); background: #fff; }
+.btn-enviar {
+    background: linear-gradient(135deg, var(--verde-boton), var(--verde-principal));
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.25s, transform 0.2s;
+    letter-spacing: 0.3px;
+    width: 100%;
+}
+.btn-enviar:hover { opacity: 0.9; transform: translateY(-2px); }
+.form-nota {
+    color: var(--texto-gris);
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* ===== MAPA ===== */
+.contacto-mapa {
+    background: #f9f9f9;
+}
+.contacto-mapa iframe {
+    width: 100%;
+    height: 380px;
+    display: block;
+    border: 0;
+}
+
+/* ===== FAQ ===== */
+.faq-section {
+    background: #fff;
+    padding: 80px 40px;
+    text-align: center;
+}
+.faq-list {
+    max-width: 780px;
+    margin: 48px auto 0;
+    text-align: left;
+}
+.faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.faq-pregunta {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--verde-oscuro);
+    transition: color 0.25s;
+    gap: 12px;
+}
+.faq-pregunta:hover { color: var(--verde-principal); }
+.faq-icon {
+    font-size: 20px;
+    color: var(--dorado);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    font-style: normal;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-respuesta {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: var(--texto-gris);
+    line-height: 1.8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-respuesta {
+    max-height: 300px;
+    padding-bottom: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+    .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contacto-main { padding: 80px 20px; }
+}
+@media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .contacto-form-card { padding: 28px 22px; }
+    .faq-section { padding: 60px 20px; }
+    .faq-pregunta { font-size: 14px; }
+}

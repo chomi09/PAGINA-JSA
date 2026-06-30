@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — CACJSA</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="v3-nav" id="v3nav">
+        <a href="index.html" class="nav-logo">
+            <img src="../img/Logoatahualpa.png" alt="CACJSA">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="sobrenosotros.html">Sobre Nosotros</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="innovacion.html">Innovación</a>
+            <a href="contacto.html" class="nav-cta-btn active">Contacto</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('../img/cafee.jpg');"></div>
+        <div class="page-hero-ov"></div>
+        <div class="page-hero-cnt">
+            <span class="eyebrow" style="color: var(--accent);">Hablemos</span>
+            <h1>Contáctenos</h1>
+            <p>Importadores, distribuidores y visitantes son bienvenidos.</p>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- FORMULARIO + INFO -->
+        <section class="contact-sec">
+            <div style="text-align:center; max-width:640px; margin:0 auto;">
+                <span class="eyebrow">Estamos disponibles</span>
+                <h2 class="sec-heading">Ponerse en Contacto</h2>
+                <p class="sec-body" style="margin:0 auto;">Respondemos todas las consultas en menos de 48 horas. Puedes escribirnos por formulario, correo o directamente por WhatsApp.</p>
+            </div>
+            <div class="contact-grid">
+
+                <!-- INFO -->
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+
+                    <div class="contact-dato">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-dato-txt">
+                            <strong>Exportaciones</strong>
+                            <span>exportaciones@cacjsa.pe</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-dato">
+                        <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+                        <div class="contact-dato-txt">
+                            <strong>Contacto General</strong>
+                            <span>info@cacjsa.pe</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-dato">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-dato-txt">
+                            <strong>Teléfono / WhatsApp</strong>
+                            <span>+51 XXX XXX XXX</span>
+                            <span class="horario">Lun – Vie, 8:00 AM – 5:00 PM (GMT-5)</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-dato">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-dato-txt">
+                            <strong>Dirección</strong>
+                            <span>Perené, Chanchamayo<br>Junín — Perú</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20quiero%20información%20sobre%20exportaciones%20CACJSA" class="contact-wa" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                        Escríbenos por WhatsApp
+                    </a>
+
+                    <span class="social-label">Síguenos</span>
+                    <div class="social-row">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO -->
+                <div class="contact-form-card">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form class="v3-form" onsubmit="return false;">
+                        <div class="form-row">
+                            <input type="text" placeholder="Nombre o Empresa" required>
+                            <input type="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <input type="text" placeholder="País de origen">
+                        <select required>
+                            <option value="" disabled selected>Tipo de consulta</option>
+                            <option value="importar">Quiero importar café</option>
+                            <option value="distribuidor">Soy distribuidor</option>
+                            <option value="visitar">Quiero visitar la cooperativa</option>
+                            <option value="muestra">Solicitar muestra de lote</option>
+                            <option value="prensa">Medios / Prensa</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <textarea placeholder="Cuéntanos más sobre tu consulta..." rows="5"></textarea>
+                        <button type="submit" class="btn-enviar">Enviar Mensaje &nbsp;<i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <p class="form-note">Respondemos en menos de 48 horas · Todas las consultas son bienvenidas</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MAPA -->
+        <div class="mapa-sec">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5540.102031527385!2d-74.87483621155206!3d-10.929816507517808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910a2c9da8ad9cc7%3A0x37c7adba43d7a73c!2sCooperativa%20Agroecol%C3%B3gica%20Industrial%20Juan%20Santos%20Atahualpa!5e0!3m2!1ses-419!2spe!4v1778349079630!5m2!1ses-419!2spe"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <!-- FAQ -->
+        <section class="faq-sec">
+            <div class="faq-header">
+                <span class="eyebrow">FAQ</span>
+                <h2 class="sec-heading">Preguntas Frecuentes</h2>
+                <p class="sec-body" style="margin: 0 auto;">Las respuestas a las dudas más comunes de nuestros compradores e interesados.</p>
+            </div>
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-btn">
+                        ¿Cuál es el volumen mínimo de exportación?
+                        <i class="faq-chevron">+</i>
+                    </button>
+                    <div class="faq-answer">
+                        El volumen mínimo para exportación es de 1 contenedor de 20 pies (aproximadamente 275 sacos de 69 kg). Para pedidos menores, ofrecemos muestras gratuitas (250g – 1kg) para que evalúes la calidad antes de comprometerte con un lote mayor.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-btn">
+                        ¿Tienen muestras disponibles?
+                        <i class="faq-chevron">+</i>
+                    </button>
+                    <div class="faq-answer">
+                        Sí. Enviamos muestras gratuitas de nuestros lotes actuales a cualquier parte del mundo. Solo necesitamos tu dirección y el perfil que buscas (variedad, proceso, puntaje SCA objetivo). El costo de envío lo asume el importador para muestras fuera de Sudamérica.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-btn">
+                        ¿Envían a mi país?
+                        <i class="faq-chevron">+</i>
+                    </button>
+                    <div class="faq-answer">
+                        Exportamos a cualquier país con quien Perú tenga tratados comerciales vigentes. Actualmente tenemos envíos regulares a Alemania, Japón y EE.UU., y estamos negociando con Corea del Sur. Contáctanos con tu país para informarte sobre el proceso logístico y documentación requerida.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-btn">
+                        ¿Qué certificaciones tienen sus cafés?
+                        <i class="faq-chevron">+</i>
+                    </button>
+                    <div class="faq-answer">
+                        Nuestros cafés cuentan con certificación Orgánica (NOP / EU Organic), Fair Trade (Fairtrade International) y Rainforest Alliance. Ofrecemos documentación completa de trazabilidad por lote con coordenadas GPS, altitud, fecha de cosecha y proceso, todo verificable mediante código QR.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-btn">
+                        ¿Puedo visitar la cooperativa?
+                        <i class="faq-chevron">+</i>
+                    </button>
+                    <div class="faq-answer">
+                        ¡Por supuesto! Recibimos a compradores internacionales, periodistas y estudiantes con previa coordinación. Durante la visita puedes conocer las fincas de socios, el centro de beneficio y participar en una sesión de catación. Contáctanos con al menos 2 semanas de anticipación.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="v3-footer">
+        <div class="footer-wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../img/Logoatahualpa.png" alt="CACJSA">
+                    <p>Cooperativa Agraria Cafetalera Juan Santos Atahualpa — Café de especialidad 100% orgánico desde Perené, Junín, Perú.</p>
+                    <div class="social-row">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Novedades</h4>
+                    <p>Suscríbete para recibir actualizaciones de lotes y cosechas.</p>
+                    <form class="news-form" onsubmit="return false;">
+                        <input type="email" placeholder="Tu correo electrónico">
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+                <div class="footer-col">
+                    <h4>Páginas</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="innovacion.html">Innovación</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:exportaciones@cacjsa.pe">exportaciones@cacjsa.pe</a></li>
+                        <li><a href="#">+51 XXX XXX XXX</a></li>
+                        <li><a href="#">Perené, Junín — Perú</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bar">
+                <span>© 2025 Cooperativa Agraria Cafetalera Juan Santos Atahualpa.</span>
+                <div class="footer-certs">
+                    <span>ISO 9001</span><span>Fair Trade</span><span>Orgánico</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20quiero%20cotizar%20café" class="wa-float" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const nav = document.getElementById('v3nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const item = this.closest('.faq-item');
+                const open = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!open) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+</html>
