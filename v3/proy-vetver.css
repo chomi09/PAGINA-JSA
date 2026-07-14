@@ -1,0 +1,35 @@
+/* ===== TOKENS ===== */
+:root {
+    /* Colores */
+    --primary:       #1A3C28;
+    --primary-h:     #264F36;
+    --accent:        #C8973A;
+    --accent-light:  #F6EDD8;
+    --bg:            #FFFFFF;
+    --bg-soft:       #F9F7F4;
+    --bg-green:      #EEF5EE;
+    --bg-dark:       #0F1E15;
+    --border:        #E2DFD5;
+    --text:          #111827;
+    --text-muted:    #6B7280;
+    --verde-oscuro:    #1B3A1A;
+    --verde-principal: #2D6A1E;
+    --verde-boton:     #29781E;
+    --verde-organico:  #044F0E;
+    --verde-navbar:    #407933;
+    --dorado:          #C8A455;
+
+    /* Radios y sombras */
+    --r-sm:          8px;
+    --r-md:          16px;
+    --r-lg:          24px;
+    --sh-sm:         0 1px 4px rgba(0,0,0,.06);
+    --sh-md:         0 4px 20px rgba(0,0,0,.08);
+    --sh-lg:         0 8px 40px rgba(0,0,0,.12);
+
+    /* ── Tipografía ──
+       --font-titulo : títulos h1–h3, headings de sección
+       --font-texto  : párrafos, botones, nav, etiquetas, UI en general */
+    --font-titulo: Georgia, 'Times New Roman', serif;
+    --font-texto:  'Inter', sans-serif;
+}
