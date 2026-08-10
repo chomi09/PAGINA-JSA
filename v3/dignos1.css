@@ -806,3 +806,36 @@ html, body{
     object-fit: cover;
     display: block;
 }
+/* ===== FUENTE GLOBAL ===== */
+html,
+body,
+*,
+*::before,
+*::after{
+    font-family: 'Open Sans', sans-serif !important;
+}
+/* ===== ESTILO GENERAL DEL TEXTO ===== */
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #5f6773;
+    font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #2f5233;
+}
+
+p,
+span,
+li,
+a,
+button,
+label{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}

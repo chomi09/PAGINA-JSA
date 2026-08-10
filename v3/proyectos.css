@@ -43,13 +43,34 @@
 }
 .btn-filtro:hover { border-color: var(--primary); color: var(--primary); }
 .btn-filtro.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-.galeria-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; max-width: 1152px; margin: 0 auto 40px; }
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+    max-width: 1152px;
+    margin: 0 auto 40px;
+    align-items: stretch; /* asegura que todas las filas tengan la misma altura */
+}
+
+/* Enlace que envuelve cada tarjeta: debe ocupar todo el alto de la celda del grid */
+.gal-link {
+    display: flex;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
 .gal-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; /* la tarjeta llena todo el alto disponible dentro de .gal-link */
     background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-md);
     overflow: hidden; transition: box-shadow .3s, transform .3s; text-align: left;
 }
 .gal-card:hover { box-shadow: var(--sh-lg); transform: translateY(-6px); }
-.gal-img { position: relative; height: 240px; overflow: hidden; }
+.gal-img { position: relative; height: 240px; overflow: hidden; flex-shrink: 0; }
 .gal-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
 .gal-card:hover .gal-img img { transform: scale(1.05); }
 .gal-cat {
@@ -58,11 +79,23 @@
     color: var(--primary); padding: 4px 12px; border-radius: 100px;
     font-family: var(--font-texto); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
 }
-.gal-body { padding: 22px; }
+
+.gal-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* ocupa el espacio restante para que todas las tarjetas midan igual */
+    padding: 22px;
+}
 .gal-year { font-family: var(--font-texto); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
 .gal-card h3 { font-family: var(--font-titulo); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
-.gal-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
-.gal-stats { display: flex; gap: 20px; padding-top: 14px; border-top: 1px solid var(--border); }
+.gal-card p {
+    font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px;
+    flex: 1; /* empuja gal-stats hacia el fondo aunque el texto sea corto */
+}
+.gal-stats {
+    display: flex; gap: 20px; padding-top: 14px; border-top: 1px solid var(--border);
+    margin-top: auto; /* fija las estadísticas siempre al final de la tarjeta */
+}
 .gal-stat strong { display: block; font-family: var(--font-titulo); font-size: 18px; font-weight: 800; color: var(--primary); }
 .gal-stat span { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 .galeria-cta { text-align: center; }

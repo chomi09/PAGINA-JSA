@@ -9,22 +9,22 @@
   --verde-musgo: #567a4d;    /* musgo */
   --verde-pino: #2d5a3f;     /* pino */
   --verde-esmeralda: #2e6b4f;/* verde intenso */
-  --blanco: #ffffff;
+    --blanco: #ffffff;
 }
 
 /* ==========================================================
-   RESET Y BASE
+    RESET Y BASE
    ========================================================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #1f3d2b;      /* Verde oscuro en lugar de gris */
-  background: #f3f6f2; /* Fondo verde muy suave */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f3d2b;      /* Verde oscuro en lugar de gris */
+    background: #f3f6f2; /* Fondo verde muy suave */
 }
 
 .placeholder-imagen,
@@ -340,7 +340,7 @@ body {
     display: block;
 }
 /* ==========================================================
-    RESPONSIVE
+    RESPONSIVE (reglas originales del archivo)
    ========================================================== */
 @media (max-width: 992px){
 
@@ -606,7 +606,7 @@ footer{
 }
 
 /* ==========================================================
-   RESPONSIVE
+   RESPONSIVE (reglas originales del archivo)
    ========================================================== */
 @media (max-width: 768px) {
 
@@ -805,4 +805,233 @@ html, body{
     height: 100%;
     object-fit: cover;
     display: block;
+}
+/* ===== FUENTE GLOBAL ===== */
+html,
+body,
+*,
+*::before,
+*::after{
+    font-family: 'Open Sans', sans-serif !important;
+}
+/* ===== ESTILO GENERAL DEL TEXTO ===== */
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #5f6773;
+    font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #2f5233;
+}
+
+p,
+span,
+li,
+a,
+button,
+label{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+/* ==========================================================
+   RESPONSIVE — CORRECCIONES ADICIONALES (integradas)
+   Van al final para que, por cascada, sobrescriban los
+   tamaños fijos de arriba (info-card, video-box, circulo,
+   beneficiarios, footer, etc.) en pantallas medianas y chicas.
+   ========================================================== */
+
+/* Base: que nada se salga de la pantalla */
+* {
+  max-width: 100%;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Laptops chicas / tablets grandes */
+@media (max-width: 1200px) {
+  .info-card {
+    transform: none;
+  }
+
+  .video-box {
+    width: 100%;
+    max-width: 550px;
+    height: 320px;
+    margin: 20px auto 0;
+  }
+
+  .intro-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .beneficiarios-grid {
+    gap: 40px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .intro-left,
+  .intro-right {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .rect-letra {
+    height: auto;
+    padding: 18px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .placeholder-letra {
+    padding-left: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .intro-bottom {
+    gap: 30px;
+  }
+
+  .info-card {
+    height: auto;
+    min-height: 250px;
+    transform: none;
+  }
+
+  .video-box {
+    width: 100%;
+    max-width: 600px;
+    height: 340px;
+    margin: 30px auto 0;
+  }
+
+  .section-verde {
+    flex-direction: column;
+    height: auto;
+    gap: 25px;
+    padding: 30px 20px;
+  }
+
+  .bloque-letra,
+  .bloque-imagen {
+    max-width: 100%;
+    height: auto;
+    min-height: 220px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .beneficiarios-grid {
+    gap: 25px;
+    transform: none;
+  }
+
+  .beneficiario {
+    width: 220px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* Celulares grandes / tablets chicas */
+@media (max-width: 768px) {
+  .info-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .galeria-item {
+    width: 260px;
+    height: 180px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 576px) {
+  .nav-links {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .circulo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .rect-letra {
+    min-height: 100px;
+    font-size: 14px;
+  }
+
+  .info-card {
+    max-width: 100%;
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .video-box {
+    height: 220px;
+    margin-top: 20px;
+  }
+
+  .bloque-letra,
+  .bloque-imagen {
+    min-height: 180px;
+    font-size: 14px;
+  }
+
+  .beneficiarios-grid {
+    gap: 20px;
+  }
+
+  .beneficiario {
+    padding: 22px 16px;
+  }
+
+  .galeria-item {
+    width: 220px;
+    height: 160px;
+  }
+
+  .social-row {
+    justify-content: center;
+  }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 400px) {
+  .circulo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .info-card h3 {
+    font-size: 13px;
+  }
+
+  .beneficiario-numero {
+    font-size: 24px;
+  }
+
+  .galeria-item {
+    width: 180px;
+    height: 130px;
+  }
 }
