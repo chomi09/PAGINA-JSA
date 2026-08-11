@@ -9,27 +9,27 @@
   --verde-musgo: #567a4d;    /* musgo */
   --verde-pino: #2d5a3f;     /* pino */
   --verde-esmeralda: #2e6b4f;/* verde intenso */
-    --blanco: #ffffff;
+  --blanco: #ffffff;
 }
 
 /* ==========================================================
-    RESET Y BASE
+   RESET Y BASE
    ========================================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #1f3d2b;      /* Verde oscuro en lugar de gris */
-    background: #f3f6f2; /* Fondo verde muy suave */
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f3d2b;      /* Verde oscuro en lugar de gris */
+  background: #ffffff; /* Fondo verde muy suave */
 }
 
 .placeholder-imagen,
 .placeholder-video {
-  background: #eef3ee; /* Verde muy claro */
+  background: #ffffff; /* Verde muy claro */
   border: 1px solid #567a4d; /* Verde musgo */
   color: transparent;
   font-size: 0;
@@ -105,7 +105,7 @@ body {
 }
 
 .nav-links li:hover {
-  color: #8fbc8f; /* Verde suave */
+  color: #fdfffd; /* Verde suave */
   cursor: pointer;
 }
 
@@ -340,7 +340,7 @@ body {
     display: block;
 }
 /* ==========================================================
-    RESPONSIVE (reglas originales del archivo)
+    RESPONSIVE
    ========================================================== */
 @media (max-width: 992px){
 
@@ -551,7 +551,7 @@ footer{
 
 .slide-track{
     display: flex;
-    gap: 20px;
+    gap: clamp(10px, 3vw, 20px);
     width: max-content;
     animation: scroll 20s linear infinite;
     margin-bottom: 0;
@@ -561,9 +561,11 @@ footer{
     animation-play-state: paused;
 }
 
+/* Tamaño fluido: crece/decrece suavemente con el ancho de pantalla
+   en vez de saltar entre 4-5 tamaños fijos por breakpoint. */
 .galeria-item{
-    width: 350px;
-    height: 220px;
+    width: clamp(160px, 38vw, 350px);
+    height: clamp(120px, 24vw, 220px);
 
     border: 2px solid #4f6f3f;
     background: #f4f8f2;
@@ -606,7 +608,7 @@ footer{
 }
 
 /* ==========================================================
-   RESPONSIVE (reglas originales del archivo)
+   RESPONSIVE
    ========================================================== */
 @media (max-width: 768px) {
 
@@ -622,11 +624,6 @@ footer{
     .beneficiarios-grid{
         flex-wrap: wrap;
         gap: 30px;
-    }
-
-    .galeria-item{
-        flex: 1 1 45%;
-        max-width: 100%;
     }
 
     .circulo{
@@ -671,11 +668,6 @@ footer{
 
     .footer-wrap{
         padding: 0 20px;
-    }
-
-    .galeria-item{
-        width: 100%;
-        height: 200px;
     }
 
     .beneficiario{
@@ -956,11 +948,6 @@ img, video, iframe {
     width: 100%;
     max-width: 320px;
   }
-
-  .galeria-item {
-    width: 260px;
-    height: 180px;
-  }
 }
 
 /* Celulares */
@@ -1005,11 +992,6 @@ img, video, iframe {
     padding: 22px 16px;
   }
 
-  .galeria-item {
-    width: 220px;
-    height: 160px;
-  }
-
   .social-row {
     justify-content: center;
   }
@@ -1029,9 +1011,30 @@ img, video, iframe {
   .beneficiario-numero {
     font-size: 24px;
   }
+}
+/* ==========================================================
+   BOTÓN DE REGRESO (reemplaza al hamburguesa solo en detalle)
+   ========================================================== */
+.nav-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .galeria-item {
-    width: 180px;
-    height: 130px;
-  }
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+
+    transition: background .25s ease, transform .25s ease;
+}
+
+.nav-back:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(-3px);
 }

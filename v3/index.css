@@ -387,21 +387,359 @@
     display: block;
     border: 0;
 }
-/* ===== RESPONSIVE ===== */
+
+/* =========================================================
+   RESPONSIVE GENERAL
+   ========================================================= */
+
 @media (max-width: 1024px) {
-    .cafe-card { grid-template-columns: 1fr; }
-    .cafe-img { min-height: 300px; }
-    .testi-card { grid-template-columns: 1fr; }
-    .testi-img { height: 280px; }
+
+    .cafe-card {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-img {
+        min-height: 300px;
+    }
+
+    .testi-card {
+        grid-template-columns: 1fr;
+    }
+
+    .testi-img {
+        height: 280px;
+    }
 }
+
+
+/* =========================================================
+   MENÚ MÓVIL
+   ========================================================= */
+
+/* Botón oculto en escritorio */
+.nav-toggle {
+    display: none;
+}
+
+
+/* Fondo oscuro detrás del menú */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 9998;
+    cursor: pointer;
+}
+
+.nav-overlay.active {
+    display: block;
+}
+
+
+/* =========================================================
+   TABLET / CELULAR
+   ========================================================= */
+
 @media (max-width: 768px) {
-    .vals-grid, .proj-grid { grid-template-columns: 1fr; }
-    .stats-inner { grid-template-columns: 1fr; }
-    .stat-item + .stat-item { border-left: none; border-top: 1px solid var(--border); }
-    .stat-num { font-size: 42px; }
-    .cafe-body { padding: 28px 24px; }
-    .cafe-infos { grid-template-columns: 1fr; }
-    .testi-body { padding: 32px 24px; }
-    .cta-cnt h2 { font-size: 28px; }
-    .hero-title { font-size: 38px; }
+
+    /* -----------------------------
+       RESPONSIVE DEL CONTENIDO
+       ----------------------------- */
+
+    .vals-grid,
+    .proj-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-item + .stat-item {
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+        font-size: 42px;
+    }
+
+    .cafe-body {
+        padding: 28px 24px;
+    }
+
+    .cafe-infos {
+        grid-template-columns: 1fr;
+    }
+
+    .testi-body {
+        padding: 32px 24px;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+
+    /* -----------------------------
+       NAVBAR
+       ----------------------------- */
+
+    .v3-nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10001 !important;
+    }
+
+
+    /* -----------------------------
+       BOTÓN HAMBURGUESA
+       ----------------------------- */
+
+    .nav-toggle {
+        display: flex !important;
+
+        position: relative;
+
+        width: 45px;
+        height: 45px;
+
+        margin: 0;
+        padding: 8px;
+
+        border: none;
+        outline: none;
+
+        background: transparent;
+
+        cursor: pointer;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 5px;
+
+        z-index: 10002;
+
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    .nav-toggle span {
+        display: block;
+
+        width: 27px;
+        height: 3px;
+
+        background: #ffffff;
+
+        border-radius: 5px;
+
+        transition: all 0.3s ease;
+
+        pointer-events: none;
+    }
+
+
+    /* Color de las líneas cuando el navbar baja */
+    .v3-nav.scrolled .nav-toggle span {
+        background: #1A3C28;
+    }
+
+
+    /* -----------------------------
+       SIDEBAR
+       ----------------------------- */
+
+    .nav-links {
+        position: fixed !important;
+
+        top: 0;
+        right: -300px;
+
+        width: 280px;
+        height: 100vh;
+        height: 100dvh;
+
+        margin: 0;
+        padding: 120px 25px 30px;
+
+        box-sizing: border-box;
+
+        background: #ffffff;
+
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+
+        box-shadow: -8px 0 25px rgba(0, 0, 0, 0.18);
+
+        z-index: 10000 !important;
+
+        transition: right 0.35s ease;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+
+    /* Sidebar abierto */
+    .nav-links.active {
+        right: 0 !important;
+    }
+
+
+    /* -----------------------------
+       ENLACES
+       ----------------------------- */
+
+    .nav-links a {
+        display: flex !important;
+
+        align-items: center;
+
+        width: 100%;
+        min-height: 70px;
+
+        margin: 0;
+        padding: 15px 18px;
+
+        box-sizing: border-box;
+
+        color: #1A3C28 !important;
+
+        font-size: 17px;
+
+        font-family: 'Inter', sans-serif;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        border-bottom: 1px solid #eeeeee;
+
+        transition: all 0.25s ease;
+    }
+
+
+    .nav-links a:hover {
+        background: #f3f7f3;
+
+        padding-left: 25px;
+    }
+
+
+    .nav-links a.active {
+        color: #297A10 !important;
+
+        font-weight: 700;
+    }
+
+
+    /* -----------------------------
+       BOTÓN CONTACTO
+       ----------------------------- */
+
+    .nav-links .nav-cta-btn {
+        margin-top: 20px;
+
+        min-height: 65px;
+
+        justify-content: center;
+
+        text-align: center;
+
+        background: #0F291D;
+
+        color: #ffffff !important;
+
+        border: none;
+
+        border-radius: 35px;
+
+        padding: 15px;
+    }
+
+
+    .nav-links .nav-cta-btn:hover {
+        background: #16452e;
+
+        padding-left: 15px;
+    }
+
+
+    /* -----------------------------
+       ANIMACIÓN HAMBURGUESA → X
+       ----------------------------- */
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+
+    /* Evita que el fondo se mueva */
+    body.menu-abierto {
+        overflow: hidden;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-links {
+        width: 280px;
+        right: -300px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        min-height: 65px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        line-height: 1.1;
+        height: auto;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .hero h2 {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .botones {
+        flex-direction: column;
+        gap: 10px;
+        transform: translateY(-10px);
+    }
+
+    .conocenos-boton,
+    .cafe-boton {
+        min-width: 170px;
+    }
 }

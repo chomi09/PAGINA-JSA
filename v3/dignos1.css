@@ -839,3 +839,247 @@ label{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
+
+/* ==========================================================
+   AJUSTES RESPONSIVE ADICIONALES (no se modifica ningún estilo
+   existente arriba; esto solo agrega/afina el comportamiento
+   en distintos tamaños de pantalla y adapta las imágenes)
+   ========================================================== */
+
+/* Que ninguna imagen se desborde en ningún dispositivo */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+/* Los contenedores con tamaño fijo mantienen su recorte con object-fit,
+   así que reforzamos que la imagen interna siga llenando el contenedor */
+.header-bg img,
+.circulo img,
+.bloque-imagen img,
+.beneficiario img,
+.galeria-item img,
+.logo img,
+.video-box video,
+.video-box iframe {
+    height: 100%;
+    max-width: none;
+}
+
+/* Evita cualquier desborde horizontal general */
+html, body {
+    overflow-x: hidden;
+}
+
+/* El navbar (definido en shared.css) queda por detrás de tarjetas con
+   transform (ej. .beneficiario, .info-card) al hacer scroll, porque esas
+   tarjetas crean su propio contexto de apilamiento y se pintan encima.
+   Forzamos que el navbar siempre quede por encima de todo el contenido. */
+.v3-nav,
+#v3nav{
+    z-index: 9999;
+}
+
+/* ---------- Pantallas grandes / laptops (<=1200px) ---------- */
+@media (max-width: 1200px){
+    .beneficiarios-grid{
+        gap: 60px;
+    }
+}
+
+/* ---------- Tablets (<=992px) ---------- */
+@media (max-width: 992px){
+
+    .header{
+        height: 340px;
+    }
+
+    .hero-title{
+        font-size: 38px;
+    }
+
+    .hero-subtitle{
+        max-width: 320px;
+        padding: 0 20px;
+    }
+
+    /* La tarjeta usaba un translate fijo pensado para el layout de
+       escritorio; en tablet/móvil con flex-wrap eso la saca de la
+       pantalla, así que la neutralizamos aquí sin tocar la regla original */
+    .info-card{
+        transform: none;
+    }
+
+    /* El video tenía un margen izquierdo fijo pensado para el layout
+       de escritorio; lo neutralizamos para que no se desborde */
+    .video-box{
+        margin-left: 0;
+    }
+
+    .beneficiarios-grid{
+        gap: 40px;
+        transform: none;
+    }
+
+    .section-verde{
+        height: auto;
+        align-items: stretch;
+    }
+
+    .bloque-letra,
+    .bloque-imagen{
+        max-width: 100%;
+        height: auto;
+        min-height: 220px;
+    }
+
+    .footer-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ---------- Móviles grandes (<=768px) ---------- */
+@media (max-width: 768px){
+
+    .navbar{
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-links{
+        gap: 14px;
+        font-size: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header{
+        height: 300px;
+    }
+
+    .hero-title{
+        font-size: 28px;
+        padding: 0 16px;
+    }
+
+    .hero-subtitle{
+        font-size: 12px;
+    }
+
+    .video-box{
+        margin-top: 20px;
+        height: 260px;
+    }
+
+    .rect-letra{
+        padding: 18px;
+        font-size: 14px;
+    }
+
+    .bloque-letra,
+    .bloque-imagen{
+        min-height: 180px;
+    }
+
+    .beneficiario{
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* La regla original "flex:1 1 45%" en la galería usa un porcentaje
+       de un contenedor con width:max-content (el carrusel infinito),
+       lo que hace que el navegador colapse las tarjetas a tiras muy
+       angostas y muy altas. Fijamos un tamaño estable en vez del % */
+    .galeria-item{
+        flex: 0 0 240px;
+        width: 240px;
+        max-width: 240px;
+        height: 160px;
+    }
+}
+
+/* ---------- Móviles pequeños (<=480px) ---------- */
+@media (max-width: 480px){
+
+    .header{
+        height: 260px;
+    }
+
+    .hero-title{
+        font-size: 22px;
+    }
+
+    .hero-pretitle{
+        font-size: 11px;
+    }
+
+    .circulo{
+        width: 100px;
+        height: 100px;
+    }
+
+    .video-box{
+        height: 200px;
+    }
+
+    .info-card{
+        padding: 14px;
+    }
+
+    .icon{
+        width: 46px;
+        height: 46px;
+        font-size: 26px;
+    }
+
+    .beneficiario-numero{
+        font-size: 24px;
+    }
+
+    .footer-wrap{
+        padding: 0 16px;
+    }
+
+    .galeria-item{
+        flex: 0 0 200px;
+        width: 200px;
+        max-width: 200px;
+        height: 140px;
+    }
+}
+/* ==========================================================
+   BOTÓN DE REGRESO (reemplaza al hamburguesa solo en detalle)
+   ========================================================== */
+.nav-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+
+    transition: background .25s ease, transform .25s ease;
+}
+
+.nav-back:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(-3px);
+}
+/* ==========================================================
+   "CONTACTO" SOLO VISIBLE EN ESCRITORIO
+   (oculto en móvil/tablet, donde ya está el menú/botón de regreso)
+   ========================================================== */
+@media (max-width: 768px) {
+    .nav-cta-btn {
+        display: none;
+    }
+}

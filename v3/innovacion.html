@@ -26,10 +26,12 @@
             <a href="innovacion.html" class="active">Innovación</a>
             <a href="contacto.html" class="nav-cta-btn">Contacto</a>
         </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
     </nav>
+
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- PAGE HERO -->
     <div class="page-hero">
@@ -374,5 +376,67 @@
         const nav = document.getElementById('v3nav');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
     </script>
+
+    <!-- MENÚ PARA CELULAR -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const navToggle = document.getElementById("navToggle");
+            const navLinks = document.querySelector(".nav-links");
+            const navOverlay = document.getElementById("navOverlay");
+
+            if (!navToggle || !navLinks || !navOverlay) {
+                console.error("No se encontraron los elementos del menú móvil.");
+                return;
+            }
+
+            function cerrarMenu() {
+                navLinks.classList.remove("active");
+                navToggle.classList.remove("active");
+                navOverlay.classList.remove("active");
+                navToggle.setAttribute("aria-expanded", "false");
+                document.body.classList.remove("menu-abierto");
+            }
+
+            function abrirOCerrarMenu() {
+                const abierto = navLinks.classList.toggle("active");
+
+                navToggle.classList.toggle("active", abierto);
+                navOverlay.classList.toggle("active", abierto);
+                navToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
+                document.body.classList.toggle("menu-abierto", abierto);
+            }
+
+            navToggle.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                abrirOCerrarMenu();
+            });
+
+            navOverlay.addEventListener("click", function () {
+                cerrarMenu();
+            });
+
+            navLinks.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    cerrarMenu();
+                });
+            });
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") {
+                    cerrarMenu();
+                }
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 768) {
+                    cerrarMenu();
+                }
+            });
+
+        });
+    </script>
+
 </body>
 </html>
