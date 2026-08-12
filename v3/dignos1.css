@@ -1049,37 +1049,67 @@ html, body {
     }
 }
 /* ==========================================================
-   BOTÓN DE REGRESO (reemplaza al hamburguesa solo en detalle)
+   BOTÓN DE REGRESO
    ========================================================== */
+
 .nav-back {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 
-    width: 42px;
-    height: 42px;
+    width: auto;
+    min-width: 130px;
+    height: 44px;
 
-    border-radius: 50%;
+    padding: 0 18px;
+
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.45);
 
     color: #ffffff;
-    font-size: 16px;
-    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
 
-    transition: background .25s ease, transform .25s ease;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.nav-back i {
+    font-size: 14px;
+}
+
+.nav-back span {
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .nav-back:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: #ffffff;
+    color: #1f3d2b;
+    border-color: #ffffff;
+
     transform: translateX(-3px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
 }
+
+.nav-back:active {
+    transform: translateX(-1px);
+}
+
+
 /* ==========================================================
    "CONTACTO" SOLO VISIBLE EN ESCRITORIO
-   (oculto en móvil/tablet, donde ya está el menú/botón de regreso)
    ========================================================== */
+
 @media (max-width: 768px) {
+
     .nav-cta-btn {
         display: none;
     }
+
 }

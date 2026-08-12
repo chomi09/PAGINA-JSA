@@ -1013,28 +1013,67 @@ img, video, iframe {
   }
 }
 /* ==========================================================
-   BOTÓN DE REGRESO (reemplaza al hamburguesa solo en detalle)
+   BOTÓN DE REGRESO
    ========================================================== */
+
 .nav-back {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 
-    width: 42px;
-    height: 42px;
+    /* Tamaño del cuadro */
+    min-width: 130px;
+    height: 44px;
 
-    border-radius: 50%;
+    /* Espacio interno */
+    padding: 0 18px;
+
+    /* Forma cuadrada con esquinas suaves */
+    border-radius: 8px;
+
+    /* Colores */
     background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.45);
 
     color: #ffffff;
-    font-size: 16px;
+
+    /* Texto */
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
 
-    transition: background .25s ease, transform .25s ease;
+    /* Cursor */
+    cursor: pointer;
+
+    /* Animación */
+    transition: all 0.25s ease;
 }
 
+/* Ícono */
+.nav-back i {
+    font-size: 14px;
+}
+
+/* Texto */
+.nav-back span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Al pasar el mouse */
 .nav-back:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: #ffffff;
+    color: #1f3d2b;
+
+    border-color: #ffffff;
+
     transform: translateX(-3px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+}
+
+/* Efecto al hacer clic */
+.nav-back:active {
+    transform: translateX(-1px);
 }
