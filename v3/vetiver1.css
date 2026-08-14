@@ -231,8 +231,8 @@ body {
     width: 200px;
     height: 270px;
 
-    /* Fondo en tonos verdes */
-    background: linear-gradient(160deg, #f5f8f3, #dce8d7);
+    /* Fondo en un color plano */
+    background: #fff;
 
     border-radius: 15px;
     padding: 18px;
