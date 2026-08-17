@@ -81,7 +81,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 0 4px 8px rgba(24, 24, 23, 0.2);
     position: relative;
     flex-direction: column;
     gap: 50px;
@@ -107,13 +106,11 @@
     height: 100%;
 }
 .slide-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.174); 
+    background:
+        linear-gradient(180deg,
+            rgba(10, 24, 15, .72) 0%,
+            rgba(10, 24, 15, .48) 40%,
+            rgba(10, 24, 15, .80) 100%);
 }
 
 .slide-bg > * {
@@ -127,12 +124,11 @@
     z-index: 99;
 }
 .hero h1 {
-    font-size: 72px;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 70px;
+    font-family: var(--font-titulo);
     color: rgb(253, 253, 253);
     font-weight: bold;
     font-weight: 700;
-    height: 80px;
     letter-spacing: 1.2px;
 
 
@@ -142,7 +138,6 @@
     color: rgb(255, 255, 255);
     font-family: 'Inter', sans-serif;
     margin: 0;
-    font-weight: 250;
     letter-spacing: 1px;
     font-weight: 400;
 
@@ -332,24 +327,107 @@
 .cafe-notas p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
 
 /* ===== PROYECTOS RECIENTES ===== */
-.proj-sec { padding: 96px 24px; background: var(--bg-soft); text-align: center; }
-.proj-hdr { max-width: 660px; margin: 0 auto 56px; }
-.proj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1152px; margin: 0 auto 40px; }
-.proj-card {
-    background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-md);
-    overflow: hidden; transition: box-shadow .3s, transform .3s; text-align: left;
+.proj-sec {
+    padding: var(--sec-pad-y) 0;
+    background: var(--bg-soft);
+    text-align: center;
 }
-.proj-card:hover { box-shadow: var(--sh-lg); transform: translateY(-6px); }
-.proj-thumb { height: 220px; overflow: hidden; }
-.proj-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
-.proj-card:hover .proj-thumb img { transform: scale(1.05); }
-.proj-body { padding: 24px; }
+.proj-wrap {
+    max-width: var(--sec-max-w);
+    margin: 0 auto;
+    padding: 0 var(--sec-pad-x);
+}
+.proj-hdr {
+    max-width: 660px;
+    margin: 0 auto 56px;
+}
+.proj-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+    margin: 0 0 40px;
+}
+.proj-card {
+    position: relative;
+    margin: 0;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: var(--bg);  
+    aspect-ratio: 4 / 5; 
+}
+.proj-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .7s cubic-bezier(.2, .7, .3, 1);
+}
+.proj-card:hover img {
+    transform: scale(1.05);
+}
+/* Sombra degradada para leer el texto */
+.proj-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(8, 20, 12, .88) 100%);
+    pointer-events: none;
+}
+
+.proj-card figcaption {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+    z-index: 2;
+    text-align: left;
+}
+
+.proj-year {
+    display: block;
+    font-family: var(--font-titulo, Georgia, serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: #C8973A;
+    margin-bottom: 4px;
+}
+
+.proj-act {
+    display: block;
+    font-family: var(--font-texto, 'Inter', sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #ffffff;
+}
+.proj-card:hover { 
+    box-shadow: var(--sh-lg); 
+    transform: translateY(-6px); 
+}
+.proj-thumb { 
+    height: 220px; 
+    overflow: hidden; 
+}
+.proj-thumb img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform .5s; 
+}
+.proj-card:hover .proj-thumb img { 
+    transform: scale(1.05); 
+}
+.proj-body { 
+    padding: 10px; 
+}
 .proj-year { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
 .proj-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
 .proj-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
 .proj-more { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; transition: gap .2s; }
 .proj-more:hover { gap: 10px; color: var(--primary); }
 .proj-cta-wrap { margin-top: 16px; }
+
+
 
 /* ===== TESTIMONIO ===== */
 .testi-sec { padding: 96px 24px; background: var(--bg); }
@@ -742,4 +820,165 @@
     .cafe-boton {
         min-width: 170px;
     }
+}
+/* ============================================================
+    SECCIÓN ACOMPAÑAMIENTO TÉCNICO — versión index
+   ============================================================ */
+
+.acomp-sec {
+    background: #fff;
+    padding: var(--sec-pad-y) 0;
+}
+.acomp-wrap {
+    max-width: var(--sec-max-w);
+    margin: 0 auto;
+    padding: 0 var(--sec-pad-x);
+}
+
+
+/* ---------- Encabezado centrado ---------- */
+.acomp-head {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 56px;
+}
+.acomp-head .sec-heading {
+    margin: 14px 0 0;
+    /* El heading de shared.css tiene max-width y alineación a la
+       izquierda; acá lo centramos sin tocar el archivo original. */
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ---------- Fotos ----------
+   4:5 vertical y sin tarjeta alrededor: el marco blanco y la
+   sombra solo restarían protagonismo a la imagen. */
+.acomp-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.acomp-foto {
+    position: relative;
+    margin: 0;
+    border-radius: var(--r-md,);
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+}
+.acomp-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .7s cubic-bezier(.2, .7, .3, 1);
+}
+.acomp-foto:hover img { transform: scale(1.05); }
+
+/* Velo solo en la parte baja: protege el texto sin apagar la foto. */
+.acomp-foto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 58%, rgba(8, 20, 12, .86) 100%);
+    pointer-events: none;
+}
+/* parte de la foto */
+.acomp-foto figcaption {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+    z-index: 2;
+}
+.acomp-zona {
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: #fff;
+}
+.acomp-act {
+    display: block;
+    font-family: var(--font-texto);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent, #C8973A);
+    margin-top: 6px;
+}
+
+
+/* ---------- Enlace al pie ---------- */
+.acomp-pie {
+    text-align: center;
+    margin-top: 48px;
+}
+.acomp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-texto);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--primary, #1A3C28);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border, #e4e0d6);
+    transition: border-color .3s, gap .3s, color .3s;
+}
+.acomp-link:hover {
+    color: var(--accent, #C8973A);
+    border-bottom-color: var(--accent, #C8973A);
+    gap: 16px;
+}
+.acomp-link i { font-size: 12px; }
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .acomp-fotos { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    /* La tercera foto ocupa el ancho completo en formato horizontal. */
+    .acomp-foto:last-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 620px) {
+    .acomp-sec  { padding: 68px 0; }
+    .acomp-wrap { padding: 0 20px; }
+    .acomp-head { margin-bottom: 36px; }
+
+    .proj-sec  { padding: 68px 0; }
+    .proj-wrap { padding: 0 20px; }
+
+    /* Carrusel horizontal: tres fotos verticales apiladas serían
+       pantalla y media de puro scroll. */
+    .acomp-fotos {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .acomp-fotos::-webkit-scrollbar { display: none; }
+    .acomp-foto {
+        flex: 0 0 76%;
+        scroll-snap-align: center;
+        aspect-ratio: 4 / 5;
+    }
+    .acomp-foto:last-child { aspect-ratio: 4 / 5; }
+    .acomp-zona { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .acomp-foto img, .acomp-link { transition: none; }
 }
