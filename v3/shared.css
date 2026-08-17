@@ -23,6 +23,13 @@
     --verde-navbar:    #407933;
     --dorado:          #C8A455;
 
+    /* Ancho de sección: cambia estos 3 valores para ajustar el
+       tamaño de TODAS las secciones que usan un *-wrap (proj-wrap,
+       acomp-wrap, etc.) */
+    --sec-max-w:     1320px;
+    --sec-pad-x:     40px;
+    --sec-pad-y:     100px;
+
     /* Radios y sombras */
     --r-sm:          8px;
     --r-md:          16px;
