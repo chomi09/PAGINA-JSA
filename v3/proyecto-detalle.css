@@ -1,81 +1,66 @@
 /* ============================================================
    PROYECTO-DETALLE.CSS
-   Hoja única para las páginas de detalle de proyecto:
-   proy-vetiver.html · proy-dignos.html · proy-moscas.html
+   Hoja única para proy-vetiver.html · proy-dignos.html · proy-moscas.html
+   Estructura: opción B. Paleta: la tuya de vetiver1.css.
 
-   Reemplaza a vetiver1.css. No dupliques este archivo por
-   proyecto: lo único que cambia entre ellos es el contenido
-   del HTML y la foto del hero (que va en línea).
-
-   REQUISITO: cargar DESPUÉS de shared.css
-       <link rel="stylesheet" href="shared.css">
-       <link rel="stylesheet" href="proyecto-detalle.css">
-
-   REQUISITO: el <body> debe llevar la clase de página:
-       <body class="proyecto-detalle">
+   REQUISITOS
+     1. Cargar DESPUÉS de shared.css:
+          <link rel="stylesheet" href="shared.css">
+          <link rel="stylesheet" href="proyecto-detalle.css">
+     2. El body debe llevar la clase:
+          <body class="proyecto-detalle">
    ============================================================ */
 
 
 /* ============================================================
-   1. TOKENS PROPIOS DE ESTAS PÁGINAS
-   Los var(--x, #fallback) toman el valor de shared.css si
-   existe, y si no usan el color de respaldo. Así este archivo
-   funciona aunque todavía no hayas agregado los tokens nuevos.
+   1. TOKENS
+   Tus colores originales de vetiver1.css, ahora como variables.
+   Cambia uno acá y cambia en toda la página.
    ============================================================ */
 .proyecto-detalle {
-    --pd-verde-oscuro : var(--primary-dark, #0A2416);
-    --pd-verde        : var(--primary, #1A3C28);
-    --pd-acento       : var(--accent, #C8973A);
-    --pd-papel        : #FBFAF7;   /* fondo de los bloques de texto */
-    --pd-papel-hondo  : #F4F1EB;   /* fondo de la cita y la ficha   */
-    --pd-linea        : #E4E0D6;   /* hairlines, separadores        */
-    --pd-tinta        : var(--text, #23241F);
-    --pd-tinta-suave  : var(--text-muted, #6B6B60);
+    --pd-verde-hondo : #1f3d2b;   /* barras oscuras, footer, nav      */
+    --pd-verde       : #2f5233;   /* títulos, números de la ficha     */
+    --pd-verde-medio : #4f6f3f;   /* texto secundario en verde        */
+    --pd-verde-suave : #6b8f5d;   /* detalles, bordes activos         */
+    --pd-crema       : #f4f8f2;   /* fondo de bloques claros          */
+    --pd-crema-hondo : #dce8d7;   /* fondo de tarjetas y ficha        */
+    --pd-linea       : #d6e2d4;   /* hairlines y separadores          */
+    --pd-blanco      : #ffffff;
+    --pd-tinta       : #2a2f2a;   /* cuerpo de texto                  */
+    --pd-tinta-suave : #5d6b5d;   /* pies de foto, etiquetas          */
+    --pd-dorado      : var(--accent, #C8973A);
 
-    /* Escala de espaciado. Usa SIEMPRE estos valores en vez de
-       números sueltos: es lo que mantiene el ritmo vertical. */
+    /* Escala de espaciado: usa SIEMPRE estos valores, nunca números
+       sueltos. Es lo que mantiene el ritmo vertical parejo. */
     --pd-s1: 8px;
     --pd-s2: 16px;
     --pd-s3: 28px;
     --pd-s4: 48px;
     --pd-s5: 80px;
-    --pd-s6: 120px;
 
-    /* Ancho de lectura. 68ch ≈ 68 caracteres por línea, que es
-       la medida en que el ojo lee sin fatigarse. */
-    --pd-medida: 68ch;
-    --pd-ancho : 1180px;
-}
+    --pd-ancho  : 1180px;
+    --pd-medida : 70ch;    /* ancho máximo de lectura cómoda */
 
-.proyecto-detalle {
-    background: var(--pd-papel);
+    background: var(--pd-blanco);
     color: var(--pd-tinta);
 }
 
 
 /* ============================================================
-   2. NAVBAR PERSONALIZADO
-   No tocamos shared.css: sobrescribimos desde acá, con la
-   clase del body por delante para ganar en especificidad.
-
-   Criterio: en estas páginas el nav es SÓLIDO desde el inicio.
-   Motivo: cada proyecto tiene una foto de hero distinta y no
-   podemos garantizar contraste. Un nav sólido siempre se lee.
+   2. NAVBAR
+   No tocamos shared.css. La clase del body por delante nos da
+   más especificidad, así que estas reglas ganan solo acá.
    ============================================================ */
 .proyecto-detalle .v3-nav,
 .proyecto-detalle .v3-nav.scrolled {
-    background: var(--pd-verde-oscuro);
-    height: 68px;                      /* más bajo que el de shared: es página de lectura */
+    background: var(--pd-verde-hondo);
+    height: 68px;
     padding: 0 var(--pd-s4);
     box-shadow: none;
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 1px solid rgba(255, 255, 255, .10);
 }
+.proyecto-detalle .v3-nav.scrolled { box-shadow: 0 2px 14px rgba(31, 61, 43, .22); }
 
-.proyecto-detalle .v3-nav.scrolled .nav-logo,
-.proyecto-detalle .v3-nav .nav-logo { color: #fff; }
-
-/* Enlace de regreso: es la única navegación de esta página.
-   Se comporta como una acción, no como un menú. */
 .proyecto-detalle .nav-back {
     display: inline-flex;
     align-items: center;
@@ -83,26 +68,25 @@
     font-family: var(--font-texto);
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: .02em;
-    color: rgba(255, 255, 255, .78);
+    color: rgba(255, 255, 255, .80);
     padding: 8px 14px;
-    border: 1px solid rgba(255, 255, 255, .18);
-    border-radius: var(--r-sm, 6px);
+    border: 1px solid rgba(255, 255, 255, .20);
+    border-radius: var(--r-sm, 8px);
     transition: color .25s, border-color .25s, background .25s;
 }
 .proyecto-detalle .nav-back:hover {
-    color: #fff;
-    border-color: rgba(255, 255, 255, .45);
-    background: rgba(255, 255, 255, .06);
+    color: var(--pd-blanco);
+    border-color: rgba(255, 255, 255, .48);
+    background: rgba(255, 255, 255, .07);
 }
 .proyecto-detalle .nav-back i { font-size: 11px; }
 
-/* Título del proyecto que aparece en el nav al hacer scroll.
-   Le dice al lector dónde está cuando ya perdió el hero de vista. */
+/* Título que aparece en el nav al hacer scroll: le dice al lector
+   dónde está cuando el hero ya salió de pantalla. */
 .proyecto-detalle .nav-titulo-proyecto {
     font-family: var(--font-titulo);
-    font-size: 16px;
-    color: #fff;
+    font-size: 17px;
+    color: var(--pd-blanco);
     opacity: 0;
     transform: translateY(6px);
     transition: opacity .35s ease, transform .35s ease;
@@ -113,15 +97,14 @@
     transform: translateY(0);
 }
 
-/* Línea de progreso de lectura, pegada al borde inferior del nav.
-   El ancho lo actualiza el JS de la página. */
+/* Línea de progreso de lectura. El ancho lo mueve el JS. */
 .proyecto-detalle .pd-progreso {
     position: fixed;
     top: 68px;
     left: 0;
     height: 2px;
     width: 0;
-    background: var(--pd-acento);
+    background: var(--pd-dorado);
     z-index: 1001;
     transition: width .1s linear;
 }
@@ -129,8 +112,6 @@
 
 /* ============================================================
    3. HERO
-   Mismo principio que en el resto del sitio, pero alineado a
-   la izquierda y más bajo: acá el hero presenta, no impacta.
    ============================================================ */
 .pd-hero {
     position: relative;
@@ -138,24 +119,23 @@
     display: flex;
     align-items: flex-end;
     overflow: hidden;
-    padding: 0 0 var(--pd-s4);
-    margin-top: 68px;                  /* compensa el nav fijo */
+    padding-bottom: var(--pd-s4);
+    margin-top: 68px;
 }
 .pd-hero__bg {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center 45%;
-    transform: scale(1.04);
 }
+/* El velo es más fuerte abajo, que es donde vive el texto. */
 .pd-hero__velo {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(180deg,
-            rgba(8, 20, 12, .55) 0%,
-            rgba(8, 20, 12, .25) 40%,
-            rgba(8, 20, 12, .90) 100%);
+    background: linear-gradient(180deg,
+        rgba(31, 61, 43, .48) 0%,
+        rgba(31, 61, 43, .22) 38%,
+        rgba(31, 61, 43, .88) 100%);
 }
 .pd-hero__cnt {
     position: relative;
@@ -165,43 +145,42 @@
     margin: 0 auto;
     padding: 0 var(--pd-s4);
 }
-.pd-hero__eyebrow {
-    display: block;
-    font-family: var(--font-texto);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .24em;
-    text-transform: uppercase;
-    color: var(--pd-acento);
-    margin-bottom: var(--pd-s2);
-}
 .pd-hero h1 {
     font-family: var(--font-titulo);
     font-size: clamp(38px, 5.5vw, 62px);
-    font-weight: 500;                  /* NO 800: en serif el peso alto se ve tosco */
+    font-weight: 500;
     line-height: 1.04;
     letter-spacing: -.015em;
-    color: #fff;
+    color: var(--pd-blanco);
     margin: 0;
-    max-width: 16ch;
 }
 .pd-hero__sub {
     font-family: var(--font-texto);
     font-size: 17px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, .82);
+    color: rgba(255, 255, 255, .84);
     margin: var(--pd-s2) 0 0;
     max-width: 46ch;
 }
 
+/* Etiqueta dorada reutilizable en toda la página */
+.pd-eyebrow {
+    display: block;
+    font-family: var(--font-texto);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--pd-dorado);
+    margin-bottom: var(--pd-s2);
+}
+
 
 /* ============================================================
-   4. FICHA TÉCNICA
-   Reemplaza a las tarjetas .beneficiario. Mismos datos, sin
-   sombras ni degradados: lee como registro, no como banner.
+   4. FICHA NUMÉRICA
    ============================================================ */
 .pd-ficha {
-    background: var(--pd-papel-hondo);
+    background: var(--pd-crema-hondo);
     border-bottom: 1px solid var(--pd-linea);
 }
 .pd-ficha__grid {
@@ -239,147 +218,159 @@
 
 
 /* ============================================================
-   5. CUERPO EDITORIAL
-   Una sola columna centrada, medida controlada, mucho aire.
-   Acá es donde vive la elegancia de la página.
+   5. INTRO: CÍRCULO + TEXTO
+   Grid real de dos columnas. Sin márgenes negativos: la posición
+   la decide el contenedor, no un empujón a mano.
    ============================================================ */
-.pd-cuerpo {
-    max-width: var(--pd-medida);
+.pd-intro {
+    max-width: var(--pd-ancho);
     margin: 0 auto;
-    padding: var(--pd-s6) var(--pd-s4) var(--pd-s5);
+    padding: var(--pd-s5) var(--pd-s4) var(--pd-s4);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--pd-s5);
+    align-items: center;
 }
-.pd-cuerpo--corto { padding-bottom: var(--pd-s4); }
-
-.pd-bloque + .pd-bloque { margin-top: var(--pd-s5); }
-
-.pd-bloque__eyebrow {
-    display: block;
-    font-family: var(--font-texto);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--pd-acento);
-    margin-bottom: var(--pd-s2);
+.pd-intro__circulo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--pd-dorado);
 }
-.pd-bloque h2 {
+.pd-intro__circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pd-intro h2 {
     font-family: var(--font-titulo);
     font-size: clamp(26px, 3vw, 34px);
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -.01em;
     color: var(--pd-verde);
     margin: 0 0 var(--pd-s3);
 }
-.pd-bloque h3 {
-    font-family: var(--font-titulo);
-    font-size: 21px;
-    font-weight: 500;
-    color: var(--pd-verde);
-    margin: var(--pd-s4) 0 var(--pd-s2);
-}
-.pd-bloque p {
+.pd-intro p {
     font-family: var(--font-texto);
     font-size: 17px;
     line-height: 1.78;
     color: var(--pd-tinta);
-    margin: 0 0 var(--pd-s3);
+    margin: 0 0 var(--pd-s2);
+    max-width: var(--pd-medida);
 }
-.pd-bloque p:last-child { margin-bottom: 0; }
-.pd-bloque strong { font-weight: 600; color: var(--pd-verde); }
+.pd-intro p:last-child { margin-bottom: 0; }
+.pd-intro em { color: var(--pd-verde-medio); }
 
-/* Lista de puntos. Bullet propio en color de acento. */
-.pd-lista {
+
+/* ============================================================
+   6. TARJETAS
+   Fondo plano, borde hairline, sin sombra ni degradado.
+   Simple se ve más caro que decorado.
+   ============================================================ */
+.pd-tarjetas {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: 0 var(--pd-s4) var(--pd-s5);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--pd-s2);
+}
+.pd-tarjeta {
+    background: var(--pd-crema);
+    border: 1px solid var(--pd-linea);
+    border-radius: var(--r-md, 14px);
+    padding: var(--pd-s3);
+    transition: border-color .3s, transform .3s;
+}
+.pd-tarjeta:hover {
+    border-color: var(--pd-verde-suave);
+    transform: translateY(-3px);
+}
+.pd-tarjeta__icono {
+    font-size: 22px;
+    color: var(--pd-verde);
+    margin-bottom: var(--pd-s2);
+}
+.pd-tarjeta h3 {
+    font-family: var(--font-titulo);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--pd-verde);
+    margin: 0 0 var(--pd-s2);
+}
+.pd-tarjeta ul {
     list-style: none;
-    margin: 0 0 var(--pd-s3);
+    margin: 0;
     padding: 0;
 }
-.pd-lista li {
+.pd-tarjeta li {
     position: relative;
-    padding-left: var(--pd-s3);
-    margin-bottom: var(--pd-s2);
+    padding-left: 18px;
+    margin-bottom: var(--pd-s1);
     font-family: var(--font-texto);
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--pd-tinta-suave);
 }
-.pd-lista li::before {
+.pd-tarjeta li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: .68em;
-    width: 7px;
-    height: 7px;
+    top: .62em;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: var(--pd-acento);
+    background: var(--pd-dorado);
 }
 
 
 /* ============================================================
-   6. FIGURA A ANCHO COMPLETO
-   El pie de foto no es opcional: convierte una imagen
-   decorativa en evidencia documental. Lugar y fecha siempre.
+   7. BLOQUE VERDE: TEXTO + IMAGEN
+   Parte la página en dos y da respiro después de tanto fondo
+   claro. Ese contraste es lo que crea ritmo.
    ============================================================ */
-.pd-figura {
-    margin: 0;
-    background: var(--pd-verde-oscuro);
-}
-.pd-figura img {
-    width: 100%;
-    height: clamp(280px, 46vh, 520px);
-    object-fit: cover;
-    object-position: center 45%;
-    display: block;
-}
-.pd-figura figcaption {
+.pd-verde { background: var(--pd-verde-hondo); }
+.pd-verde__wrap {
     max-width: var(--pd-ancho);
     margin: 0 auto;
-    padding: var(--pd-s2) var(--pd-s4);
-    font-family: var(--font-texto);
-    font-size: 13px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, .62);
-}
-
-
-/* ============================================================
-   7. CITA DESTACADA
-   Un respiro entre bloques largos. Máximo una o dos por página:
-   si todo destaca, nada destaca.
-   ============================================================ */
-.pd-cita {
-    background: var(--pd-papel-hondo);
-    border-top: 1px solid var(--pd-linea);
-    border-bottom: 1px solid var(--pd-linea);
     padding: var(--pd-s5) var(--pd-s4);
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--pd-s5);
+    align-items: center;
 }
-.pd-cita blockquote {
-    max-width: 58ch;
-    margin: 0 auto;
+.pd-verde h2 {
     font-family: var(--font-titulo);
-    font-size: clamp(21px, 2.6vw, 28px);
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.5;
-    color: var(--pd-verde);
-    text-align: center;
+    font-size: clamp(24px, 2.8vw, 32px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--pd-blanco);
+    margin: 0 0 var(--pd-s3);
 }
-.pd-cita cite {
-    display: block;
-    margin-top: var(--pd-s3);
+.pd-verde p {
     font-family: var(--font-texto);
-    font-size: 13px;
-    font-style: normal;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--pd-tinta-suave);
-    text-align: center;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, .82);
+    margin: 0 0 var(--pd-s2);
+}
+.pd-verde p:last-child { margin-bottom: 0; }
+.pd-verde__img {
+    margin: 0;
+    border-radius: var(--r-md, 14px);
+    overflow: hidden;
+}
+.pd-verde__img img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
 }
 
 
 /* ============================================================
    8. VIDEO
-   Sección propia, a ancho de contenido. Sin autoplay:
-   el video arranca cuando el usuario lo decide.
    ============================================================ */
 .pd-video {
     max-width: 900px;
@@ -387,11 +378,10 @@
     padding: var(--pd-s5) var(--pd-s4);
 }
 .pd-video__marco {
-    position: relative;
-    border-radius: var(--r-md, 12px);
+    border-radius: var(--r-md, 14px);
     overflow: hidden;
     background: #000;
-    aspect-ratio: 16 / 9;              /* reserva el espacio: evita el salto de layout */
+    aspect-ratio: 16 / 9;   /* reserva el espacio: evita que la página salte al cargar */
 }
 .pd-video__marco video {
     width: 100%;
@@ -409,23 +399,13 @@
 
 /* ============================================================
    9. GALERÍA
-   Mosaico estático en vez del carrusel infinito. Motivos:
-   el carrusel mueve solo, obliga a esperar, no es navegable
-   con teclado y duplica imágenes para simular el bucle.
+   Mosaico estático. La primera foto ocupa 2x2 para dar jerarquía
+   y evitar la cuadrícula plana de miniaturas iguales.
    ============================================================ */
 .pd-galeria {
     max-width: var(--pd-ancho);
     margin: 0 auto;
-    padding: var(--pd-s5) var(--pd-s4) var(--pd-s6);
-}
-.pd-galeria__titulo {
-    font-family: var(--font-texto);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--pd-acento);
-    margin: 0 0 var(--pd-s3);
+    padding: 0 var(--pd-s4) var(--pd-s5);
 }
 .pd-galeria__grid {
     display: grid;
@@ -437,10 +417,8 @@
     display: block;
     overflow: hidden;
     border-radius: var(--r-sm, 8px);
-    background: var(--pd-papel-hondo);
+    background: var(--pd-crema-hondo);
 }
-/* La primera imagen ocupa 2x2: le da jerarquía al mosaico
-   y evita la cuadrícula plana de miniaturas iguales. */
 .pd-galeria__grid a:first-child {
     grid-column: span 2;
     grid-row: span 2;
@@ -452,20 +430,15 @@
     transition: transform .5s cubic-bezier(.2, .7, .3, 1);
 }
 .pd-galeria__grid a:hover img { transform: scale(1.05); }
-.pd-galeria__grid a:focus-visible {
-    outline: 2px solid var(--pd-acento);
-    outline-offset: 3px;
-}
 
 
 /* ============================================================
    10. SIGUIENTE PROYECTO
-   Cierra la página dando a dónde ir. Una página de detalle
-   sin salida obliga al usuario a usar el botón "atrás".
    ============================================================ */
 .pd-siguiente {
-    background: var(--pd-verde-oscuro);
-    color: #fff;
+    display: block;
+    background: var(--pd-verde-hondo);
+    color: var(--pd-blanco);
 }
 .pd-siguiente__wrap {
     max-width: var(--pd-ancho);
@@ -476,37 +449,27 @@
     justify-content: space-between;
     gap: var(--pd-s3);
 }
-.pd-siguiente__etiqueta {
-    display: block;
-    font-family: var(--font-texto);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--pd-acento);
-    margin-bottom: var(--pd-s1);
-}
 .pd-siguiente__nombre {
     font-family: var(--font-titulo);
     font-size: clamp(22px, 3vw, 30px);
     font-weight: 500;
-    color: #fff;
+    color: var(--pd-blanco);
     margin: 0;
 }
 .pd-siguiente__flecha {
     flex-shrink: 0;
     width: 52px;
     height: 52px;
-    border: 1px solid rgba(255, 255, 255, .25);
+    border: 1px solid rgba(255, 255, 255, .26);
     border-radius: 50%;
     display: grid;
     place-items: center;
-    color: #fff;
+    color: var(--pd-blanco);
     transition: background .3s, transform .3s, border-color .3s;
 }
 .pd-siguiente:hover .pd-siguiente__flecha {
-    background: var(--pd-acento);
-    border-color: var(--pd-acento);
+    background: var(--pd-dorado);
+    border-color: var(--pd-dorado);
     transform: translateX(5px);
 }
 
@@ -514,31 +477,35 @@
 /* ============================================================
    11. RESPONSIVE
    ============================================================ */
-@media (max-width: 900px) {
-    .proyecto-detalle { --pd-s5: 56px; --pd-s6: 72px; }
+@media (max-width: 980px) {
+    .pd-intro       { grid-template-columns: 1fr; gap: var(--pd-s3); justify-items: center; text-align: center; }
+    .pd-intro p     { text-align: left; }
+    .pd-verde__wrap { grid-template-columns: 1fr; gap: var(--pd-s3); }
+    .pd-verde__img  { order: -1; }
+    .pd-tarjetas    { grid-template-columns: 1fr; }
+}
 
+@media (max-width: 700px) {
+    .proyecto-detalle { --pd-s5: 52px; }
     .proyecto-detalle .v3-nav { padding: 0 var(--pd-s2); }
     .proyecto-detalle .nav-titulo-proyecto { display: none; }
+    .proyecto-detalle .nav-back span { display: none; }
 
-    .pd-hero { min-height: 340px; }
+    .pd-hero { min-height: 320px; }
     .pd-hero__cnt,
-    .pd-cuerpo,
-    .pd-video,
-    .pd-galeria,
-    .pd-figura figcaption,
-    .pd-ficha__grid,
+    .pd-intro, .pd-tarjetas, .pd-verde__wrap,
+    .pd-video, .pd-galeria, .pd-ficha__grid,
     .pd-siguiente__wrap { padding-left: var(--pd-s3); padding-right: var(--pd-s3); }
 
     .pd-ficha__grid { grid-template-columns: repeat(2, 1fr); }
     .pd-ficha__item:nth-child(2) { border-right: none; }
     .pd-ficha__item:nth-child(-n+2) { border-bottom: 1px solid var(--pd-linea); }
 
+    .pd-intro__circulo { width: 200px; height: 200px; }
+
     .pd-galeria__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
     .pd-galeria__grid a:first-child { grid-column: span 2; grid-row: span 1; }
-}
 
-@media (max-width: 520px) {
-    .pd-bloque p, .pd-lista li { font-size: 16px; }
     .pd-siguiente__wrap { flex-direction: column; align-items: flex-start; }
 }
 
@@ -555,8 +522,35 @@
     }
 }
 
-.proyecto-detalle a:focus-visible,
-.proyecto-detalle button:focus-visible {
-    outline: 2px solid var(--pd-acento);
+.proyecto-detalle a:focus-visible {
+    outline: 2px solid var(--pd-dorado);
     outline-offset: 3px;
 }
+
+
+/* ============================================================
+   13. TIPOGRAFÍA
+   Todo en sans, como en la versión original de la página.
+   Va al final para sobrescribir las reglas de arriba.
+   Si algún día quieres los títulos en serif otra vez, comenta
+   este bloque completo y vuelven a usar --font-titulo.
+   ============================================================ */
+.proyecto-detalle .pd-hero h1,
+.proyecto-detalle .pd-ficha__valor,
+.proyecto-detalle .pd-intro h2,
+.proyecto-detalle .pd-tarjeta h3,
+.proyecto-detalle .pd-verde h2,
+.proyecto-detalle .pd-siguiente__nombre,
+.proyecto-detalle .nav-titulo-proyecto {
+    font-family: var(--font-texto);
+    font-weight: 700;                /* peso real de Inter: sin negrita fingida */
+    letter-spacing: -.015em;
+}
+
+/* Tamaños tomados de vetiver1.css (.hero-title, .beneficiario-numero) */
+.proyecto-detalle .pd-hero h1      { font-size: clamp(32px, 5vw, 48px); }
+.proyecto-detalle .pd-intro h2,
+.proyecto-detalle .pd-verde h2     { font-size: clamp(22px, 2.6vw, 28px); }
+.proyecto-detalle .pd-tarjeta h3   { font-size: 16px; }
+.proyecto-detalle .pd-tarjeta li   { font-size: 13.5px; }
+.proyecto-detalle .pd-ficha__valor { font-size: 30px; }
