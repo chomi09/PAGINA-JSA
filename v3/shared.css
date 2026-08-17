@@ -126,9 +126,14 @@ ul { list-style: none; }
    .sec-body    → párrafo descriptivo bajo el título (Inter, gris)
    ========================================================= */
 .eyebrow {
-    display: block; font-family: var(--font-texto);
-    font-size: 12px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    display: block; 
+    font-family: var(--font-texto);
+    font-size: 12px; 
+    font-weight: 700; 
+    letter-spacing: 3px;
+    text-transform: uppercase; 
+    color: var(--accent); 
+    margin-bottom: 14px;
 }
 .eyebrow--white { color: #fff; }
 .sec-heading {
