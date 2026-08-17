@@ -243,7 +243,7 @@
     margin-bottom: 24px; 
 }
 .val-card h3 {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-titulo);
     font-size: 20px; 
     font-weight: 700; 
     color: var(--text); 
@@ -278,7 +278,7 @@
     border-left: 1px solid var(--bg-soft); 
 }
 .stat-num {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-titulo);
     font-size: 58px; 
     font-weight: 800;
     color: rgb(97, 203, 120); 
@@ -317,7 +317,8 @@
     font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
 }
 .cafe-body { padding: 48px 44px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
-.cafe-body h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 30px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.cafe-body h3 { 
+    font-family: var(--font-titulo); font-size: 30px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
 .cafe-sub { font-size: 14px; color: var(--accent); font-weight: 600; font-family: 'Inter', sans-serif; margin-bottom: 28px; }
 .cafe-infos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
 .cafe-inf label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; font-family: 'Inter', sans-serif; }
@@ -420,8 +421,10 @@
 .proj-body { 
     padding: 10px; 
 }
-.proj-year { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
-.proj-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+.proj-year { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
+.proj-card h3 {     font-family: var(--font-titulo); font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
 .proj-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
 .proj-more { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; transition: gap .2s; }
 .proj-more:hover { gap: 10px; color: var(--primary); }
@@ -443,7 +446,7 @@
 .testi-author strong { display: block; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px; }
 .testi-author span { font-size: 13px; color: rgba(255,255,255,.72); }
 .testi-body { padding: 52px; display: flex; flex-direction: column; justify-content: center; }
-.quote-mark { font-size: 72px; line-height: .8; color: var(--bg-green); font-family: Georgia,serif; margin-bottom: 16px; }
+.quote-mark { font-size: 72px; line-height: .8; color: var(--bg-green);     font-family: var(--font-titulo); margin-bottom: 16px; }
 .testi-body blockquote { font-size: 17px; color: var(--text); line-height: 1.78; font-style: italic; margin-bottom: 32px; border: none; padding: 0; }
 
 /* ===== MAPA (mismo estilo original) ===== */
@@ -527,8 +530,7 @@
        RESPONSIVE DEL CONTENIDO
        ----------------------------- */
 
-    .vals-grid,
-    .proj-grid {
+    .vals-grid {
         grid-template-columns: 1fr;
     }
 
@@ -946,6 +948,16 @@
         grid-column: 1 / -1;
         aspect-ratio: 16 / 9;
     }
+
+    .proj-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 16px; 
+    }
+    /* La tercera tarjeta ocupa el ancho completo, igual que en acompañamiento. */
+    .proj-card:last-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 16 / 9;
+    }
 }
 
 @media (max-width: 620px) {
@@ -977,8 +989,29 @@
     }
     .acomp-foto:last-child { aspect-ratio: 4 / 5; }
     .acomp-zona { font-size: 20px; }
+
+    /* Mismo carrusel horizontal que acomp-fotos. */
+    .proj-grid {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .proj-grid::-webkit-scrollbar { display: none; }
+    .proj-card {
+        flex: 0 0 76%;
+        scroll-snap-align: center;
+        aspect-ratio: 4 / 5;
+    }
+    .proj-card:last-child { aspect-ratio: 4 / 5; }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .acomp-foto img, .acomp-link { transition: none; }
+    .proj-card img { transition: none; }
 }
