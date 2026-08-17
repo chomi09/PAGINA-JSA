@@ -1,0 +1,239 @@
+/* ============================================================
+   innovacion.css — Página Innovación
+   ============================================================ */
+
+/* ===== SECCIÓN FEATURE (layout alternado img / texto) ===== */
+.innov-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 460px;
+}
+.innov-feature--reverse { direction: rtl; }
+.innov-feature--reverse > * { direction: ltr; }
+
+.innov-feature-img { overflow: hidden; }
+.innov-feature-img img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+.innov-feature-img:hover img { transform: scale(1.04); }
+
+.innov-feature-content {
+    padding: 70px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+}
+.innov-feature--cream .innov-feature-content { background: var(--crema); }
+.innov-feature--dark  .innov-feature-content {
+    background: var(--verde-oscuro);
+}
+.innov-feature--dark .sec-title { color: #fff; }
+.innov-feature--dark .sec-sub   { color: rgba(255,255,255,0.72); }
+.innov-feature--dark .sec-label { color: var(--dorado); }
+
+.innov-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+.innov-feature-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--texto-gris);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+}
+.innov-feature--dark .innov-feature-list li {
+    color: rgba(255,255,255,0.75);
+    border-bottom-color: rgba(255,255,255,0.10);
+}
+.innov-feature-list li:last-child { border-bottom: none; }
+.innov-feature-list li::before { content: '✓'; color: var(--dorado); font-weight: 700; flex-shrink: 0; }
+
+/* ===== PROCESOS DE BENEFICIO ===== */
+.procesos {
+    background: var(--gris-fondo);
+    padding: 80px 40px;
+    text-align: center;
+}
+.procesos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 48px auto 0;
+}
+.proceso-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.proceso-card:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(0,0,0,0.12); }
+.proceso-top {
+    height: 160px;
+    background: linear-gradient(135deg, var(--verde-oscuro), var(--verde-principal));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+}
+.proceso-body { padding: 20px 18px; text-align: left; }
+.proceso-body h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--verde-oscuro);
+    margin: 0 0 8px;
+}
+.proceso-body p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--texto-gris);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ===== TRAZABILIDAD QR ===== */
+.trazabilidad {
+    background: linear-gradient(135deg, var(--verde-oscuro), #0a2809);
+    padding: 80px 40px;
+    text-align: center;
+}
+.trazabilidad-steps {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 1000px;
+    margin: 56px auto 0;
+    flex-wrap: wrap;
+}
+.traz-step {
+    flex: 1;
+    min-width: 160px;
+    text-align: center;
+    padding: 0 24px;
+    position: relative;
+}
+.traz-step + .traz-step::before {
+    content: '→';
+    position: absolute;
+    left: -12px;
+    top: 24px;
+    color: var(--dorado);
+    font-size: 20px;
+}
+.traz-num {
+    width: 56px; height: 56px;
+    background: var(--dorado);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--verde-oscuro);
+}
+.traz-step h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+.traz-step p {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.60);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== LABORATORIO / LOOKER STUDIO ===== */
+.laboratorio {
+    background: var(--crema);
+    padding: 80px 40px;
+    text-align: center;
+}
+.looker-wrapper {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.looker-wrapper iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+}
+
+/* ===== I+D COLABORATIVO ===== */
+.imas-d {
+    background: #fff;
+    padding: 80px 40px;
+    text-align: center;
+}
+.imas-d-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 48px auto 0;
+}
+.imas-card {
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.imas-card:hover {
+    border-color: var(--verde-principal);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+.imas-icon { font-size: 38px; margin-bottom: 16px; display: block; }
+.imas-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--verde-oscuro);
+    margin-bottom: 10px;
+}
+.imas-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--texto-gris);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1020px) {
+    .innov-feature { grid-template-columns: 1fr; }
+    .innov-feature--reverse { direction: ltr; }
+    .innov-feature-content { padding: 50px 36px; }
+    .procesos-grid { grid-template-columns: repeat(2, 1fr); }
+    .imas-d-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+    .procesos-grid { grid-template-columns: 1fr; }
+    .trazabilidad-steps { flex-direction: column; gap: 28px; align-items: center; }
+    .traz-step::before { display: none; }
+    .imas-d-grid { grid-template-columns: 1fr; }
+    .innov-feature-content { padding: 40px 24px; }
+}

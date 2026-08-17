@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaña 2025 – Mapa de Exportación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f1ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* ══════════════ CARD ══════════════ */
+        .camp-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            max-width: 1050px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+        }
+
+        /* ── Panel izquierdo ── */
+        .camp-map {
+            background: #142016;
+            position: relative;
+            padding: 32px 16px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 460px;
+        }
+        .camp-badge {
+            position: absolute;
+            top: 22px; left: 22px;
+            background: #1e3520;
+            color: #7ab07a;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #2a4a2e;
+        }
+        .world-svg { width: 100%; height: auto; }
+
+        /* ── Continentes base ── */
+        .land {
+            fill: #1e3a20;
+            stroke: #2d5230;
+            stroke-width: 0.6;
+            stroke-linejoin: round;
+        }
+        /* País destacado (destino) */
+        .land-dest {
+            fill: #2c5c30;
+            stroke: #4a8050;
+            stroke-width: 0.8;
+            stroke-linejoin: round;
+            transition: fill 0.3s;
+        }
+        .land-dest:hover { fill: #3a7040; cursor: pointer; }
+
+        /* País origen (Perú) */
+        .land-origin {
+            fill: #3a6040;
+            stroke: #5a9060;
+            stroke-width: 0.8;
+        }
+
+        /* Fronteras interiores Europa */
+        .border {
+            fill: none;
+            stroke: #2d5230;
+            stroke-width: 0.5;
+            stroke-dasharray: 2 2;
+            opacity: 0.6;
+        }
+
+        /* ── Rutas animadas ── */
+        .route-line {
+            fill: none;
+            stroke: #c8a96e;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            opacity: 0;
+            animation: drawRoute 1.4s ease forwards;
+        }
+        @keyframes drawRoute {
+            0%   { opacity:1; stroke-dashoffset: var(--len); }
+            100% { opacity:1; stroke-dashoffset: 0; }
+        }
+
+        /* ── Nodos destino ── */
+        .dest-node { opacity: 0; animation: popIn 0.4s cubic-bezier(.34,1.56,.64,1) forwards; }
+        @keyframes popIn { to { opacity:1; } }
+
+        .dest-dot  { fill: #c8a96e; stroke: #142016; stroke-width: 1.5; }
+        .pulse-ring {
+            fill: none; stroke: #c8a96e; stroke-width: 1;
+            animation: pulseRing 2.2s ease-in-out infinite;
+        }
+        @keyframes pulseRing {
+            0%,100% { r: 6; opacity: 0.6; }
+            50%      { r: 12; opacity: 0; }
+        }
+        .dest-label {
+            fill: #f0ddb0; font-size: 8.5px; font-weight: 700;
+            font-family: 'Montserrat', sans-serif; letter-spacing: 0.05em;
+        }
+        .country-name {
+            fill: rgba(200,169,110,0.55);
+            font-size: 7px; font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.04em;
+            pointer-events: none;
+        }
+
+        /* ── Nodo origen ── */
+        .origin-dot  { fill: #fff; stroke: #142016; stroke-width: 1.5; }
+        .origin-ring {
+            fill: none; stroke: rgba(255,255,255,0.5); stroke-width: 1.5;
+            animation: pulseRing 1.9s ease-in-out infinite;
+        }
+        .origin-label {
+            fill: #fff; font-size: 8.5px; font-weight: 700;
+            font-family: 'Montserrat', sans-serif; letter-spacing: 0.06em;
+        }
+
+        /* ── Panel derecho ── */
+        .camp-info {
+            background: #fff;
+            padding: 50px 44px;
+            display: flex; flex-direction: column;
+            justify-content: center; gap: 18px;
+        }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: #c8a96e;
+        }
+        .camp-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 44px; font-weight: 800; line-height: 1.1;
+            color: #131f14;
+        }
+        .camp-tags { display: flex; flex-wrap: wrap; }
+        .camp-tag  { color: #c8a96e; font-size: 13px; font-weight: 600; }
+        .camp-tag + .camp-tag::before { content:' · '; margin: 0 5px; color:#c8a96e; }
+
+        .camp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; }
+        .camp-stat label {
+            display: block; font-size: 10px; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: #aaa; margin-bottom: 4px;
+        }
+        .camp-stat strong { font-size: 17px; font-weight: 700; color: #131f14; }
+        .camp-growth { color: #2d7a3a !important; }
+
+        .camp-destinos-box { background: #f7f4ee; border-radius: 10px; padding: 14px 18px; }
+        .camp-destinos-box label {
+            display: block; font-size: 10px; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: #c8a96e; margin-bottom: 6px;
+        }
+        .camp-destinos-box p { font-size: 14px; color: #131f14; line-height: 1.7; }
+
+        .btn-prim {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #131f14; color: #fff;
+            font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600;
+            padding: 14px 28px; border-radius: 10px;
+            text-decoration: none; transition: background 0.2s; align-self: flex-start;
+        }
+        .btn-prim:hover { background: #253f27; }
+
+        @media (max-width: 768px) {
+            .camp-card { grid-template-columns: 1fr; }
+            .camp-map  { min-height: 260px; }
+            .camp-info { padding: 32px 24px; gap: 14px; }
+            .camp-title { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="camp-card">
+
+    <!-- ══ PANEL IZQUIERDO: MAPA ══ -->
+    <div class="camp-map">
+        <span class="camp-badge">5+ Destinos</span>
+
+        <!--
+            Proyección equirectangular recortada:
+            Longitud: -130° → +50°  (180° → 500px) → x = (lon+130) × 2.778
+            Latitud:   +72° → -60°  (132° → 310px) → y = (72-lat) × 2.348
+        -->
+        <svg class="world-svg" viewBox="0 0 500 310" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- ════════ NORTEAMÉRICA (base) ════════ -->
+            <path class="land" d="
+                M 4,38 L 4,46 L 14,54 L 42,54 L 56,50 L 83,50 L 140,50
+                L 165,58 L 181,60 L 183,65 L 172,70 L 162,74 L 153,82
+                L 142,112 L 156,118 L 164,130 L 180,132
+                L 152,156 L 130,150 L 120,140 L 96,130
+                L 83,126 L 69,120 L 59,108 L 43,100
+                L 36,92 L 28,82 L 18,74 L 14,60 Z
+            "/>
+            <!-- Groenlandia -->
+            <path class="land" d="M 162,3 L 216,3 L 220,13 L 202,20 L 178,18 L 162,10 Z"/>
+            <!-- Cuba / Caribe hint -->
+            <path class="land" d="M 155,134 L 175,130 L 178,134 L 160,138 Z"/>
+
+            <!-- ════════ NORTEAMÉRICA: USA destacado ════════ -->
+            <path class="land-dest" id="usa" d="
+                M 14,54 L 140,50 L 165,58 L 183,65 L 180,70
+                L 162,74 L 153,82 L 152,96 L 140,112
+                L 139,120 L 83,120 L 33,98 L 17,72 Z
+            "/>
+            <text class="country-name" x="82" y="92" text-anchor="middle">Estados Unidos</text>
+
+            <!-- ════════ SURAMÉRICA ════════ -->
+            <path class="land" d="
+                M 146,170 L 140,178 L 140,188 L 148,202
+                L 153,208 L 169,214 L 169,230
+                L 163,250 L 159,264 L 153,274 L 153,284
+                L 156,298 L 168,310 L 180,310
+                L 186,294 L 193,280 L 204,274
+                L 220,263 L 224,250 L 242,237
+                L 250,230 L 254,217 L 266,210
+                L 270,194 L 230,178 L 224,170
+                L 196,164 L 175,150 L 148,156 Z
+            "/>
+
+            <!-- Perú destacado (origen) -->
+            <path class="land-origin" d="
+                M 146,170 L 140,178 L 140,188
+                L 148,202 L 153,208
+                L 162,208 L 168,200 L 165,184
+                L 158,172 Z
+            "/>
+            <text class="country-name" x="150" y="192" text-anchor="middle" style="fill:rgba(180,255,160,0.5);font-size:7px">Perú</text>
+
+            <!-- ════════ EUROPA – continente base ════════ -->
+            <!-- Península Ibérica -->
+            <path class="land" d="
+                M 336,84 L 336,66 L 340,58 L 347,54
+                L 353,50 L 361,50 L 367,50 L 369,46
+                L 367,44 L 361,47 L 356,46
+                L 353,50 L 350,56 L 347,58
+                L 344,64 L 341,68 L 339,75
+                L 337,80 L 338,84
+                L 347,88 L 353,86 L 358,84
+                L 361,82 L 358,82 L 347,86 Z
+            "/>
+
+            <!-- Francia + Benelux (base) -->
+            <path class="land" d="
+                M 347,54 L 353,50 L 361,50 L 367,50
+                L 372,45 L 375,45 L 381,45
+                L 383,40 L 380,42 L 375,45
+                L 370,50 L 367,50 L 361,50
+                L 356,52 L 353,54 L 347,58 Z
+            "/>
+            <path class="land" d="
+                M 347,54 L 347,60 L 350,65 L 355,68
+                L 361,68 L 364,65 L 367,65
+                L 370,62 L 370,58 L 367,56
+                L 361,52 L 353,50 Z
+            "/>
+
+            <!-- ── Alemania (destacado) ── -->
+            <path class="land-dest" id="de" d="
+                M 375,45 L 378,42 L 383,40 L 389,40
+                L 394,42 L 400,42 L 403,49
+                L 400,54 L 397,58 L 394,61
+                L 389,61 L 383,61 L 381,58
+                L 378,54 L 375,50 Z
+            "/>
+            <text class="country-name" x="389" y="52" text-anchor="middle">Alemania</text>
+
+            <!-- ── Países Bajos (destacado) ── -->
+            <path class="land-dest" id="nl" d="
+                M 370,50 L 372,45 L 375,45 L 375,50
+                L 378,50 L 378,54 L 375,54
+                L 372,54 L 370,52 Z
+            "/>
+            <text class="country-name" x="374" y="43" text-anchor="middle">Países Bajos</text>
+
+            <!-- ── Bélgica (destacado) ── -->
+            <path class="land-dest" id="be" d="
+                M 367,50 L 370,50 L 372,54 L 375,54
+                L 375,56 L 370,58 L 367,56
+                L 365,54 L 367,52 Z
+            "/>
+            <text class="country-name" x="368" y="62" text-anchor="middle">Bélgica</text>
+
+            <!-- ── Suiza (destacado) ── -->
+            <path class="land-dest" id="ch" d="
+                M 375,58 L 378,54 L 381,58 L 383,61
+                L 381,63 L 378,63 L 375,61 Z
+            "/>
+            <text class="country-name" x="379" y="70" text-anchor="middle">Suiza</text>
+
+            <!-- Francia interior -->
+            <path class="land" d="
+                M 347,58 L 350,65 L 353,68 L 361,68
+                L 367,65 L 370,62 L 370,58 L 367,56
+                L 365,54 L 361,52 L 353,54 Z
+            "/>
+
+            <!-- Italia (península) -->
+            <path class="land" d="
+                M 383,61 L 394,61 L 400,68 L 403,75
+                L 406,80 L 403,84 L 400,82 L 394,80
+                L 389,72 L 383,65 Z
+            "/>
+            <!-- Sicilia -->
+            <path class="land" d="M 394,88 L 400,86 L 403,88 L 400,91 L 394,91 Z"/>
+
+            <!-- UK + Irlanda -->
+            <path class="land" d="
+                M 339,52 L 344,47 L 347,37 L 342,34
+                L 347,40 L 344,50 L 339,54 Z
+            "/>
+            <path class="land" d="
+                M 347,54 L 353,50 L 356,46 L 361,47
+                L 361,50 L 356,52 Z
+            "/>
+
+            <!-- Escandinavia -->
+            <path class="land" d="
+                M 375,45 L 383,40 L 383,33 L 389,33
+                L 394,36 L 400,28 L 403,14
+                L 411,7 L 403,7 L 394,20
+                L 386,35 L 381,40 L 378,42 Z
+            "/>
+            <!-- Dinamarca -->
+            <path class="land" d="M 375,45 L 378,42 L 381,45 L 378,48 Z"/>
+
+            <!-- ════════ ÁFRICA (noroeste visible) ════════ -->
+            <path class="land" d="
+                M 332,88 L 348,88 L 361,88 L 375,86
+                L 392,88 L 406,100 L 408,114
+                L 398,132 L 386,150 L 372,166
+                L 358,172 L 344,172 L 330,164
+                L 320,148 L 317,132 L 318,116
+                L 326,104 Z
+            "/>
+            <!-- Marruecos / costa noroeste diferenciada -->
+            <path class="land" d="M 332,88 L 340,86 L 344,90 L 336,92 Z"/>
+
+            <!-- ════════ GRATICULAS (océano) ════════ -->
+            <line x1="0" y1="155" x2="500" y2="155" stroke="#1e3a20" stroke-width="0.4" opacity="0.4"/>
+            <line x1="0" y1="78"  x2="500" y2="78"  stroke="#1e3a20" stroke-width="0.4" opacity="0.3"/>
+            <line x1="250" y1="0" x2="250" y2="310" stroke="#1e3a20" stroke-width="0.4" opacity="0.3"/>
+
+            <!-- ════════ RUTAS ANIMADAS (Perené → destinos) ════════ -->
+            <!-- → Alemania -->
+            <path class="route-line" style="--len:350; stroke-dasharray:350; stroke-dashoffset:350; animation-delay:0.3s"
+                  d="M 148,202 Q 295,82 389,52"/>
+            <!-- → Países Bajos -->
+            <path class="route-line" style="--len:342; stroke-dasharray:342; stroke-dashoffset:342; animation-delay:0.9s"
+                  d="M 148,202 Q 290,78 374,48"/>
+            <!-- → Bélgica -->
+            <path class="route-line" style="--len:342; stroke-dasharray:342; stroke-dashoffset:342; animation-delay:1.5s"
+                  d="M 148,202 Q 288,80 369,54"/>
+            <!-- → Suiza -->
+            <path class="route-line" style="--len:338; stroke-dasharray:338; stroke-dashoffset:338; animation-delay:2.1s"
+                  d="M 148,202 Q 292,86 379,61"/>
+            <!-- → EE.UU. -->
+            <path class="route-line" style="--len:160; stroke-dasharray:160; stroke-dashoffset:160; animation-delay:2.7s"
+                  d="M 148,202 Q 105,140 84,98"/>
+
+            <!-- ════════ PUNTOS DESTINO ════════ -->
+            <!-- Alemania (Berlín) -->
+            <g class="dest-node" style="animation-delay:1.5s">
+                <circle class="pulse-ring" cx="389" cy="52" r="6"/>
+                <circle class="dest-dot"   cx="389" cy="52" r="3.5"/>
+            </g>
+            <!-- Países Bajos (Amsterdam) -->
+            <g class="dest-node" style="animation-delay:2.1s">
+                <circle class="pulse-ring" cx="374" cy="48" r="6"/>
+                <circle class="dest-dot"   cx="374" cy="48" r="3.5"/>
+            </g>
+            <!-- Bélgica (Bruselas) -->
+            <g class="dest-node" style="animation-delay:2.7s">
+                <circle class="pulse-ring" cx="369" cy="54" r="6"/>
+                <circle class="dest-dot"   cx="369" cy="54" r="3.5"/>
+            </g>
+            <!-- Suiza (Berna) -->
+            <g class="dest-node" style="animation-delay:3.3s">
+                <circle class="pulse-ring" cx="379" cy="61" r="6"/>
+                <circle class="dest-dot"   cx="379" cy="61" r="3.5"/>
+            </g>
+            <!-- EE.UU. (centro) -->
+            <g class="dest-node" style="animation-delay:3.9s">
+                <circle class="pulse-ring" cx="84" cy="98" r="6"/>
+                <circle class="dest-dot"   cx="84" cy="98" r="3.5"/>
+            </g>
+
+            <!-- ════════ ORIGEN: PERENÉ ════════ -->
+            <g>
+                <circle class="origin-ring" cx="148" cy="202" r="10"/>
+                <circle class="origin-dot"  cx="148" cy="202" r="5"/>
+                <text class="origin-label" x="157" y="216">Perené</text>
+            </g>
+        </svg>
+    </div>
+
+    <!-- ══ PANEL DERECHO: INFO ══ -->
+    <div class="camp-info">
+        <span class="eyebrow">Campaña 2025</span>
+        <h2 class="camp-title">Europa &amp;<br>América</h2>
+        <div class="camp-tags">
+            <span class="camp-tag">Café trazable</span>
+            <span class="camp-tag">Libre de deforestación</span>
+        </div>
+        <div class="camp-stats">
+            <div class="camp-stat">
+                <label>Mercados</label>
+                <strong>5+ países</strong>
+            </div>
+            <div class="camp-stat">
+                <label>Contenedores</label>
+                <strong>106 (2025)</strong>
+            </div>
+            <div class="camp-stat">
+                <label>Crecimiento</label>
+                <strong class="camp-growth">+51% vs 2024</strong>
+            </div>
+            <div class="camp-stat">
+                <label>Origen</label>
+                <strong>Perené, Junín</strong>
+            </div>
+        </div>
+        <div class="camp-destinos-box">
+            <label>Destinos</label>
+            <p>Alemania · Países Bajos · Bélgica · Suiza · Estados Unidos</p>
+        </div>
+        <a href="proyectos.html" class="btn-prim">
+            Ver nuestra trayectoria <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
