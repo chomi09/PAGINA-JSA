@@ -34,63 +34,72 @@
 }
 .hist-since-badge strong { font-size: 22px; display: block; }
 
-/* ===== LÍNEA DE TIEMPO ===== */
-.tl-sec { padding: 96px 24px; 
-    background: var(--bg); 
-    text-align: center; 
-    overflow: hidden; 
+/* =========================================================
+   HISTORIA Y TRAYECTORIA
+   ========================================================= */
+.tl-sec {
+    padding: 96px 24px;
+    background: var(--bg);
+    text-align: center;
+    overflow: hidden;
 }
-.tl-header { 
-    max-width: 620px; 
-    margin: 0 auto 64px; 
+
+.tl-header {
+    max-width: 620px;
+    margin: 0 auto 50px;
 }
-.tl-grid {
-    display: grid; 
-    grid-template-columns: repeat(8,1fr); 
-    grid-template-rows: auto auto auto;
-    align-items: stretch; 
-    column-gap: 6px; 
-    max-width: 1280px; 
-    margin: 0 auto; 
-    position: relative;
+
+.tl-image {
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.tl-item { display: contents; }
-.tl-col-1 > * { grid-column: 1; transition-delay: .02s; } .tl-col-2 > * { grid-column: 2; transition-delay: .08s; }
-.tl-col-3 > * { grid-column: 3; transition-delay: .14s; } .tl-col-4 > * { grid-column: 4; transition-delay: .2s; }
-.tl-col-5 > * { grid-column: 5; transition-delay: .26s; } .tl-col-6 > * { grid-column: 6; transition-delay: .32s; }
-.tl-col-7 > * { grid-column: 7; transition-delay: .38s; } .tl-col-8 > * { grid-column: 8; transition-delay: .44s; }
-.tl-line {
-    grid-row: 2; grid-column: 1 / -1; align-self: center; height: 2px; background: var(--border); margin: 0 24px;
-    transform: scaleX(0); transform-origin: center; opacity: 0;
-    transition: transform 1s ease, opacity .6s ease;
+
+.tl-image img {
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
-.tl-line.tl-visible { transform: scaleX(1); opacity: 1; }
-.tl-year {
-    grid-row: 2; justify-self: center; align-self: center; z-index: 1;
-    background: var(--primary); color: #fff;
-    font-family: var(--font-texto); font-size: 12px; font-weight: 700;
-    padding: 5px 13px; border-radius: 20px; box-shadow: 0 2px 10px rgba(26,60,40,.3);
-    opacity: 0; transform: scale(.5);
-    transition: opacity .5s ease, transform .5s ease;
+
+@media (max-width: 1024px) {
+    .tl-sec {
+        padding: 80px 20px;
+    }
+
+    .tl-header {
+        margin-bottom: 40px;
+    }
+
+    .tl-image,
+    .tl-image img {
+        width: 100%;
+    }
 }
-.tl-year.tl-visible { opacity: 1; transform: scale(1); }
-.tl-cell { padding: 0 8px; }
-.tl-cell:empty { padding: 0; }
-.tl-cell--top { grid-row: 1; align-self: end; padding-bottom: 24px; }
-.tl-cell--bottom { grid-row: 3; align-self: start; padding-top: 24px; }
-.tl-cell:not(:empty) {
-    opacity: 0; transition: opacity .6s ease, transform .6s ease;
+
+@media (max-width: 768px) {
+    .tl-sec {
+        padding: 70px 16px;
+    }
+
+    .tl-header {
+        margin-bottom: 35px;
+    }
 }
-.tl-cell--top:not(:empty) { transform: translateY(-20px); }
-.tl-cell--bottom:not(:empty) { transform: translateY(20px); }
-.tl-cell.tl-visible { opacity: 1; transform: none; }
-.tl-icon {
-    width: 44px; height: 44px; margin: 0 auto 12px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--bg-green); color: var(--primary); border-radius: 50%; font-size: 17px;
+
+@media (max-width: 480px) {
+    .tl-sec {
+        padding: 60px 12px;
+    }
+
+    .tl-header {
+        margin-bottom: 30px;
+    }
 }
-.tl-cell h4 { font-family: var(--font-texto); font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-.tl-cell p { font-size: 11.5px; color: var(--text-muted); line-height: 1.55; }
 
 /* ===== MISIÓN / VISIÓN ===== */
 .mvv-sec { 

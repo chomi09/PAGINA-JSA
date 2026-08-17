@@ -136,99 +136,20 @@
             </div>-->
         </section>
 
-        <!-- LÍNEA DE TIEMPO -->
+        <!-- HISTORIA Y TRAYECTORIA -->
         <section class="tl-sec">
             <div class="tl-header">
                 <span class="eyebrow">Nuestra Trayectoria</span>
                 <h2 class="sec-heading">Historia y Trayectoria</h2>
-                <p class="sec-body" style="margin: 0 auto;">Desde 2011, cada paso ha construido el camino hacia un café peruano de excelencia global.</p>
+                <p class="sec-body" style="margin: 0 auto;">
+                    Desde 2011, cada paso ha construido el camino hacia un café peruano de excelencia global.
+                </p>
             </div>
-            <div class="tl-grid">
-                <div class="tl-line"></div>
 
-                <div class="tl-item tl-col-1">
-                    <div class="tl-cell tl-cell--top"></div>
-                    <div class="tl-year">2011</div>
-                    <div class="tl-cell tl-cell--bottom">
-                        <div class="tl-icon"><i class="fas fa-flag"></i></div>
-                        <h4>Fundación</h4>
-                        <p>16 de octubre del 2011 con 20 socios. Nace la visión de unir pequeños productores para exportar café sin intermediarios.</p>
-                    </div>
-                </div>
-
-                <div class="tl-item tl-col-2">
-                    <div class="tl-cell tl-cell--top">
-                        <div class="tl-icon"><i class="fas fa-store"></i></div>
-                        <h4>Inicio del Acopio</h4>
-                        <p>La primera venta nacional dio comienzo a nuestra presencia en el mercado, consolidando el acopio de café de calidad.</p>
-                    </div>
-                    <div class="tl-year">2012</div>
-                    <div class="tl-cell tl-cell--bottom"></div>
-                </div>
-
-                <div class="tl-item tl-col-3">
-                    <div class="tl-cell tl-cell--top"></div>
-                    <div class="tl-year">2013</div>
-                    <div class="tl-cell tl-cell--bottom">
-                        <div class="tl-icon"><i class="fas fa-award"></i></div>
-                        <h4>Certificados</h4>
-                        <p>Primeros certificados de Comercio Justo y producción orgánica, acorde a nuestro compromiso sostenible.</p>
-                    </div>
-                </div>
-
-                <div class="tl-item tl-col-4">
-                    <div class="tl-cell tl-cell--top">
-                        <div class="tl-icon"><i class="fas fa-plane"></i></div>
-                        <h4>Cruzando Fronteras</h4>
-                        <p>Primera venta internacional a Hamburgo, Alemania. Acceso a banca extranjera (financiadores de impacto).</p>
-                    </div>
-                    <div class="tl-year">2016</div>
-                    <div class="tl-cell tl-cell--bottom"></div>
-                </div>
-
-                <div class="tl-item tl-col-5">
-                    <div class="tl-cell tl-cell--top"></div>
-                    <div class="tl-year">2017</div>
-                    <div class="tl-cell tl-cell--bottom">
-                        <div class="tl-icon"><i class="fas fa-building"></i></div>
-                        <h4>Oficinas y Centro de Acopio</h4>
-                        <p>Premio Promperú: 1er puesto en Competitividad Exportadora Agronegocios. Ampliamos infraestructura.</p>
-                    </div>
-                </div>
-
-                <div class="tl-item tl-col-6">
-                    <div class="tl-cell tl-cell--top">
-                        <div class="tl-icon"><i class="fas fa-users"></i></div>
-                        <h4>Sumando Productores</h4>
-                        <p>La base social alcanzó 538 socios, contribuyendo al crecimiento sostenible y alcance comercial.</p>
-                    </div>
-                    <div class="tl-year">2019</div>
-                    <div class="tl-cell tl-cell--bottom"></div>
-                </div>
-
-                <div class="tl-item tl-col-7">
-                    <div class="tl-cell tl-cell--top"></div>
-                    <div class="tl-year">2024</div>
-                    <div class="tl-cell tl-cell--bottom">
-                        <div class="tl-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>Crecimiento</h4>
-                        <p>Incremento al mercado suizo (8 contenedores, USD 820 mil). 634 socios y 2,200 hectáreas de producción.</p>
-                    </div>
-                </div>
-
-                <div class="tl-item tl-col-8">
-                    <div class="tl-cell tl-cell--top">
-                        <div class="tl-icon"><i class="fas fa-globe"></i></div>
-                        <h4>Expansión Global</h4>
-                        <p>Nuevos mercados, innovación con drones y sensores, fortaleciendo beneficios para más de 634 familias.</p>
-                    </div>
-                    <div class="tl-year">2025</div>
-                    <div class="tl-cell tl-cell--bottom"></div>
-                </div>
+            <div class="tl-image">
+                <img src="../img/feer3.svg" alt="Historia y trayectoria de la Cooperativa Juan Santos Atahualpa">
             </div>
         </section>
-
-        
 
         <!-- EQUIPO 
         <section class="equipo-sec">
@@ -718,20 +639,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        const nav = document.getElementById('v3nav');
-        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 
-        const tlObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('tl-visible');
-                    tlObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.tl-line, .tl-year, .tl-cell:not(:empty)').forEach(el => tlObserver.observe(el));
-    </script>
 
     <!-- MENÚ PARA CELULAR -->
     <script>
