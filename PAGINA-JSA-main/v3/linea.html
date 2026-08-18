@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Organigrama</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+}
+
+/* CONTENEDOR */
+.organigrama {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* ASAMBLEA GENERAL */
+.nivel-principal {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 55px;
+}
+
+.nivel-principal::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background: #777;
+    bottom: -30px;
+}
+
+/* FILA DE LOS 5 CARGOS */
+.nivel-secundario {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+}
+
+/* LÍNEA HORIZONTAL */
+.nivel-secundario::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: #777;
+}
+
+/* LÍNEAS VERTICALES DE CADA CARGO */
+.cargo {
+    position: relative;
+}
+
+.cargo::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    background: #777;
+    top: -20px;
+    left: 50%;
+}
+
+/* CAJAS */
+.caja {
+    border: 2px solid #1688d4;
+    background: #fff;
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 10px 8px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #222;
+}
+
+/* ASISTENTE */
+.cargo-asistente .caja {
+    border-color: #333;
+    font-size: 14px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+
+    .nivel-secundario {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .nivel-secundario {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .nivel-secundario {
+        grid-template-columns: 1fr;
+    }
+
+    .nivel-secundario::before,
+    .cargo::before {
+        display: none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="organigrama">
+
+    <!-- ASAMBLEA GENERAL -->
+    <div class="nivel-principal">
+
+        <div class="caja">
+            ASAMBLEA GENERAL
+        </div>
+
+    </div>
+
+
+    <!-- CINCO CARGOS -->
+    <div class="nivel-secundario">
+
+        <!-- 1 -->
+        <div class="cargo">
+
+            <div class="caja">
+                CONSEJO DE<br>
+                VIGILANCIA
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+        <div class="cargo">
+
+            <div class="caja">
+                CONSEJO DE<br>
+                ADMINISTRACIÓN
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+        <div class="cargo">
+
+            <div class="caja">
+                COMITÉ ELECTORAL
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+        <div class="cargo">
+
+            <div class="caja">
+                COMITÉ DE EDUCACIÓN
+            </div>
+
+        </div>
+
+
+        <!-- 5 -->
+        <div class="cargo cargo-asistente">
+
+            <div class="caja">
+                ASISTENTE DE<br>
+                ASAMBLEA GENERAL
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
