@@ -1,0 +1,556 @@
+/* ============================================================
+   PROYECTO-DETALLE.CSS
+   Hoja única para proy-vetiver.html · proy-dignos.html · proy-moscas.html
+   Estructura: opción B. Paleta: la tuya de vetiver1.css.
+
+   REQUISITOS
+     1. Cargar DESPUÉS de shared.css:
+          <link rel="stylesheet" href="shared.css">
+          <link rel="stylesheet" href="proyecto-detalle.css">
+     2. El body debe llevar la clase:
+          <body class="proyecto-detalle">
+   ============================================================ */
+
+
+/* ============================================================
+   1. TOKENS
+   Tus colores originales de vetiver1.css, ahora como variables.
+   Cambia uno acá y cambia en toda la página.
+   ============================================================ */
+.proyecto-detalle {
+    --pd-verde-hondo : #1f3d2b;   /* barras oscuras, footer, nav      */
+    --pd-verde       : #2f5233;   /* títulos, números de la ficha     */
+    --pd-verde-medio : #4f6f3f;   /* texto secundario en verde        */
+    --pd-verde-suave : #6b8f5d;   /* detalles, bordes activos         */
+    --pd-crema       : #f4f8f2;   /* fondo de bloques claros          */
+    --pd-crema-hondo : #dce8d7;   /* fondo de tarjetas y ficha        */
+    --pd-linea       : #d6e2d4;   /* hairlines y separadores          */
+    --pd-blanco      : #ffffff;
+    --pd-tinta       : #2a2f2a;   /* cuerpo de texto                  */
+    --pd-tinta-suave : #5d6b5d;   /* pies de foto, etiquetas          */
+    --pd-dorado      : var(--accent, #C8973A);
+
+    /* Escala de espaciado: usa SIEMPRE estos valores, nunca números
+       sueltos. Es lo que mantiene el ritmo vertical parejo. */
+    --pd-s1: 8px;
+    --pd-s2: 16px;
+    --pd-s3: 28px;
+    --pd-s4: 48px;
+    --pd-s5: 80px;
+
+    --pd-ancho  : 1180px;
+    --pd-medida : 70ch;    /* ancho máximo de lectura cómoda */
+
+    background: var(--pd-blanco);
+    color: var(--pd-tinta);
+}
+
+
+/* ============================================================
+   2. NAVBAR
+   No tocamos shared.css. La clase del body por delante nos da
+   más especificidad, así que estas reglas ganan solo acá.
+   ============================================================ */
+.proyecto-detalle .v3-nav,
+.proyecto-detalle .v3-nav.scrolled {
+    background: var(--pd-verde-hondo);
+    height: 68px;
+    padding: 0 var(--pd-s4);
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .10);
+}
+.proyecto-detalle .v3-nav.scrolled { box-shadow: 0 2px 14px rgba(31, 61, 43, .22); }
+
+.proyecto-detalle .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pd-s1);
+    font-family: var(--font-texto);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, .80);
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, .20);
+    border-radius: var(--r-sm, 8px);
+    transition: color .25s, border-color .25s, background .25s;
+}
+.proyecto-detalle .nav-back:hover {
+    color: var(--pd-blanco);
+    border-color: rgba(255, 255, 255, .48);
+    background: rgba(255, 255, 255, .07);
+}
+.proyecto-detalle .nav-back i { font-size: 11px; }
+
+/* Título que aparece en el nav al hacer scroll: le dice al lector
+   dónde está cuando el hero ya salió de pantalla. */
+.proyecto-detalle .nav-titulo-proyecto {
+    font-family: var(--font-titulo);
+    font-size: 17px;
+    color: var(--pd-blanco);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .35s ease, transform .35s ease;
+    pointer-events: none;
+}
+.proyecto-detalle .v3-nav.scrolled .nav-titulo-proyecto {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Línea de progreso de lectura. El ancho lo mueve el JS. */
+.proyecto-detalle .pd-progreso {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: var(--pd-dorado);
+    z-index: 1001;
+    transition: width .1s linear;
+}
+
+
+/* ============================================================
+   3. HERO
+   ============================================================ */
+.pd-hero {
+    position: relative;
+    min-height: 440px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding-bottom: var(--pd-s4);
+    margin-top: 68px;
+}
+.pd-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 45%;
+}
+/* El velo es más fuerte abajo, que es donde vive el texto. */
+.pd-hero__velo {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(31, 61, 43, .48) 0%,
+        rgba(31, 61, 43, .22) 38%,
+        rgba(31, 61, 43, .88) 100%);
+}
+.pd-hero__cnt {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: 0 var(--pd-s4);
+}
+.pd-hero h1 {
+    font-family: var(--font-titulo);
+    font-size: clamp(38px, 5.5vw, 62px);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -.015em;
+    color: var(--pd-blanco);
+    margin: 0;
+}
+.pd-hero__sub {
+    font-family: var(--font-texto);
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, .84);
+    margin: var(--pd-s2) 0 0;
+    max-width: 46ch;
+}
+
+/* Etiqueta dorada reutilizable en toda la página */
+.pd-eyebrow {
+    display: block;
+    font-family: var(--font-texto);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--pd-dorado);
+    margin-bottom: var(--pd-s2);
+}
+
+
+/* ============================================================
+   4. FICHA NUMÉRICA
+   ============================================================ */
+.pd-ficha {
+    background: var(--pd-crema-hondo);
+    border-bottom: 1px solid var(--pd-linea);
+}
+.pd-ficha__grid {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: 0 var(--pd-s4);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.pd-ficha__item {
+    padding: var(--pd-s3) var(--pd-s2);
+    text-align: center;
+    border-right: 1px solid var(--pd-linea);
+}
+.pd-ficha__item:last-child { border-right: none; }
+
+.pd-ficha__valor {
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--pd-verde);
+}
+.pd-ficha__etiqueta {
+    display: block;
+    font-family: var(--font-texto);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--pd-tinta-suave);
+    margin-top: var(--pd-s1);
+}
+
+
+/* ============================================================
+   5. INTRO: CÍRCULO + TEXTO
+   Grid real de dos columnas. Sin márgenes negativos: la posición
+   la decide el contenedor, no un empujón a mano.
+   ============================================================ */
+.pd-intro {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: var(--pd-s5) var(--pd-s4) var(--pd-s4);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--pd-s5);
+    align-items: center;
+}
+.pd-intro__circulo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--pd-dorado);
+}
+.pd-intro__circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pd-intro h2 {
+    font-family: var(--font-titulo);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--pd-verde);
+    margin: 0 0 var(--pd-s3);
+}
+.pd-intro p {
+    font-family: var(--font-texto);
+    font-size: 17px;
+    line-height: 1.78;
+    color: var(--pd-tinta);
+    margin: 0 0 var(--pd-s2);
+    max-width: var(--pd-medida);
+}
+.pd-intro p:last-child { margin-bottom: 0; }
+.pd-intro em { color: var(--pd-verde-medio); }
+
+
+/* ============================================================
+   6. TARJETAS
+   Fondo plano, borde hairline, sin sombra ni degradado.
+   Simple se ve más caro que decorado.
+   ============================================================ */
+.pd-tarjetas {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: 0 var(--pd-s4) var(--pd-s5);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--pd-s2);
+}
+.pd-tarjeta {
+    background: var(--pd-crema);
+    border: 1px solid var(--pd-linea);
+    border-radius: var(--r-md, 14px);
+    padding: var(--pd-s3);
+    transition: border-color .3s, transform .3s;
+}
+.pd-tarjeta:hover {
+    border-color: var(--pd-verde-suave);
+    transform: translateY(-3px);
+}
+.pd-tarjeta__icono {
+    font-size: 22px;
+    color: var(--pd-verde);
+    margin-bottom: var(--pd-s2);
+}
+.pd-tarjeta h3 {
+    font-family: var(--font-titulo);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--pd-verde);
+    margin: 0 0 var(--pd-s2);
+}
+.pd-tarjeta ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.pd-tarjeta li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: var(--pd-s1);
+    font-family: var(--font-texto);
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--pd-tinta-suave);
+}
+.pd-tarjeta li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pd-dorado);
+}
+
+
+/* ============================================================
+   7. BLOQUE VERDE: TEXTO + IMAGEN
+   Parte la página en dos y da respiro después de tanto fondo
+   claro. Ese contraste es lo que crea ritmo.
+   ============================================================ */
+.pd-verde { background: var(--pd-verde-hondo); }
+.pd-verde__wrap {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: var(--pd-s5) var(--pd-s4);
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--pd-s5);
+    align-items: center;
+}
+.pd-verde h2 {
+    font-family: var(--font-titulo);
+    font-size: clamp(24px, 2.8vw, 32px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--pd-blanco);
+    margin: 0 0 var(--pd-s3);
+}
+.pd-verde p {
+    font-family: var(--font-texto);
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, .82);
+    margin: 0 0 var(--pd-s2);
+}
+.pd-verde p:last-child { margin-bottom: 0; }
+.pd-verde__img {
+    margin: 0;
+    border-radius: var(--r-md, 14px);
+    overflow: hidden;
+}
+.pd-verde__img img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ============================================================
+   8. VIDEO
+   ============================================================ */
+.pd-video {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--pd-s5) var(--pd-s4);
+}
+.pd-video__marco {
+    border-radius: var(--r-md, 14px);
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 16 / 9;   /* reserva el espacio: evita que la página salte al cargar */
+}
+.pd-video__marco video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.pd-video__pie {
+    font-family: var(--font-texto);
+    font-size: 13px;
+    color: var(--pd-tinta-suave);
+    margin: var(--pd-s2) 0 0;
+}
+
+
+/* ============================================================
+   9. GALERÍA
+   Mosaico estático. La primera foto ocupa 2x2 para dar jerarquía
+   y evitar la cuadrícula plana de miniaturas iguales.
+   ============================================================ */
+.pd-galeria {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: 0 var(--pd-s4) var(--pd-s5);
+}
+.pd-galeria__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 190px;
+    gap: 12px;
+}
+.pd-galeria__grid a {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--r-sm, 8px);
+    background: var(--pd-crema-hondo);
+}
+.pd-galeria__grid a:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.pd-galeria__grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s cubic-bezier(.2, .7, .3, 1);
+}
+.pd-galeria__grid a:hover img { transform: scale(1.05); }
+
+
+/* ============================================================
+   10. SIGUIENTE PROYECTO
+   ============================================================ */
+.pd-siguiente {
+    display: block;
+    background: var(--pd-verde-hondo);
+    color: var(--pd-blanco);
+}
+.pd-siguiente__wrap {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: var(--pd-s4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pd-s3);
+}
+.pd-siguiente__nombre {
+    font-family: var(--font-titulo);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 500;
+    color: var(--pd-blanco);
+    margin: 0;
+}
+.pd-siguiente__flecha {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border: 1px solid rgba(255, 255, 255, .26);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--pd-blanco);
+    transition: background .3s, transform .3s, border-color .3s;
+}
+.pd-siguiente:hover .pd-siguiente__flecha {
+    background: var(--pd-dorado);
+    border-color: var(--pd-dorado);
+    transform: translateX(5px);
+}
+
+
+/* ============================================================
+   11. RESPONSIVE
+   ============================================================ */
+@media (max-width: 980px) {
+    .pd-intro       { grid-template-columns: 1fr; gap: var(--pd-s3); justify-items: center; text-align: center; }
+    .pd-intro p     { text-align: left; }
+    .pd-verde__wrap { grid-template-columns: 1fr; gap: var(--pd-s3); }
+    .pd-verde__img  { order: -1; }
+    .pd-tarjetas    { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+    .proyecto-detalle { --pd-s5: 52px; }
+    .proyecto-detalle .v3-nav { padding: 0 var(--pd-s2); }
+    .proyecto-detalle .nav-titulo-proyecto { display: none; }
+    .proyecto-detalle .nav-back span { display: none; }
+
+    .pd-hero { min-height: 320px; }
+    .pd-hero__cnt,
+    .pd-intro, .pd-tarjetas, .pd-verde__wrap,
+    .pd-video, .pd-galeria, .pd-ficha__grid,
+    .pd-siguiente__wrap { padding-left: var(--pd-s3); padding-right: var(--pd-s3); }
+
+    .pd-ficha__grid { grid-template-columns: repeat(2, 1fr); }
+    .pd-ficha__item:nth-child(2) { border-right: none; }
+    .pd-ficha__item:nth-child(-n+2) { border-bottom: 1px solid var(--pd-linea); }
+
+    .pd-intro__circulo { width: 200px; height: 200px; }
+
+    .pd-galeria__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
+    .pd-galeria__grid a:first-child { grid-column: span 2; grid-row: span 1; }
+
+    .pd-siguiente__wrap { flex-direction: column; align-items: flex-start; }
+}
+
+
+/* ============================================================
+   12. ACCESIBILIDAD
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .proyecto-detalle *,
+    .proyecto-detalle *::before,
+    .proyecto-detalle *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+.proyecto-detalle a:focus-visible {
+    outline: 2px solid var(--pd-dorado);
+    outline-offset: 3px;
+}
+
+
+/* ============================================================
+   13. TIPOGRAFÍA
+   Todo en sans, como en la versión original de la página.
+   Va al final para sobrescribir las reglas de arriba.
+   Si algún día quieres los títulos en serif otra vez, comenta
+   este bloque completo y vuelven a usar --font-titulo.
+   ============================================================ */
+.proyecto-detalle .pd-hero h1,
+.proyecto-detalle .pd-ficha__valor,
+.proyecto-detalle .pd-intro h2,
+.proyecto-detalle .pd-tarjeta h3,
+.proyecto-detalle .pd-verde h2,
+.proyecto-detalle .pd-siguiente__nombre,
+.proyecto-detalle .nav-titulo-proyecto {
+    font-family: var(--font-texto);
+    font-weight: 700;                /* peso real de Inter: sin negrita fingida */
+    letter-spacing: -.015em;
+}
+
+/* Tamaños tomados de vetiver1.css (.hero-title, .beneficiario-numero) */
+.proyecto-detalle .pd-hero h1      { font-size: clamp(32px, 5vw, 48px); }
+.proyecto-detalle .pd-intro h2,
+.proyecto-detalle .pd-verde h2     { font-size: clamp(22px, 2.6vw, 28px); }
+.proyecto-detalle .pd-tarjeta h3   { font-size: 16px; }
+.proyecto-detalle .pd-tarjeta li   { font-size: 13.5px; }
+.proyecto-detalle .pd-ficha__valor { font-size: 30px; }
