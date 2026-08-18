@@ -139,7 +139,7 @@ ul { list-style: none; }
 .sec-heading {
     font-family: var(--font-titulo); 
     font-size: 38px; 
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text); 
     line-height: 1.2; 
     margin-bottom: 20px;
@@ -326,7 +326,7 @@ footer.v3-footer {
 .sec-title {
     font-family: var(--font-titulo);
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 700x;
     color: var(--verde-oscuro);
     line-height: 1.2;
     margin: 4px 0 8px;
