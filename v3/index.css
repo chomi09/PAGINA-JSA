@@ -281,12 +281,12 @@
 }
 
 .val-card h3 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 10px;
-    text-align: center;
+    font-family: var(--font-titulo);
+    font-size: 20px; 
+    font-weight: 700; 
+    color: var(--text); 
+    margin-bottom: 10px; 
+    text-align: center;   
 }
 
 .val-card p {
@@ -325,8 +325,8 @@
 }
 
 .stat-num {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 58px;
+    font-family: var(--font-titulo);
+    font-size: 58px; 
     font-weight: 800;
     color: rgb(97, 203, 120);
     line-height: 1;
@@ -460,243 +460,23 @@
    ========================================================= */
 
 .cafe-score {
-
-    position: absolute;
-
-    top: 24px;
-
-    left: 24px;
-
-    background: var(--primary, #1A3C28);
-
-    color: #ffffff;
-
-    padding: 10px 20px;
-
-    border-radius: 100px;
-
-    font-family: 'Inter', sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    z-index: 20;
-
-    box-shadow:
-        0 4px 12px
-        rgba(0, 0, 0, .15);
-
+    position: absolute; top: 24px; left: 24px;
+    background: var(--primary); color: #fff;
+    padding: 8px 18px; border-radius: 100px;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
 }
-
-
-/* =========================================================
-   CUERPO DE EXPORTACIÓN
-   ========================================================= */
-
-.cafe-body {
-
-    padding: 48px 44px;
-
-    text-align: left;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-}
-
-
-.cafe-body h3 {
-
-    font-family:
-        Georgia,
-        'Times New Roman',
-        serif;
-
-    font-size: 30px;
-
-    font-weight: 800;
-
-    color: var(--text);
-
-    margin-bottom: 6px;
-
-}
-
-
-.cafe-sub {
-
-    font-size: 14px;
-
-    color: var(--accent);
-
-    font-weight: 600;
-
-    font-family: 'Inter', sans-serif;
-
-    margin-bottom: 28px;
-
-}
-
-
-.cafe-infos {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 16px;
-
-    margin-bottom: 28px;
-
-}
-
-
-.cafe-inf label {
-
-    display: block;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    color: var(--text-muted);
-
-    margin-bottom: 3px;
-
-    font-family: 'Inter', sans-serif;
-
-}
-
-
-.cafe-inf span {
-
-    font-size: 14px;
-
-    color: var(--text);
-
-    font-weight: 500;
-
-}
-
-
-.cafe-notas {
-
-    background: var(--bg-soft);
-
-    border-radius: var(--r-sm);
-
-    padding: 16px 18px;
-
-    margin-bottom: 28px;
-
-}
-
-
-.cafe-notas strong {
-
-    display: block;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    color: var(--accent);
-
-    margin-bottom: 4px;
-
-    font-family: 'Inter', sans-serif;
-
-}
-
-
-.cafe-notas p {
-
-    font-size: 14px;
-
-    color: var(--text-muted);
-
-    line-height: 1.6;
-
-    margin: 0;
-
-}
-
-
-/* =========================================================
-   BOTÓN PRINCIPAL
-   ========================================================= */
-
-.btn-prim {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    width: 100%;
-
-    box-sizing: border-box;
-
-    padding: 15px 20px;
-
-    background: #16452e;
-
-    color: #ffffff;
-
-    border-radius: 10px;
-
-    text-decoration: none;
-
-    font-family: 'Inter', sans-serif;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    transition: all .3s ease;
-
-}
-
-.btn-prim:hover {
-
-    background: #0F291D;
-
-    transform: translateY(-2px);
-
-}
-
-.btn-prim i {
-
-    transition: transform .3s ease;
-
-}
-
-.btn-prim:hover i {
-
-    transform: translateX(5px);
-
-}
-
-
-/* =========================================================
-   PROYECTOS RECIENTES
-   ========================================================= */
-
+.cafe-body { padding: 48px 44px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
+.cafe-body h3 { 
+    font-family: var(--font-titulo); font-size: 30px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.cafe-sub { font-size: 14px; color: var(--accent); font-weight: 600; font-family: 'Inter', sans-serif; margin-bottom: 28px; }
+.cafe-infos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.cafe-inf label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; font-family: 'Inter', sans-serif; }
+.cafe-inf span { font-size: 14px; color: var(--text); font-weight: 500; }
+.cafe-notas { background: var(--bg-soft); border-radius: var(--r-sm); padding: 16px 18px; margin-bottom: 28px; }
+.cafe-notas strong { display: block; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+.cafe-notas p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+/* ===== PROYECTOS RECIENTES ===== */
 .proj-sec {
 
     padding: var(--sec-pad-y) 0;
@@ -887,231 +667,40 @@
     transform: scale(1.05);
 
 }
-
-.proj-body {
-
-    padding: 10px;
-
+.proj-body { 
+    padding: 10px; 
 }
-
-.proj-card h3 {
-
-    font-family:
-        Georgia,
-        'Times New Roman',
-        serif;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-    color: var(--text);
-
-    margin-bottom: 8px;
-
-    line-height: 1.3;
-
-}
-
-.proj-card p {
-
-    font-size: 14px;
-
-    color: var(--text-muted);
-
-    line-height: 1.65;
-
-    margin-bottom: 16px;
-
-}
-
-.proj-more {
-
-    font-family: 'Inter', sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    color: var(--primary);
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 6px;
-
-    transition: gap .2s;
-
-}
-
-.proj-more:hover {
-
-    gap: 10px;
-
-    color: var(--primary);
-
-}
-
-.proj-cta-wrap {
-
-    margin-top: 16px;
-
-}
+.proj-year { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
+.proj-card h3 {     font-family: var(--font-titulo); font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+.proj-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
+.proj-more { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; transition: gap .2s; }
+.proj-more:hover { gap: 10px; color: var(--primary); }
+.proj-cta-wrap { margin-top: 16px; }
 
 
-/* =========================================================
-   TESTIMONIO
-   ========================================================= */
 
-.testi-sec {
-
-    padding: 96px 24px;
-
-    background: var(--bg);
-
-}
-
+/* ===== TESTIMONIO ===== */
+.testi-sec { 
+    padding: 96px 24px; 
+    background: var(--bg-soft); }
 .testi-card {
-
-    max-width: 1080px;
-
-    margin: 0 auto;
-
-    background: var(--bg);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--r-lg);
-
-    overflow: hidden;
-
-    display: grid;
-
-    grid-template-columns: 380px 1fr;
-
-    box-shadow: var(--sh-lg);
-
+    max-width: 1080px; margin: 0 auto;
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg);
+    overflow: hidden; display: grid; grid-template-columns: 380px 1fr; box-shadow: var(--sh-lg);
 }
+.testi-img { position: relative; overflow: hidden; }
+.testi-img img { width: 100%; height: 100%; object-fit: cover; }
+.testi-img-ov { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(10,22,14,.88) 100%); }
+.testi-author { position: absolute; bottom: 24px; left: 24px; right: 24px; }
+.testi-author strong { display: block; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.testi-author span { font-size: 13px; color: rgba(255,255,255,.72); }
+.testi-body { padding: 52px; display: flex; flex-direction: column; justify-content: center; }
+.quote-mark { font-size: 72px; line-height: .8; color: var(--bg-green);     font-family: var(--font-titulo); margin-bottom: 16px; }
+.testi-body blockquote { font-size: 17px; color: var(--text); line-height: 1.78; font-style: italic; margin-bottom: 32px; border: none; padding: 0; }
 
-.testi-img {
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-.testi-img img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-}
-
-.testi-img-ov {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent 40%,
-            rgba(10, 22, 14, .88) 100%
-        );
-
-}
-
-.testi-author {
-
-    position: absolute;
-
-    bottom: 24px;
-
-    left: 24px;
-
-    right: 24px;
-
-}
-
-.testi-author strong {
-
-    display: block;
-
-    font-family: 'Inter', sans-serif;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    color: #fff;
-
-    margin-bottom: 2px;
-
-}
-
-.testi-author span {
-
-    font-size: 13px;
-
-    color: rgba(255, 255, 255, .72);
-
-}
-
-.testi-body {
-
-    padding: 52px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-}
-
-.quote-mark {
-
-    font-size: 72px;
-
-    line-height: .8;
-
-    color: var(--bg-green);
-
-    font-family: Georgia, serif;
-
-    margin-bottom: 16px;
-
-}
-
-.testi-body blockquote {
-
-    font-size: 17px;
-
-    color: var(--text);
-
-    line-height: 1.78;
-
-    font-style: italic;
-
-    margin-bottom: 32px;
-
-    border: none;
-
-    padding: 0;
-
-}
-
-
-/* =========================================================
-   MAPA GENERAL
-   ========================================================= */
-
+/* ===== MAPA (mismo estilo original) ===== */
 .mapa {
 
     display: flex;
@@ -1119,9 +708,7 @@
     flex-direction: column;
 
     width: 100%;
-
-    background: #f9f9f9;
-
+    background: var(--bg);
 }
 
 .mapa-header {
@@ -1465,9 +1052,7 @@
 
 @media (max-width: 768px) {
 
-    .vals-grid,
-    .proj-grid {
-
+    .vals-grid {
         grid-template-columns: 1fr;
 
     }
@@ -1955,84 +1540,149 @@
        MAPA EN CELULAR
        ===================================================== */
 
-    .mapa-img {
+.acomp-sec {
+    background: #fff;
+    padding: var(--sec-pad-y) 0;
+}
+.acomp-wrap {
+    max-width: var(--sec-max-w);
+    margin: 0 auto;
+    padding: 0 var(--sec-pad-x);
+}
 
-        min-height: 300px;
 
-        height: 300px;
+/* ---------- Encabezado centrado ---------- */
+.acomp-head {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 56px;
+}
+.acomp-head .sec-heading {
+    margin: 14px 0 0;
+    /* El heading de shared.css tiene max-width y alineación a la
+       izquierda; acá lo centramos sin tocar el archivo original. */
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+
+/* ---------- Fotos ----------
+   4:5 vertical y sin tarjeta alrededor: el marco blanco y la
+   sombra solo restarían protagonismo a la imagen. */
+.acomp-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.acomp-foto {
+    position: relative;
+    margin: 0;
+    border-radius: var(--r-md,);
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+}
+.acomp-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .7s cubic-bezier(.2, .7, .3, 1);
+}
+.acomp-foto:hover img { transform: scale(1.05); }
+
+/* Velo solo en la parte baja: protege el texto sin apagar la foto. */
+.acomp-foto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 58%, rgba(8, 20, 12, .86) 100%);
+    pointer-events: none;
+}
+/* parte de la foto */
+.acomp-foto figcaption {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+    z-index: 2;
+}
+.acomp-zona {
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: #fff;
+}
+.acomp-act {
+    display: block;
+    font-family: var(--font-texto);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent, #C8973A);
+    margin-top: 6px;
+}
+
+
+/* ---------- Enlace al pie ---------- */
+.acomp-pie {
+    text-align: center;
+    margin-top: 48px;
+}
+.acomp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-texto);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--primary, #1A3C28);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border, #e4e0d6);
+    transition: border-color .3s, gap .3s, color .3s;
+}
+.acomp-link:hover {
+    color: var(--accent, #C8973A);
+    border-bottom-color: var(--accent, #C8973A);
+    gap: 16px;
+}
+.acomp-link i { font-size: 12px; }
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .acomp-fotos { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    /* La tercera foto ocupa el ancho completo en formato horizontal. */
+    .acomp-foto:last-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 16 / 9;
     }
 
-
-    .mapa-img iframe {
-
-        min-height: 0;
-
-        height: 100%;
-
+    .proj-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 16px; 
     }
-
-
-    .cafe-body {
-
-        padding: 28px 20px;
-
+    /* La tercera tarjeta ocupa el ancho completo, igual que en acompañamiento. */
+    .proj-card:last-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 16 / 9;
     }
+}
 
+@media (max-width: 620px) {
+    .acomp-sec  { padding: 68px 0; }
+    .acomp-wrap { padding: 0 20px; }
+    .acomp-head { margin-bottom: 36px; }
 
-    .cafe-body h3 {
+    .proj-sec  { padding: 68px 0; }
+    .proj-wrap { padding: 0 20px; }
 
-        font-size: 26px;
-
-    }
-
-
-    .cafe-notas p {
-
-        font-size: 13px;
-
-    }
-
-
-    /* =====================================================
-       ACOMPAÑAMIENTO EN CELULAR
-       ===================================================== */
-
-    .acomp-sec {
-
-        padding: 68px 0;
-
-    }
-
-
-    .acomp-wrap {
-
-        padding: 0 20px;
-
-    }
-
-
-    .acomp-head {
-
-        margin-bottom: 36px;
-
-    }
-
-
-    .proj-sec {
-
-        padding: 68px 0;
-
-    }
-
-
-    .proj-wrap {
-
-        padding: 0 20px;
-
-    }
-
-
+    /* Carrusel horizontal: tres fotos verticales apiladas serían
+       pantalla y media de puro scroll. */
     .acomp-fotos {
 
         display: flex;
@@ -2072,36 +1722,31 @@
         aspect-ratio: 4 / 5;
 
     }
+    .acomp-foto:last-child { aspect-ratio: 4 / 5; }
+    .acomp-zona { font-size: 20px; }
 
-
-    .acomp-foto:last-child {
-
+    /* Mismo carrusel horizontal que acomp-fotos. */
+    .proj-grid {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .proj-grid::-webkit-scrollbar { display: none; }
+    .proj-card {
+        flex: 0 0 76%;
+        scroll-snap-align: center;
         aspect-ratio: 4 / 5;
-
     }
-
-
-    .acomp-zona {
-
-        font-size: 20px;
-
-    }
-
+    .proj-card:last-child { aspect-ratio: 4 / 5; }
 }
 
-
-/* =========================================================
-   REDUCIR ANIMACIONES
-   ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
-    .acomp-foto img,
-    .acomp-link,
-    .mapa-img iframe {
-
-        transition: none;
-
-    }
-
+    .acomp-foto img, .acomp-link { transition: none; }
+    .proj-card img { transition: none; }
 }

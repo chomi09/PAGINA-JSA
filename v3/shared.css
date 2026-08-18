@@ -41,8 +41,8 @@
     /* ── Tipografía ──
        --font-titulo : títulos h1–h3, headings de sección
        --font-texto  : párrafos, botones, nav, etiquetas, UI en general */
-    --font-titulo: 'Fraunces', Georgia, 'Times New Roman', serif;
---font-texto:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    --font-titulo: var(--font-texto);
+    --font-texto:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 /* ===== RESET ===== */
@@ -126,15 +126,20 @@ ul { list-style: none; }
    .sec-body    → párrafo descriptivo bajo el título (Inter, gris)
    ========================================================= */
 .eyebrow {
-    display: block; font-family: var(--font-texto);
-    font-size: 12px; font-weight: 700; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    display: block; 
+    font-family: var(--font-texto);
+    font-size: 12px; 
+    font-weight: 700; 
+    letter-spacing: 3px;
+    text-transform: uppercase; 
+    color: var(--accent); 
+    margin-bottom: 14px;
 }
 .eyebrow--white { color: #fff; }
 .sec-heading {
     font-family: var(--font-titulo); 
     font-size: 38px; 
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text); 
     line-height: 1.2; 
     margin-bottom: 20px;
@@ -321,7 +326,7 @@ footer.v3-footer {
 .sec-title {
     font-family: var(--font-titulo);
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 700x;
     color: var(--verde-oscuro);
     line-height: 1.2;
     margin: 4px 0 8px;
