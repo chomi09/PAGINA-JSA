@@ -22,9 +22,11 @@
     --pd-verde       : #2f5233;   /* títulos, números de la ficha     */
     --pd-verde-medio : #4f6f3f;   /* texto secundario en verde        */
     --pd-verde-suave : #6b8f5d;   /* detalles, bordes activos         */
+    --bg-dark:         #0F1E15;
+    --bg-soft:         #F9F7F4;
     --pd-crema       : #f4f8f2;   /* fondo de bloques claros          */
     --pd-crema-hondo : #dce8d7;   /* fondo de tarjetas y ficha        */
-    --pd-linea       : #d6e2d4;   /* hairlines y separadores          */
+    --pd-linea       : #E2DFD5;   /* hairlines y separadores          */
     --pd-blanco      : #ffffff;
     --pd-tinta       : #2a2f2a;   /* cuerpo de texto                  */
     --pd-tinta-suave : #5d6b5d;   /* pies de foto, etiquetas          */
@@ -53,7 +55,7 @@
    ============================================================ */
 .proyecto-detalle .v3-nav,
 .proyecto-detalle .v3-nav.scrolled {
-    background: var(--pd-verde-hondo);
+    background: var(--bg-dark);
     height: 68px;
     padding: 0 var(--pd-s4);
     box-shadow: none;
@@ -180,7 +182,7 @@
    4. FICHA NUMÉRICA
    ============================================================ */
 .pd-ficha {
-    background: var(--pd-crema-hondo);
+    background: var(--bg-soft);
     border-bottom: 1px solid var(--pd-linea);
 }
 .pd-ficha__grid {
@@ -277,14 +279,14 @@
     gap: var(--pd-s2);
 }
 .pd-tarjeta {
-    background: var(--pd-crema);
+    background: var(--pd-blanco);
     border: 1px solid var(--pd-linea);
     border-radius: var(--r-md, 14px);
     padding: var(--pd-s3);
     transition: border-color .3s, transform .3s;
 }
 .pd-tarjeta:hover {
-    border-color: var(--pd-verde-suave);
+    border-color: var(--pd-blanco);
     transform: translateY(-3px);
 }
 .pd-tarjeta__icono {
@@ -330,40 +332,41 @@
    Parte la página en dos y da respiro después de tanto fondo
    claro. Ese contraste es lo que crea ritmo.
    ============================================================ */
-.pd-verde { background: var(--pd-verde-hondo); }
+.pd-verde { 
+    background: var(--bg-soft); }
 .pd-verde__wrap {
     max-width: var(--pd-ancho);
     margin: 0 auto;
     padding: var(--pd-s5) var(--pd-s4);
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: 1fr 460px;
     gap: var(--pd-s5);
-    align-items: center;
+    align-items: stretch;
 }
 .pd-verde h2 {
     font-family: var(--font-titulo);
     font-size: clamp(24px, 2.8vw, 32px);
     font-weight: 500;
     line-height: 1.2;
-    color: var(--pd-blanco);
+    color: var(--pd-tinta);
     margin: 0 0 var(--pd-s3);
 }
 .pd-verde p {
     font-family: var(--font-texto);
     font-size: 16.5px;
     line-height: 1.8;
-    color: rgba(255, 255, 255, .82);
+    color: var(--pd-tinta);
     margin: 0 0 var(--pd-s2);
 }
 .pd-verde p:last-child { margin-bottom: 0; }
 .pd-verde__img {
     margin: 0;
-    border-radius: var(--r-md, 14px);
+    height: 100%;
     overflow: hidden;
 }
 .pd-verde__img img {
     width: 100%;
-    height: 320px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }

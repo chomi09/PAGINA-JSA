@@ -3,198 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto: Moscas</title>
+    <title>Moscas Soldado | Cooperativa Agraria Cafetalera Juan Santos Atahualpa</title>
+    <meta name="description" content="Cómo la Cooperativa Juan Santos Atahualpa cría mosca soldado negra para transformar residuos orgánicos en abono y proteína animal.">
 
-    <link rel="stylesheet" href="shared.css">
-    <link rel="stylesheet" href="moscas1.css">
-    <link rel="stylesheet" href="proyectos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Fraunces:opsz,wght@9..144,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="proyecto-detalle.css">
 </head>
-<body>
 
-    <!-- NAVBAR -->
-    <nav class="v3-nav" id="v3nav">
-        <a href="index.html" class="nav-logo">
-            <img src="../img/Logosolo4.png" alt="CACJSA">
-            <img src="../img/Logoletras4.png" alt="CACJSA" class="nav-logo-text">
+<body class="proyecto-detalle">
 
-        </a>
+<!-- ===== NAVBAR ===== -->
+<nav class="v3-nav" id="v3nav">
+    <a href="index.html" class="nav-logo">
+        <img src="../img/Logosolo4.png" alt="CACJSA">
+        <img src="../img/Logoletras4.png" alt="CACJSA" class="nav-logo-text">
 
-        <a href="proyectos.html" class="nav-back" aria-label="Regresar a Proyectos">
-            <span>REGRESAR</span>
-        </a>
-    </nav>
+    </a>
 
-    <!-- PAGE HERO -->
-    <div class="page-hero">
-        <div class="page-hero-bg" style="background-image: url('../img/agroideas.jpg');"></div>
-        <div class="page-hero-ov"></div>
+    <span class="nav-titulo-proyecto">Moscas Soldado</span>
 
-        <div class="page-hero-cnt">
-            <span class="eyebrow" style="color: var(--accent);">Impacto Real</span>
-            <h1>Moscas soldado</h1>
-            <p>Una phrase que resume el proyecto</p>
+    <a href="proyectos.html" class="nav-back">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        <span>Regresar a proyectos</span>
+    </a>
+</nav>
+<div class="pd-progreso" id="pdProgreso"></div>
+
+
+<!-- ===== HERO ===== -->
+<header class="pd-hero">
+    <div class="pd-hero__bg" style="background-image: url('../img/moscas.jpeg');"></div>
+    <div class="pd-hero__velo"></div>
+
+    <div class="pd-hero__cnt">
+        <span class="pd-eyebrow">Impacto real</span>
+        <h1>Moscas Soldado</h1>
+        <p class="pd-hero__sub">[TEXTO DE EJEMPLO — reemplázalo] Una phrase que resume el proyecto.</p>
+    </div>
+</header>
+
+
+<!-- ===== FICHA NUMÉRICA ===== -->
+<section class="pd-ficha" aria-label="Ficha del proyecto">
+    <div class="pd-ficha__grid">
+        <div class="pd-ficha__item">
+            <span class="pd-ficha__valor">[X]+</span>
+            <span class="pd-ficha__etiqueta">Familias beneficiadas</span>
+        </div>
+        <div class="pd-ficha__item">
+            <span class="pd-ficha__valor">[AÑO]</span>
+            <span class="pd-ficha__etiqueta">Año de inicio</span>
+        </div>
+        <div class="pd-ficha__item">
+            <span class="pd-ficha__valor">[X]%</span>
+            <span class="pd-ficha__etiqueta">Residuos reutilizados</span>
+        </div>
+        <div class="pd-ficha__item">
+            <span class="pd-ficha__valor">CACJSA</span>
+            <span class="pd-ficha__etiqueta">Impulsado por</span>
         </div>
     </div>
+</section>
 
-    <!-- SECCION INTRO -->
-    <section class="section-intro">
 
-        <div class="intro-left">
+<!-- ===== INTRO: CÍRCULO + TEXTO ===== -->
+<section class="pd-intro">
+    <div class="pd-intro__circulo">
+        <img src="../img/agroideas.jpg" alt="Cría de mosca soldado negra">
+    </div>
 
-            <div class="intro-top">
-            <div class="circulo placeholder-imagen">
-            <img src="/img/agroideas.jpg" alt="Cría de mosca soldado negra"></div>
-                <div class="rect-letra placeholder-letra">[TEXTO DE EJEMPLO — reemplázalo] El proyecto Moscas Soldado busca transformar
-                    los residuos orgánicos de la cooperativa en abono y proteína animal mediante
-                    la cría de larvas de mosca soldado negra (Hermetia illucens), reduciendo
-                    desechos y generando nuevos ingresos para las familias socias.</div>
-            </div>
+    <div>
+        <span class="pd-eyebrow">El proyecto</span>
+        <h2>Cría de mosca soldado negra</h2>
+        <p>[TEXTO DE EJEMPLO — reemplázalo] El proyecto Moscas Soldado busca transformar los residuos orgánicos de la cooperativa en abono y proteína animal mediante la cría de larvas de mosca soldado negra (<em>Hermetia illucens</em>), reduciendo desechos y generando nuevos ingresos para las familias socias.</p>
+    </div>
+</section>
 
-        <div class="intro-bottom">
-    <!-- Tarjeta 1 -->
-    <div class="info-card">
-        <div class="icon">♻️</div>
+
+<!-- ===== TARJETAS ===== -->
+<section class="pd-tarjetas">
+    <article class="pd-tarjeta">
+        <div class="pd-tarjeta__icono"><i class="fas fa-recycle" aria-hidden="true"></i></div>
         <h3>Economía Circular</h3>
         <ul>
             <li>Aprovechamiento de residuos orgánicos.</li>
             <li>Reducción de desechos de la cooperativa.</li>
             <li>Menor impacto ambiental.</li>
         </ul>
-        <div class="progress-title">Aprovechamiento de residuos</div>
-        <div class="progress">
-            <div class="progress-bar" style="width:95%"></div>
-        </div>
-        <span class="percent">95%</span>
-    </div>
-    <!-- Tarjeta 2 -->
-    <div class="info-card">
-        <div class="icon">🐛</div>
+    </article>
+
+    <article class="pd-tarjeta">
+        <div class="pd-tarjeta__icono"><i class="fas fa-bug" aria-hidden="true"></i></div>
         <h3>Producción de Proteína</h3>
         <ul>
             <li>Larvas como alimento animal.</li>
             <li>Abono orgánico de alta calidad.</li>
             <li>Nuevas fuentes de ingreso.</li>
         </ul>
-        <div class="progress-title">Producción de proteína</div>
-        <div class="progress">
-            <div class="progress-bar" style="width:85%"></div>
-        </div>
-        <span class="percent">85%</span>
-    </div>
-    <!-- Tarjeta 3 -->
-    <div class="info-card">
-        <div class="icon">📈</div>
+    </article>
+
+    <article class="pd-tarjeta">
+        <div class="pd-tarjeta__icono"><i class="fas fa-chart-simple" aria-hidden="true"></i></div>
         <h3>Datos rápidos</h3>
         <ul>
             <li>[X] familias beneficiadas.</li>
             <li>[X] kg de residuos procesados al mes.</li>
             <li>Cobertura: Perené, Junín.</li>
         </ul>
-        <div class="progress-title">Eficiencia natural</div>
-        <div class="progress">
-            <div class="progress-bar" style="width:90%"></div>
-        </div>
-        <span class="percent">90%</span>
-    </div>
+    </article>
+</section>
 
-<div class="intro-right">
-    <div class="video-box">
-        <video autoplay muted loop playsinline controls>
+
+<!-- ===== BLOQUE VERDE ===== -->
+<section class="pd-verde">
+    <div class="pd-verde__wrap">
+        <div>
+            <span class="pd-eyebrow">Origen del proyecto</span>
+            <h2>De residuos a recursos</h2>
+            <p>[TEXTO DE EJEMPLO — reemplázalo] El proyecto Moscas Soldado nace de la necesidad de dar un manejo sostenible a los residuos orgánicos generados durante el procesamiento del café. A través de la cría de larvas de mosca soldado negra, la cooperativa convierte estos desechos en abono orgánico y proteína animal, generando ingresos adicionales para las familias productoras y reduciendo el impacto ambiental de la actividad cafetalera.</p>
+        </div>
+
+        <figure class="pd-verde__img">
+            <img src="../img/agroideas.jpg" alt="Cría de moscas soldado negra">
+        </figure>
+    </div>
+</section>
+
+
+<!-- ===== VIDEO ===== -->
+<section class="pd-video">
+    <div class="pd-video__marco">
+        <video controls preload="metadata" poster="../img/moscas.jpeg">
             <source src="../img/MOSCASVIDEO.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
+            Tu navegador no soporta la reproducción de video.
         </video>
     </div>
-</div>
+    <p class="pd-video__pie">Recorrido por el proceso de cría de mosca soldado negra en la cooperativa.</p>
+</section>
 
-        </div><!-- cierra intro-bottom -->
-        </div><!-- cierra intro-left -->
-    </section><!-- cierra section-intro -->
 
-<!-- SECCION VERDE -->
-<section class="section-verde">
-    <div class="bloque-letra placeholder-letra">[TEXTO DE EJEMPLO — reemplázalo] El proyecto Moscas Soldado nace de la necesidad de
-        dar un manejo sostenible a los residuos orgánicos generados durante el procesamiento
-        del café. A través de la cría de larvas de mosca soldado negra, la cooperativa
-        convierte estos desechos en abono orgánico y proteína animal, generando ingresos
-        adicionales para las familias productoras y reduciendo el impacto ambiental de la
-        actividad cafetalera.</div>
-
-    <div class="bloque-imagen">
-        <img src="/img/agroideas.jpg" alt="Moscas soldado">
+<!-- ===== GALERÍA ===== -->
+<section class="pd-galeria">
+    <span class="pd-eyebrow">Registro fotográfico</span>
+    <div class="pd-galeria__grid">
+        <a href="../img/agroideas.jpg"><img src="../img/agroideas.jpg" alt="Cría de mosca soldado negra"></a>
+        <a href="../img/agroideas.jpg"><img src="../img/agroideas.jpg" alt="Cría de mosca soldado negra"></a>
+        <a href="../img/agroideas.jpg"><img src="../img/agroideas.jpg" alt="Cría de mosca soldado negra"></a>
+        <a href="../img/agroideas.jpg"><img src="../img/agroideas.jpg" alt="Cría de mosca soldado negra"></a>
+        <a href="../img/agroideas.jpg"><img src="../img/agroideas.jpg" alt="Cría de mosca soldado negra"></a>
     </div>
 </section>
 
-    <!-- BENEFICIARIOS -->
-    <section class="section-beneficiarios">
 
-        <div class="titulo-pill">
-            
+<!-- ===== SIGUIENTE PROYECTO ===== -->
+<a href="proy-dignos.html" class="pd-siguiente">
+    <div class="pd-siguiente__wrap">
+        <div>
+            <span class="pd-eyebrow">Siguiente proyecto</span>
+            <p class="pd-siguiente__nombre">Ingresos dignos</p>
         </div>
-<div class="beneficiarios-grid">
-
-    <!-- Tarjeta 1: Cantidad de socios -->
-    <div class="beneficiario">
-        <div class="beneficiario-icon"><i class="fas fa-users"></i></div>
-        <div class="beneficiario-numero">[X]+</div>
-        <h4>Familias beneficiadas</h4>
-        <p>Familias que participan del manejo de residuos orgánicos</p>
+        <span class="pd-siguiente__flecha" aria-hidden="true">
+            <i class="fas fa-arrow-right"></i>
+        </span>
     </div>
+</a>
 
-    <!-- Tarjeta 2: Año de inicio -->
-    <div class="beneficiario">
-        <div class="beneficiario-icon"><i class="fas fa-calendar-alt"></i></div>
-        <div class="beneficiario-numero">[AÑO]</div>
-        <h4>Año de inicio</h4>
-        <p>Inicio del programa de cría de mosca soldado</p>
-    </div>
 
-    <!-- Tarjeta 3: Beneficios del proyecto -->
-    <div class="beneficiario">
-        <div class="beneficiario-icon"><i class="fas fa-recycle"></i></div>
-        <div class="beneficiario-numero">[X]%</div>
-        <h4>Residuos reutilizados</h4>
-        <p>Abono orgánico · Proteína animal · Menos desechos</p>
-    </div>
-
-    <!-- Tarjeta 4: Quién brinda los beneficios -->
-    <div class="beneficiario">
-        <div class="beneficiario-icon"><i class="fas fa-hand-holding-heart"></i></div>
-        <div class="beneficiario-numero">CACJSA</div>
-        <h4>Impulsado por</h4>
-        <p>Cooperativa Agraria Cafetalera Juan Santos Atahualpa</p>
-    </div>
-
-</div>
-        
-    </div>
-
-    <div class="slider">
-
-        <div class="slide-track">
-
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-
-            <!-- Repetidas para que el movimiento sea infinito -->
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-            <div class="galeria-item placeholder-imagen"><img src="/img/agroideas.jpg" alt="Moscas soldado"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
+<!-- ===== FOOTER ===== -->
 <footer class="v3-footer">
     <div class="footer-wrap">
         <div class="footer-grid">
@@ -240,7 +220,7 @@
         </div>
 
         <div class="footer-bar">
-            <span>© 2025 Cooperativa Agraria Cafetalera Juan Santos Atahualpa. Todos los derechos reservados.</span>
+            <span>© <span id="anio"></span> Cooperativa Agraria Cafetalera Juan Santos Atahualpa. Todos los derechos reservados.</span>
             <div class="footer-certs">
                 <span>ISO 9001</span>
                 <span>Fair Trade</span>
@@ -249,6 +229,23 @@
         </div>
     </div>
 </footer>
+
+
+<script>
+const nav   = document.getElementById('v3nav');
+const barra = document.getElementById('pdProgreso');
+
+function alScrollear() {
+    nav.classList.toggle('scrolled', window.scrollY > 300);
+    const alto = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.width = (alto > 0 ? (window.scrollY / alto) * 100 : 0) + '%';
+}
+
+window.addEventListener('scroll', alScrollear, { passive: true });
+alScrollear();
+
+document.getElementById('anio').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

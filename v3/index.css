@@ -362,21 +362,13 @@
    ========================================================= */
 
 .cafe-card {
-
     max-width: 1080px;
-
     margin: 0 auto;
-
     background: var(--bg);
-
     border: 1px solid var(--border);
-
     border-radius: var(--r-lg);
-
     overflow: hidden;
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
 
     /*
