@@ -106,29 +106,80 @@
     transform: translateX(3px); }
 
 /* ===== GALERÍA DE PROYECTOS ===== */
-.galeria-sec { padding: 80px 24px; background: var(--bg-soft); text-align: center; }
-.galeria-header { max-width: 640px; margin: 0 auto 40px; }
-.filtros { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 44px; }
-.btn-filtro {
-    padding: 9px 22px; border-radius: 100px;
-    border: 1.5px solid var(--border);
-    background: var(--bg); color: var(--text);
-    font-family: var(--font-texto); font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: all .25s;
+
+.galeria-sec {
+    padding: 70px 24px;
+    background: var(--bg-soft);
+    text-align: center;
 }
-.btn-filtro:hover { border-color: var(--primary); color: var(--primary); }
-.btn-filtro.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+.galeria-header {
+    max-width: 640px;
+    margin: 0 auto 35px;
+}
+
+
+/* ===== FILTROS ===== */
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.btn-filtro {
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-texto);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .25s;
+}
+
+.btn-filtro:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-filtro.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+
+/* =====================================================
+   GALERÍA — 4 TARJETAS POR FILA
+===================================================== */
 
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 22px;
-    max-width: 1152px;
+
+    /* 4 tarjetas por fila */
+    grid-template-columns: repeat(4, 1fr);
+
+    /* espacio entre tarjetas */
+    gap: 18px;
+
+    /* ancho máximo */
+    max-width: 1200px;
+
     margin: 0 auto 40px;
-    align-items: stretch; /* asegura que todas las filas tengan la misma altura */
+
+    align-items: stretch;
 }
 
-/* Enlace que envuelve cada tarjeta: debe ocupar todo el alto de la celda del grid */
+
+/* =====================================================
+   ENLACE
+===================================================== */
+
 .gal-link {
     display: flex;
     height: 100%;
@@ -136,45 +187,247 @@
     color: inherit;
 }
 
+
+/* =====================================================
+   TARJETA
+===================================================== */
+
 .gal-card {
     display: flex;
     flex-direction: column;
+
     width: 100%;
-    height: 100%; /* la tarjeta llena todo el alto disponible dentro de .gal-link */
-    background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-md);
-    overflow: hidden; transition: box-shadow .3s, transform .3s; text-align: left;
+    height: 100%;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+
+    overflow: hidden;
+
+    transition:
+        box-shadow .3s,
+        transform .3s;
+
+    text-align: left;
 }
-.gal-card:hover { box-shadow: var(--sh-lg); transform: translateY(-6px); }
-.gal-img { position: relative; height: 240px; overflow: hidden; flex-shrink: 0; }
-.gal-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
-.gal-card:hover .gal-img img { transform: scale(1.05); }
+
+.gal-card:hover {
+    box-shadow: var(--sh-lg);
+    transform: translateY(-5px);
+}
+
+
+/* =====================================================
+   IMAGEN MÁS PEQUEÑA
+===================================================== */
+
+.gal-img {
+    position: relative;
+
+    /* antes 240px */
+    height: 175px;
+
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.gal-img img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .5s;
+}
+
+.gal-card:hover .gal-img img {
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   CATEGORÍA
+===================================================== */
+
 .gal-cat {
-    position: absolute; top: 14px; left: 14px;
-    background: rgba(255,255,255,.92); backdrop-filter: blur(6px);
-    color: var(--primary); padding: 4px 12px; border-radius: 100px;
-    font-family: var(--font-texto); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    background: rgba(255,255,255,.92);
+
+    backdrop-filter: blur(6px);
+
+    color: var(--primary);
+
+    padding: 4px 9px;
+
+    border-radius: 100px;
+
+    font-family: var(--font-texto);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: .8px;
+
+    text-transform: uppercase;
 }
+
+
+/* =====================================================
+   CUERPO DE LA TARJETA
+===================================================== */
 
 .gal-body {
     display: flex;
     flex-direction: column;
-    flex: 1; /* ocupa el espacio restante para que todas las tarjetas midan igual */
-    padding: 22px;
-}
-.gal-year { font-family: var(--font-texto); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
-.gal-card h3 { font-family: var(--font-titulo); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
-.gal-card p {
-    font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px;
-    flex: 1; /* empuja gal-stats hacia el fondo aunque el texto sea corto */
-}
-.gal-stats {
-    display: flex; gap: 20px; padding-top: 14px; border-top: 1px solid var(--border);
-    margin-top: auto; /* fija las estadísticas siempre al final de la tarjeta */
-}
-.gal-stat strong { display: block; font-family: var(--font-titulo); font-size: 18px; font-weight: 800; color: var(--primary); }
-.gal-stat span { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-.galeria-cta { text-align: center; }
 
+    flex: 1;
+
+    /* antes 22px */
+    padding: 16px;
+}
+
+
+/* AÑO */
+
+.gal-year {
+    font-family: var(--font-texto);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: var(--accent);
+
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+
+/* TÍTULO */
+
+.gal-card h3 {
+    font-family: var(--font-titulo);
+
+    /* antes 17px */
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin-bottom: 6px;
+
+    line-height: 1.3;
+}
+
+
+/* DESCRIPCIÓN */
+
+.gal-card p {
+    font-size: 12px;
+
+    color: var(--text-muted);
+
+    line-height: 1.5;
+
+    margin-bottom: 12px;
+
+    flex: 1;
+}
+
+
+/* =====================================================
+   ESTADÍSTICAS
+===================================================== */
+
+.gal-stats {
+    display: flex;
+
+    gap: 15px;
+
+    padding-top: 11px;
+
+    border-top: 1px solid var(--border);
+
+    margin-top: auto;
+}
+
+.gal-stat strong {
+    display: block;
+
+    font-family: var(--font-titulo);
+
+    /* antes 18px */
+    font-size: 16px;
+
+    font-weight: 800;
+
+    color: var(--primary);
+}
+
+.gal-stat span {
+    font-size: 9px;
+
+    color: var(--text-muted);
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+}
+
+
+/* =====================================================
+   BOTÓN FINAL
+===================================================== */
+
+.galeria-cta {
+    text-align: center;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .galeria-sec {
+        padding: 50px 15px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gal-img {
+        height: 200px;
+    }
+
+}
 /* ===== EXPORTACIONES ===== */
 .export-sec { padding: 96px 24px; background: var(--bg-dark); text-align: center; }
 .export-header { max-width: 640px; margin: 0 auto 56px; }
@@ -231,6 +484,10 @@
 
 .nav-overlay.active {
     display: block;
+}
+/* ===== ESPACIO ANTES DEL FOOTER ===== */
+.v3-footer {
+    margin-top: 0px;
 }
 
 /* =========================================================
