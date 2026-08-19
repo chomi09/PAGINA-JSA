@@ -53,7 +53,6 @@
                 Arial,
                 Helvetica,
                 sans-serif;
-
         }
 
 
@@ -65,12 +64,11 @@
 
             width: 100%;
 
-            height: 768px;
+            height: 100vh;
 
-            min-height: 768px;
+            min-height: 100vh;
 
             background: #07180e;
-
         }
 
 
@@ -78,28 +76,25 @@
 
             width: 100%;
 
-            height: 768px;
+            height: 100vh;
 
             background: #07180e;
-
         }
 
 
         /* =====================================================
-           QUITAR CONTROLES DE ZOOM
+           QUITAR CONTROLES
         ====================================================== */
 
         .leaflet-control-zoom {
 
             display: none;
-
         }
 
 
         .leaflet-control-attribution {
 
             display: none;
-
         }
 
 
@@ -118,7 +113,6 @@
             transition:
                 fill .3s ease,
                 fill-opacity .3s ease;
-
         }
 
 
@@ -129,14 +123,12 @@
             fill-opacity: 1;
 
             color: #fff4a3;
-
         }
 
 
         .leaflet-interactive {
 
             cursor: pointer !important;
-
         }
 
 
@@ -163,7 +155,6 @@
             position: relative;
 
             cursor: pointer;
-
         }
 
 
@@ -191,7 +182,6 @@
 
             animation:
                 pulso 2s infinite;
-
         }
 
 
@@ -216,7 +206,6 @@
                 0 0 25px #fff4a3;
 
             position: relative;
-
         }
 
 
@@ -244,7 +233,6 @@
 
             animation:
                 pulso 2s infinite;
-
         }
 
 
@@ -261,7 +249,6 @@
                     scale(.5);
 
                 opacity: 1;
-
             }
 
             100% {
@@ -271,9 +258,7 @@
                     scale(1.7);
 
                 opacity: 0;
-
             }
-
         }
 
 
@@ -290,17 +275,11 @@
                     0 0 2px
                     rgba(255,255,255,.45)
                 );
-
         }
 
 
         /* =====================================================
-           PANEL DE PAÍS
-           
-           SOLO:
-           - BANDERA
-           - NOMBRE
-           - CÓDIGO
+           PANEL
         ====================================================== */
 
         #panel {
@@ -316,8 +295,6 @@
             bottom: auto !important;
 
 
-            /* TAMAÑO */
-
             width: 180px !important;
 
             min-width: 180px !important;
@@ -332,19 +309,13 @@
             max-height: 90px !important;
 
 
-            /* CENTRADO */
-
             transform:
                 translate(-50%, -50%)
                 scale(.92) !important;
 
 
-            /* ESPACIADO */
-
             padding: 15px !important;
 
-
-            /* APARIENCIA */
 
             background:
                 rgba(5, 25, 13, .97) !important;
@@ -357,8 +328,6 @@
                 15px !important;
 
 
-            /* CONTROL */
-
             box-sizing:
                 border-box !important;
 
@@ -366,13 +335,9 @@
                 hidden !important;
 
 
-            /* CAPA */
-
             z-index:
                 9999 !important;
 
-
-            /* SOMBRA */
 
             box-shadow:
                 0 10px 35px
@@ -382,20 +347,15 @@
                 blur(8px);
 
 
-            /* ESTADO OCULTO */
-
             opacity: 0;
 
             visibility: hidden;
 
 
-            /* ANIMACIÓN */
-
             transition:
                 opacity .3s ease,
                 transform .3s ease,
                 visibility .3s ease;
-
         }
 
 
@@ -413,12 +373,11 @@
             transform:
                 translate(-50%, -50%)
                 scale(1) !important;
-
         }
 
 
         /* =====================================================
-           CABECERA DEL PANEL
+           CABECERA
         ====================================================== */
 
         #panel .panel-cabecera {
@@ -432,7 +391,6 @@
             margin-top: 5px;
 
             padding-right: 28px;
-
         }
 
 
@@ -447,12 +405,11 @@
             line-height: 1;
 
             min-width: 35px;
-
         }
 
 
         /* =====================================================
-           NOMBRE DEL PAÍS
+           NOMBRE
         ====================================================== */
 
         #panel h2 {
@@ -467,12 +424,11 @@
                 0 0 5px 0 !important;
 
             font-weight: bold;
-
         }
 
 
         /* =====================================================
-           CÓDIGO DEL PAÍS
+           CÓDIGO
         ====================================================== */
 
         #panel .codigo-pais {
@@ -486,7 +442,6 @@
             letter-spacing: 3px;
 
             text-transform: uppercase;
-
         }
 
 
@@ -526,7 +481,6 @@
             cursor: pointer;
 
             z-index: 20;
-
         }
 
 
@@ -536,7 +490,6 @@
                 rgba(255,244,163,.2);
 
             color: #fff4a3;
-
         }
 
 
@@ -563,7 +516,6 @@
             font-size: 11px;
 
             font-weight: bold;
-
         }
 
 
@@ -612,7 +564,6 @@
             box-shadow:
                 0 5px 20px
                 rgba(0,0,0,.35);
-
         }
 
 
@@ -624,17 +575,15 @@
 
             #map {
 
-                height: 600px;
+                height: 100vh;
 
-                min-height: 600px;
-
+                min-height: 100vh;
             }
 
 
             .leaflet-container {
 
-                height: 600px;
-
+                height: 100vh;
             }
 
 
@@ -657,7 +606,6 @@
 
                 max-height:
                     90px !important;
-
             }
 
 
@@ -665,7 +613,6 @@
 
                 font-size:
                     17px !important;
-
             }
 
 
@@ -673,9 +620,7 @@
 
                 font-size:
                     28px;
-
             }
-
         }
 
 
@@ -687,17 +632,15 @@
 
             #map {
 
-                height: 520px;
+                height: 100vh;
 
-                min-height: 520px;
-
+                min-height: 100vh;
             }
 
 
             .leaflet-container {
 
-                height: 520px;
-
+                height: 100vh;
             }
 
 
@@ -720,7 +663,6 @@
 
                 max-height:
                     85px !important;
-
             }
 
 
@@ -728,7 +670,6 @@
 
                 font-size:
                     16px !important;
-
             }
 
 
@@ -736,7 +677,6 @@
 
                 font-size:
                     26px;
-
             }
 
 
@@ -744,9 +684,22 @@
 
                 font-size:
                     12px;
-
             }
+        }
 
+    
+        /* AJUSTE FINAL DE ZOOM Y TAMAÑO DEL MAPA */
+        html, body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #map,
+        .leaflet-container {
+            width: 100%;
+            height: 100vh !important;
+            min-height: 100vh !important;
         }
 
     </style>
@@ -766,9 +719,6 @@
 
 <!-- =====================================================
      PANEL
-     
-     SOLO MUESTRA:
-     BANDERA + NOMBRE + CÓDIGO
 ====================================================== -->
 
 <div
@@ -790,8 +740,7 @@
         <div
             class="bandera"
             id="bandera"
-        >
-        </div>
+        ></div>
 
 
         <div>
@@ -835,7 +784,7 @@ const mapa = L.map(
     {
         zoomControl: false,
 
-        minZoom: 2,
+        minZoom: 1.5,
 
         maxZoom: 7,
 
@@ -937,6 +886,16 @@ const paises = {
 
 
 /* =====================================================
+   ORIGEN (usado en varias funciones)
+===================================================== */
+
+const ORIGEN = [
+    -11.5,
+    -75.5
+];
+
+
+/* =====================================================
    GEOJSON
 ===================================================== */
 
@@ -955,11 +914,12 @@ let marcadores = {};
 
 /* =====================================================
    VISTA INICIAL
+   (provisional, se recalcula con fitBounds al cargar)
 ===================================================== */
 
 mapa.setView(
-    [25, -20],
-    2.2
+    [20, -30],
+    2
 );
 
 
@@ -1133,12 +1093,16 @@ fetch(geojsonURL)
         ).addTo(mapa);
 
 
-        /* RUTAS */
+        /* =================================================
+           RUTAS
+        ================================================= */
 
         crearTodasLasRutas();
 
 
-        /* MARCADORES */
+        /* =================================================
+           MARCADORES
+        ================================================= */
 
         crearMarcador(
             51.1657,
@@ -1175,12 +1139,16 @@ fetch(geojsonURL)
         );
 
 
-        /* ORIGEN */
+        /* =================================================
+           ORIGEN
+        ================================================= */
 
         crearMarcadorOrigen();
 
 
-        /* VISTA */
+        /* =================================================
+           VISTA
+        ================================================= */
 
         setTimeout(
             function() {
@@ -1214,14 +1182,8 @@ fetch(geojsonURL)
 
 function crearTodasLasRutas() {
 
-    const origen = [
-        -11.5,
-        -75.5
-    ];
-
-
     crearRutaCurva(
-        origen,
+        ORIGEN,
         [
             39.8283,
             -98.5795
@@ -1231,7 +1193,7 @@ function crearTodasLasRutas() {
 
 
     crearRutaCurva(
-        origen,
+        ORIGEN,
         [
             51.1657,
             10.4515
@@ -1241,7 +1203,7 @@ function crearTodasLasRutas() {
 
 
     crearRutaCurva(
-        origen,
+        ORIGEN,
         [
             52.1326,
             5.2913
@@ -1251,7 +1213,7 @@ function crearTodasLasRutas() {
 
 
     crearRutaCurva(
-        origen,
+        ORIGEN,
         [
             50.8503,
             4.3517
@@ -1261,7 +1223,7 @@ function crearTodasLasRutas() {
 
 
     crearRutaCurva(
-        origen,
+        ORIGEN,
         [
             46.8182,
             8.2275
@@ -1499,12 +1461,6 @@ function crearMarcador(
 
 function crearMarcadorOrigen() {
 
-    const origen = [
-        -11.5,
-        -75.5
-    ];
-
-
     const icono =
         L.divIcon({
 
@@ -1528,7 +1484,7 @@ function crearMarcadorOrigen() {
     const marcador =
         L.marker(
 
-            origen,
+            ORIGEN,
 
             {
 
@@ -1573,69 +1529,32 @@ function crearMarcadorOrigen() {
 
 /* =====================================================
    MOSTRAR TODOS LOS DESTINOS
+   (ahora usa fitBounds en vez de un zoom fijo,
+   así siempre se ve todo el conjunto de puntos
+   con margen, sin importar el tamaño de pantalla)
 ===================================================== */
 
 function mostrarTodosLosDestinos() {
 
-    const puntos = [
+    /* =================================================
+       Vista fija (en vez de fitBounds dinámico).
 
-        [
-            -11.5,
-            -75.5
-        ],
+       fitBounds recalculaba el zoom según el tamaño
+       exacto del contenedor en cada carga, por eso
+       el resultado variaba (a veces con más espacio
+       arriba, a veces con menos). Con un centro y
+       zoom fijos, la vista siempre es la misma,
+       calculada para coincidir con la vista aprobada.
+    ================================================= */
 
-        [
-            39.8283,
-            -98.5795
-        ],
+    mapa.setView(
 
-        [
-            51.1657,
-            10.4515
-        ],
+        [28, -35],
 
-        [
-            52.1326,
-            5.2913
-        ],
-
-        [
-            50.8503,
-            4.3517
-        ],
-
-        [
-            46.8182,
-            8.2275
-        ]
-
-    ];
-
-
-    const limites =
-        L.latLngBounds(
-            puntos
-        );
-
-
-    mapa.fitBounds(
-
-        limites,
+        1.8,
 
         {
-
-            paddingTopLeft:
-                [45, 45],
-
-            paddingBottomRight:
-                [45, 45],
-
-            maxZoom:
-                3.5,
-
-            animate:
-                false
-
+            animate: false
         }
 
     );
@@ -1671,10 +1590,7 @@ function seleccionarPais(
 ) {
 
     /* =================================================
-       SOLO CARGAR:
        BANDERA
-       NOMBRE
-       CÓDIGO
     ================================================= */
 
     document
@@ -1683,11 +1599,19 @@ function seleccionarPais(
         datos.bandera;
 
 
+    /* =================================================
+       NOMBRE
+    ================================================= */
+
     document
         .getElementById("nombre")
         .textContent =
         datos.nombre;
 
+
+    /* =================================================
+       CÓDIGO
+    ================================================= */
 
     document
         .getElementById("codigo")
@@ -1726,7 +1650,7 @@ function seleccionarPais(
                     [40, 40],
 
                 maxZoom:
-                    5,
+                    4,
 
                 duration:
                     1.2
@@ -1750,7 +1674,7 @@ function seleccionarPais(
 
             coordenadas,
 
-            5,
+            4,
 
             {
 
@@ -1810,6 +1734,8 @@ window.addEventListener(
             function() {
 
                 mapa.invalidateSize();
+
+                mostrarTodosLosDestinos();
 
             },
 
