@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACJSA — Cooperativa Cafetalera Juan Santos Atahualpa</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header>
+        <div class="contenedor" id="navbar">
+            <div class="logo">
+                <img src="../img/Logoatahualpa.png" alt="CACJSA">
+            </div>
+            <nav class="sublista">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="innovacion.html">Innovación</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <select class="language">
+                <option>Español</option>
+                <option>English</option>
+                <option>Português</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== HERO — idéntico al original ===== -->
+        <section class="hero">
+            <div id="carouselPrincipal" class="carousel slide" data-bs-ride="true" data-bs-pause="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="slide-bg" style="background-image: url(../img/asamblea2.jpg);"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="slide-bg" style="background-image: url(../img/reunion.jpg);"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="slide-bg" style="background-image: url(../img/agroideas.jpg);"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="herocont">
+                <button class="organic-boton">100% Orgánico Certificado</button>
+                <p>Cooperativa Agraria Cafetalera</p>
+                <h1>Juan Santos Atahualpa</h1>
+                <h2>Cultivando calidad, innovando el futuro del café peruano</h2>
+            </div>
+            <div class="botones">
+                <button class="conocenos-boton" onclick="location.href='sobrenosotros.html'">Conócenos</button>
+                <button class="cafe-boton" onclick="location.href='contacto.html'">Exportar / Comprar</button>
+            </div>
+        </section>
+
+        <!-- ===== TRIOVALOR — idéntico al original ===== -->
+        <section class="triovalor">
+            <h2 class="Frase">Nuestra Fórmula de Café Orgánico</h2>
+            <div class="contenedor-tarjetas">
+                <div class="tarjeta">
+                    <h3>Certificado Orgánico</h3>
+                    <img src="../img/cafee.jpg" alt="Cultivo orgánico">
+                    <p class="negritas">Cultivamos un futuro limpio</p>
+                    <p>Como promotores de la agricultura orgánica, aseguramos, mediante rigurosos controles biológicos, que cada lote cumpla con los estándares internacionales más exigentes, garantizando pureza total y sostenibilidad ética desde el origen.</p>
+                    <span class="icono"></span>
+                </div>
+                <div class="tarjeta">
+                    <h3>Innovación: Trazabilidad 3D</h3>
+                    <img src="../img/dron.jpg" alt="Vuelo con dron">
+                    <p class="negritas">Hemos revolucionado el origen</p>
+                    <p>La georeferenciación con drones y las fincas 3D nos permiten asegurar una trazabilidad inquebrantable, ofreciendo un historial de lote 100% verificado y listo para auditoría.</p>
+                    <span class="icono"></span>
+                </div>
+                <div class="tarjeta">
+                    <h3>Calidad de Exportación</h3>
+                    <img src="../img/calidad.jpg" alt="Control de calidad">
+                    <p class="negritas">La excelencia es nuestra única medida</p>
+                    <p>Mediante procesos rigurosos de cosecha, beneficio y control de calidad especializados, garantizamos la consistencia y la excelencia para ofrecer lotes premium con perfiles de sabor que superan las expectativas del mercado global más exigente.</p>
+                    <span class="icono"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NÚMEROS CLAVE — nuevo ===== -->
+        <section class="stats-counter" id="stats">
+            <span class="stats-label">Nuestro Impacto</span>
+            <h2 class="stats-h2">Décadas construyendo confianza global</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-numero" data-target="500" data-prefix="+">+500</span>
+                    <span class="stat-etiqueta">Familias Productoras</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-numero" data-target="15" data-prefix="+">+15</span>
+                    <span class="stat-etiqueta">Años Exportando</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-numero" data-target="671" data-prefix="">671</span>
+                    <span class="stat-etiqueta">Socios Activos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-numero" data-target="5" data-prefix="+">+5</span>
+                    <span class="stat-etiqueta">Destinos Internacionales</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CAFÉ DESTACADO DEL MES — nuevo ===== -->
+        <section class="cafe-destacado">
+            <div class="cafe-header">
+                <span class="sec-label">Café del Mes</span>
+                <h2 class="sec-title">Lote Destacado: Bourbon Rojo</h2>
+            </div>
+            <div class="cafe-card-grid">
+                <div class="cafe-img-wrap">
+                    <img src="../img/calidad.jpg" alt="Café Bourbon Rojo — CACJSA">
+                    <span class="cafe-badge">✦ Cosecha 2025</span>
+                </div>
+                <div class="cafe-info">
+                    <h3>Bourbon Rojo de Perené</h3>
+                    <span class="cafe-region">Perené, Junín — Perú</span>
+                    <div class="cafe-ficha">
+                        <div class="cafe-row">
+                            <span class="cafe-row-label">Variedad</span>
+                            <span class="cafe-row-val">Bourbon Rojo</span>
+                        </div>
+                        <div class="cafe-row">
+                            <span class="cafe-row-label">Proceso</span>
+                            <span class="cafe-row-val">Lavado</span>
+                        </div>
+                        <div class="cafe-row">
+                            <span class="cafe-row-label">Altitud</span>
+                            <span class="cafe-row-val">1,400 – 1,800 msnm</span>
+                        </div>
+                        <div class="cafe-row">
+                            <span class="cafe-row-label">Certificación</span>
+                            <span class="cafe-row-val">Orgánico · Fair Trade</span>
+                        </div>
+                        <div class="cafe-row">
+                            <span class="cafe-row-label">Exportado a</span>
+                            <span class="cafe-row-val">Alemania · Japón · EE.UU.</span>
+                        </div>
+                    </div>
+                    <p class="notas-titulo">Notas de Cata</p>
+                    <div class="notas-tags">
+                        <span class="nota-tag">Manzana Verde</span>
+                        <span class="nota-tag">Caramelo</span>
+                        <span class="nota-tag">Floral</span>
+                        <span class="nota-tag">Cítrico</span>
+                    </div>
+                    <button class="btn-ver-lotes" onclick="location.href='proyectos.html'">Ver Todos los Lotes</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIO — nuevo ===== -->
+        <section class="testimonio">
+            <div class="testimonio-inner">
+                <div class="testimonio-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonio-texto">
+                    "La trazabilidad que ofrece CACJSA es excepcional. Poder conocer la finca, la altitud y la fecha exacta de cosecha de cada saco nos da una confianza total. Es el tipo de transparencia que el mercado de especialidad exige."
+                </p>
+                <div class="testimonio-autor">
+                    <img class="testimonio-avatar" src="../img/cafe.jpg" alt="Lars Bergman">
+                    <div class="testimonio-name">
+                        <strong>Lars Bergman</strong>
+                        <span>Green Coffee Buyer — Estocolmo, Suecia</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA FINAL — FORMULARIO nuevo ===== -->
+        <section class="cta-final">
+            <div class="cta-inner">
+                <span class="sec-label">Exportaciones</span>
+                <h2 class="sec-title">¿Quieres importar nuestro café?</h2>
+                <p class="cta-sub">Cuéntanos sobre tu empresa y te contactaremos con información de lotes disponibles, volúmenes y certificaciones.</p>
+                <form class="cta-form" onsubmit="return false;">
+                    <div class="cta-row">
+                        <input type="text" placeholder="Nombre o Empresa" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <input type="text" placeholder="País de importación">
+                    <select>
+                        <option value="" disabled selected>Tipo de consulta</option>
+                        <option>Quiero importar café</option>
+                        <option>Soy distribuidor</option>
+                        <option>Quiero visitar la cooperativa</option>
+                        <option>Medios / Prensa</option>
+                        <option>Otro</option>
+                    </select>
+                    <button type="submit" class="btn-cta">Solicitar Información</button>
+                </form>
+                <p class="cta-nota">Respondemos en menos de 48 horas &middot; Sin compromiso</p>
+            </div>
+        </section>
+
+        <!-- ===== MAPA — mismo del original ===== -->
+        <section class="mapa">
+            <div class="mapa-header">
+                <span class="sec-label">Ubicación</span>
+                <h2 class="sec-title text-center">Encuéntranos en Perené, Junín</h2>
+            </div>
+            <div class="mapa_google">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5540.102031527385!2d-74.87483621155206!3d-10.929816507517808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910a2c9da8ad9cc7%3A0x37c7adba43d7a73c!2sCooperativa%20Agroecol%C3%B3gica%20Industrial%20Juan%20Santos%20Atahualpa!5e0!3m2!1ses-419!2spe!4v1778349079630!5m2!1ses-419!2spe"
+                    width="1700" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <img class="footer-logo-img" src="../img/Logoatahualpa.png" alt="CACJSA">
+                    <p class="footer-desc">Cooperativa Agraria Cafetalera Juan Santos Atahualpa — llevando café de especialidad peruano al mundo desde 1987.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Páginas</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="innovacion.html">Innovación</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Exportación</h4>
+                    <ul>
+                        <li><a href="#">Catálogo de Lotes</a></li>
+                        <li><a href="#">Certificaciones</a></li>
+                        <li><a href="#">Proceso de Compra</a></li>
+                        <li><a href="contacto.html">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:exportaciones@cacjsa.pe">exportaciones@cacjsa.pe</a></li>
+                        <li><a href="#">+51 XXX XXX XXX</a></li>
+                        <li><a href="#">Perené, Junín — Perú</a></li>
+                        <li><a href="contacto.html">Enviar mensaje</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Cooperativa Agraria Cafetalera Juan Santos Atahualpa. Todos los derechos reservados.</span>
+                <span>Hecho con ❤️ desde Perú</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/51XXXXXXXXX?text=Hola%2C%20quiero%20cotizar%20café%20de%20exportación" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Carousel
+        document.addEventListener('DOMContentLoaded', function () {
+            var el = document.querySelector('#carouselPrincipal');
+            new bootstrap.Carousel(el, { interval: 5000, ride: 'carousel' });
+        });
+
+        // Navbar scroll
+        window.addEventListener('scroll', function () {
+            document.querySelector('.contenedor').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Contador animado (se activa al entrar en pantalla)
+        const counters = document.querySelectorAll('.stat-numero');
+        const statsObs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                counters.forEach(el => {
+                    const target = parseInt(el.dataset.target);
+                    const prefix = el.dataset.prefix || '';
+                    const step   = target / 80;
+                    let current  = 0;
+                    const timer  = setInterval(() => {
+                        current += step;
+                        if (current >= target) { current = target; clearInterval(timer); }
+                        el.textContent = prefix + Math.floor(current);
+                    }, 18);
+                });
+                statsObs.disconnect();
+            }
+        }, { threshold: 0.4 });
+        const statsSection = document.querySelector('.stats-counter');
+        if (statsSection) statsObs.observe(statsSection);
+    </script>
+</body>
+</html>

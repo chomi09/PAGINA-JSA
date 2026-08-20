@@ -22,11 +22,9 @@
     --pd-verde       : #2f5233;   /* títulos, números de la ficha     */
     --pd-verde-medio : #4f6f3f;   /* texto secundario en verde        */
     --pd-verde-suave : #6b8f5d;   /* detalles, bordes activos         */
-    --bg-dark:         #0F1E15;
-    --bg-soft:         #F9F7F4;
     --pd-crema       : #f4f8f2;   /* fondo de bloques claros          */
     --pd-crema-hondo : #dce8d7;   /* fondo de tarjetas y ficha        */
-    --pd-linea       : #E2DFD5;   /* hairlines y separadores          */
+    --pd-linea       : #d6e2d4;   /* hairlines y separadores          */
     --pd-blanco      : #ffffff;
     --pd-tinta       : #2a2f2a;   /* cuerpo de texto                  */
     --pd-tinta-suave : #5d6b5d;   /* pies de foto, etiquetas          */
@@ -55,7 +53,7 @@
    ============================================================ */
 .proyecto-detalle .v3-nav,
 .proyecto-detalle .v3-nav.scrolled {
-    background: var(--bg-dark);
+    background: var(--pd-verde-hondo);
     height: 68px;
     padding: 0 var(--pd-s4);
     box-shadow: none;
@@ -182,8 +180,8 @@
    4. FICHA NUMÉRICA
    ============================================================ */
 .pd-ficha {
-    background: var(--pd-blanco);
-    border-bottom: 1px solid var(--pd-blanco);
+    background: var(--pd-crema-hondo);
+    border-bottom: 1px solid var(--pd-linea);
 }
 .pd-ficha__grid {
     max-width: var(--pd-ancho);
@@ -195,7 +193,7 @@
 .pd-ficha__item {
     padding: var(--pd-s3) var(--pd-s2);
     text-align: center;
-    border-right: 0px solid var(--pd-linea);
+    border-right: 1px solid var(--pd-linea);
 }
 .pd-ficha__item:last-child { border-right: none; }
 
@@ -205,7 +203,7 @@
     font-size: 30px;
     font-weight: 500;
     line-height: 1.1;
-    color: var(--bg-dark);
+    color: var(--pd-verde);
 }
 .pd-ficha__etiqueta {
     display: block;
@@ -220,283 +218,170 @@
 
 
 /* ============================================================
-   VETIVER — SECCIONES NUEVAS
-   Pegar al final de proyecto-detalle.css
+   5. INTRO: CÍRCULO + TEXTO
+   Grid real de dos columnas. Sin márgenes negativos: la posición
+   la decide el contenedor, no un empujón a mano.
    ============================================================ */
-
-.vt-sec            { padding: 20px 24px; }
-.vt-sec--crema     { background: var(--bg); }
-.vt-sec--blanco    { background: var(--bg-soft); }
-.vt-wrap           { 
-    max-width: 1152px; 
-    margin: 35px auto; }
-
-.vt-eyebrow {
-    display: block;
-    font-family: var(--font-texto);
-    font-size: 11px; 
-    font-weight: 600;
-    letter-spacing: 3px; 
-    text-transform: uppercase;
-    color: var(--accent); 
-    margin-bottom: 14px;
-}
-.vt-titulo {
-    font-family: var(--font-titulo);
-    font-size: 30px; font-weight: 700;
-    color: var(--text); line-height: 1.25;
-    margin: 0 0 20px;
-}
-.vt-texto {
-    font-size: 16px; 
-    line-height: 1.75;
-    color: var(--text-muted);
-    margin: 0 0 30px;
-}
-.vt1-texto {
-    font-size: 16px; 
-    line-height: 1.75;
-    color: var(--text-muted);
-    margin: 0 0 10px;
-}
-
-.vt-texto strong { 
-    color: var(--text); 
-    font-weight: 600; }
- 
-.vt-mini {
-    display: block;
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: #8A6420; margin-bottom: 18px;
-}
- 
-
-/* ---------- 1 · EL RETO ---------- */
-.vt-reto__foto {
-    margin: 0 0 22px;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,.10);
-}
-.vt-reto__foto img {
-    width: 100%; 
-    display: block;
-    aspect-ratio: 35 / 7;
-    object-fit: cover;
-    object-position: center 45%;
-}
-.vt-reto__datos { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 14px; 
-}
-.vt-dato {
-    background: var(--bg);
-    border-radius: var(--r-md);
-    padding: 16px 18px;
-    box-shadow: 0 8px 20px rgba(0,0,0,.07);
-}
-.vt-dato__num { 
-    display: block; 
-    font-family: var(--font-titulo); 
-    font-size: 26px; 
-    font-weight: 700; 
-    color: var(--primary); 
-    line-height: 1.1; 
-}
-.vt-dato__nom { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-top: 6px; }
-.vt-dato__sub { display: block; font-size: 12px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
-
-@media (max-width: 900px) {
-    .vt-reto__foto img { aspect-ratio: 16 / 7; }
-    .vt-reto__datos   { grid-template-columns: 1fr; gap: 10px; }
-    .vt-dato          { display: flex; align-items: baseline; gap: 13px; padding: 14px 16px; }
-    .vt-dato__num     { font-size: 22px; flex-shrink: 0; }
-    .vt-dato__nom     { margin-top: 0; }
-}
-/* ---------- 2 · LA SOLUCIÓN ---------- */
-.vt-sol { display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px; align-items: center; margin-bottom: 56px; }
- 
-.vt-sol__lista { list-style: none; padding: 0; margin: 0; display: grid; gap: 26px; }
-.vt-sol__lista li { display: flex; gap: 16px; align-items: flex-start; }
-.vt-sol__lista i {
-    font-size: 17px; color: var(--primary);
-    width: 42px; height: 42px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--bg-green); border-radius: 50%;
-}
-.vt-sol__lista strong { display: block; font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-.vt-sol__lista span   { display: block; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
- 
-.vt-sol__foto { 
-    margin: 0; 
-    border-radius: var(--r-md); 
-    overflow: hidden; 
-    box-shadow: var(--sh-lg); }
-.vt-sol__foto img { 
-    width: 100%; 
-    display: block; aspect-ratio: 4/3; 
-    object-fit: cover; }
- 
-.vt-proceso { 
-    
-    padding-top: 50px; 
-}
-.vt-proceso__grid { 
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-    display: grid; 
-    grid-template-columns: repeat(4,1fr); 
-    gap: 26px; 
-}
-.vt-proceso__grid li { 
-    border-top: 2px solid var(--accent); 
-    padding-top: 16px; 
-}
-.vt-paso__n { 
-    display: block; 
-    font-family: var(--font-titulo); 
-    font-size: 13px; 
-    font-weight: 700; 
-    color: var(--accent); 
-    margin-bottom: 8px; 
-}
-.vt-proceso__grid strong { 
-    display: block; 
-    font-size: 15px; 
-    font-weight: 600; 
-    color: var(--text);
-    margin-bottom: 6px; 
-    line-height: 1.3; }
-.vt-proceso__grid span:last-child { 
-    display: block; 
-    font-size: 13px; 
-    color: var(--text-muted); 
-    line-height: 1.6; 
-}
-
-.vt-solu__foto {
-    margin: 0 0 22px;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,.10);
+.pd-intro {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: var(--pd-s5) var(--pd-s4) var(--pd-s4);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-.vt-solu__foto img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    aspect-ratio: 5 / 3;
-    object-fit: cover;
-    object-position: center 45%;
-}
-.vt-solu__datos { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 150px; 
+    grid-template-columns: 280px 1fr;
+    gap: var(--pd-s5);
     align-items: center;
 }
-
-.vts-dato__num { 
-    display: block; 
-    font-family: var(--font-titulo); 
-    font-size: 30   px; 
-    font-weight: 700; 
-    color: var(--primary); 
-    line-height: 1.1; 
-}
-.vt-dato__nom { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-top: 6px; }
-.vts-dato__sub { display: block; 
-    font-size: 13px; 
-    color: var(--text-muted); 
-    margin-top: 2px; 
-    line-height: 1.5; }
-
-@media (max-width: 900px) {
-    .vt-reto__foto img { aspect-ratio: 16 / 7; }
-    .vt-solu__foto img { aspect-ratio: 1 / 1; }
-    .vt-solu__datos   {
-        grid-template-columns: 1fr; 
-        gap: 10px; }
-    .vts-dato          { 
-        display: flex; 
-        align-items: baseline; 
-        gap: 13px; 
-        padding: 14px 16px; 
-    }
-    .vts-dato__num     { font-size: 22px; flex-shrink: 0; }
-    .vts-dato__nom     { margin-top: 0; }
-}
-/* ---------- 3 · RESULTADOS ---------- */
-.vt-res { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
-.vt-res__card {
-    background: var(--bg);
-    border-radius: var(--r-md);
-    padding: 28px 24px 26px;
-    box-shadow: 0 8px 40px rgba(0,0,0,.10);
-    transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s;
-}
-.vt-res__card:hover { transform: translateY(-6px); box-shadow: 0 20px 55px rgba(8,20,12,.18); }
-.vt-res__num { display: block; font-family: var(--font-titulo); font-size: 42px; font-weight: 700; color: var(--primary); line-height: 1; }
-.vt-res__num em { font-style: normal; font-size: 22px; }
-.vt-res__card--oro .vt-res__num { color: var(--accent); }
-.vt-res__nom { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-top: 12px; }
-.vt-res__sub { display: block; font-size: 13px; color: var(--text-muted); margin-top: 3px; line-height: 1.5; }
- 
-.vt-fuente { display: flex; gap: 10px; align-items: flex-start; margin: 30px 0 0; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-.vt-fuente i { color: var(--accent); margin-top: 3px; }
- 
-/* ---------- 4 · LOS TRES MÓDULOS ---------- */
-.vt-mods { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-.vt-mod {
-    background: var(--bg-soft);
-    border-radius: var(--r-md);
+.pd-intro__circulo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0,0,0,.10);
-    transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s;
+    border: 3px solid var(--pd-dorado);
 }
-.vt-mod:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(8,20,12,.20); }
- 
-.vt-mod__foto { margin: 0; aspect-ratio: 16/10; overflow: hidden; }
-.vt-mod__foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s cubic-bezier(.2,.7,.3,1); }
-.vt-mod:hover .vt-mod__foto img { transform: scale(1.05); }
- 
-.vt-mod__body { padding: 22px 24px 26px; }
-.vt-mod__top  { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-.vt-mod__caso { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); }
- 
-.vt-badge { font-size: 11px; font-weight: 600; padding: 4px 11px; border-radius: 100px; }
-.vt-badge--ok  { color: #1F7A45; background: #E4F2E8; }
-.vt-badge--wip { color: #8A6420; background: #F6EDD8; }
- 
-.vt-mod__body h3 { font-family: var(--font-titulo); font-size: 19px; font-weight: 700; color: var(--text); margin: 0 0 14px; }
-.vt-mod__num { display: block; font-family: var(--font-titulo); font-size: 36px; font-weight: 700; color: var(--primary); line-height: 1; }
-.vt-mod__num em { font-style: normal; font-size: 19px; }
-.vt-mod__sub { display: block; font-size: 13px; color: var(--text-muted); margin-top: 5px; }
-.vt-mod__pie { border-top: 1px solid var(--border); margin: 16px 0 0; padding-top: 14px; font-size: 13px; color: var(--text-muted); line-height: 1.7; }
- 
+.pd-intro__circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pd-intro h2 {
+    font-family: var(--font-titulo);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--pd-verde);
+    margin: 0 0 var(--pd-s3);
+}
+.pd-intro p {
+    font-family: var(--font-texto);
+    font-size: 17px;
+    line-height: 1.78;
+    color: var(--pd-tinta);
+    margin: 0 0 var(--pd-s2);
+    max-width: var(--pd-medida);
+}
+.pd-intro p:last-child { margin-bottom: 0; }
+.pd-intro em { color: var(--pd-verde-medio); }
+
+
+/* ============================================================
+   6. TARJETAS
+   Fondo plano, borde hairline, sin sombra ni degradado.
+   Simple se ve más caro que decorado.
+   ============================================================ */
+.pd-tarjetas {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: 0 var(--pd-s4) var(--pd-s5);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--pd-s2);
+}
+.pd-tarjeta {
+    background: var(--pd-crema);
+    border: 1px solid var(--pd-linea);
+    border-radius: var(--r-md, 14px);
+    padding: var(--pd-s3);
+    transition: border-color .3s, transform .3s;
+}
+.pd-tarjeta:hover {
+    border-color: var(--pd-verde-suave);
+    transform: translateY(-3px);
+}
+.pd-tarjeta__icono {
+    font-size: 22px;
+    color: var(--pd-verde);
+    margin-bottom: var(--pd-s2);
+}
+.pd-tarjeta h3 {
+    font-family: var(--font-titulo);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--pd-verde);
+    margin: 0 0 var(--pd-s2);
+}
+.pd-tarjeta ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.pd-tarjeta li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: var(--pd-s1);
+    font-family: var(--font-texto);
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--pd-tinta-suave);
+}
+.pd-tarjeta li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pd-dorado);
+}
+
+
+/* ============================================================
+   7. BLOQUE VERDE: TEXTO + IMAGEN
+   Parte la página en dos y da respiro después de tanto fondo
+   claro. Ese contraste es lo que crea ritmo.
+   ============================================================ */
+.pd-verde { background: var(--pd-verde-hondo); }
+.pd-verde__wrap {
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: var(--pd-s5) var(--pd-s4);
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--pd-s5);
+    align-items: center;
+}
+.pd-verde h2 {
+    font-family: var(--font-titulo);
+    font-size: clamp(24px, 2.8vw, 32px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--pd-blanco);
+    margin: 0 0 var(--pd-s3);
+}
+.pd-verde p {
+    font-family: var(--font-texto);
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, .82);
+    margin: 0 0 var(--pd-s2);
+}
+.pd-verde p:last-child { margin-bottom: 0; }
+.pd-verde__img {
+    margin: 0;
+    border-radius: var(--r-md, 14px);
+    overflow: hidden;
+}
+.pd-verde__img img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+
 /* ============================================================
    8. VIDEO
    ============================================================ */
-.vtv-wrap{ 
-    text-align: center; 
-}
-
 .pd-video {
-    max-width: 1152px;
-    margin: 25px auto
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--pd-s5) var(--pd-s4);
 }
 .pd-video__marco {
     border-radius: var(--r-md, 14px);
     overflow: hidden;
     background: #000;
     aspect-ratio: 16 / 9;   /* reserva el espacio: evita que la página salte al cargar */
-}
-.pd-video--compacto .pd-video__marco {
-    aspect-ratio: 21 / 9;   /* video más bajo, a la altura de la foto de la solución */
 }
 .pd-video__marco video {
     width: 100%;
@@ -518,9 +403,9 @@
    y evitar la cuadrícula plana de miniaturas iguales.
    ============================================================ */
 .pd-galeria {
-    max-width: 1152px;
-    margin: 30px auto;
-    
+    max-width: var(--pd-ancho);
+    margin: 0 auto;
+    padding: 0 var(--pd-s4) var(--pd-s5);
 }
 .pd-galeria__grid {
     display: grid;
@@ -668,4 +553,4 @@
 .proyecto-detalle .pd-verde h2     { font-size: clamp(22px, 2.6vw, 28px); }
 .proyecto-detalle .pd-tarjeta h3   { font-size: 16px; }
 .proyecto-detalle .pd-tarjeta li   { font-size: 13.5px; }
-.proyecto-detalle .pd-ficha__valor { font-size: 24px; }
+.proyecto-detalle .pd-ficha__valor { font-size: 30px; }

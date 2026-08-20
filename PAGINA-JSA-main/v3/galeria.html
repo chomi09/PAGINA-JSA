@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Galería de Actividades</title>
+
+
+    <style>
+
+        /* ==================================================
+             CONFIGURACIÓN GENERAL
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #f5f5f5;
+
+            color: #333;
+        }
+
+
+
+        /* ==================================================
+            LISTÓN VERDE SUPERIOR
+        ================================================== */
+
+        .barra-superior {
+
+            width: 100%;
+
+            height: 108px;
+
+            background: #071d14;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 78px;
+
+            border-top: 8px solid #3b3b3b;
+
+            position: relative;
+
+            z-index: 1000;
+        }
+
+
+
+        /* ==================================================
+            LOGO
+        ================================================== */
+
+        .logo-cacjsa {
+
+            width: 145px;
+
+            height: auto;
+
+            display: block;
+
+            object-fit: contain;
+        }
+
+
+        .titulo-liston {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: white;
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+
+
+        /* ==================================================
+            BOTÓN VOLVER
+        ================================================== */
+
+        .boton-volver {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 11px 18px;
+
+            background: #234d39;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            border-radius: 5px;
+
+            border: 1px solid
+                rgba(255,255,255,0.20);
+
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+
+        .boton-volver:hover {
+
+            background: #30644b;
+
+            transform: translateX(3px);
+        }
+
+
+        .boton-volver span {
+
+            font-size: 20px;
+
+            line-height: 1;
+        }
+
+
+
+        /* ==================================================
+            ENCABEZADO
+        ================================================== */
+
+        .encabezado {
+
+            text-align: center;
+
+            padding:
+
+                45px
+                20px
+                30px;
+        }
+
+
+        .encabezado h1 {
+
+            color: #234d39;
+
+            font-size: 38px;
+
+            margin-bottom: 25px;
+
+            font-weight: 700;
+        }
+
+
+
+        /* ==================================================
+           BUSCADOR
+        ================================================== */
+
+        .buscador {
+
+            width: 100%;
+
+            max-width: 600px;
+
+            margin: auto;
+
+            position: relative;
+        }
+
+
+        .buscador input {
+
+            width: 100%;
+
+            height: 52px;
+
+            padding:
+
+                0 20px;
+
+            border:
+
+                1px solid #ccc;
+
+            border-radius: 8px;
+
+            background: white;
+
+            font-size: 16px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+
+        .buscador input::placeholder {
+
+            color: #999;
+        }
+
+
+        .buscador input:focus {
+
+            border-color: #234d39;
+
+            box-shadow:
+
+                0 0 0 3px
+                rgba(35,77,57,0.10);
+        }
+
+
+
+        /* ==================================================
+           LISTA DEL BUSCADOR
+        ================================================== */
+
+        .opciones {
+
+            position: absolute;
+
+            top: 58px;
+
+            left: 0;
+
+            right: 0;
+
+            background: white;
+
+            border:
+
+                1px solid #ddd;
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            display: none;
+
+            z-index: 2000;
+
+            box-shadow:
+
+                0 8px 20px
+                rgba(0,0,0,0.15);
+        }
+
+
+        .opciones.mostrar {
+
+            display: block;
+        }
+
+
+        .opcion {
+
+            padding:
+
+                15px 20px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            color: #333;
+
+            border-bottom:
+
+                1px solid #eee;
+
+            transition: 0.2s;
+        }
+
+
+        .opcion:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .opcion:hover {
+
+            background: #eef4f0;
+
+            color: #234d39;
+        }
+
+        .opcion-todos {
+            font-weight: 700;
+            color: #234d39;
+            background: #f7faf8;
+        }
+
+
+
+        /* ==================================================
+           GALERÍA
+        ================================================== */
+
+        .galeria {
+
+            width: 100%;
+
+            max-width: 1600px;
+
+            margin: auto;
+
+            padding:
+
+                20px 40px 70px;
+        }
+
+
+
+        /* ==================================================
+           ACTIVIDAD
+        ================================================== */
+
+        .actividad {
+
+            margin-bottom: 75px;
+        }
+
+
+        .actividad.oculto {
+
+            display: none;
+        }
+
+
+
+        /* ==================================================
+           TÍTULO DE ACTIVIDAD
+        ================================================== */
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .titulo h2 {
+
+            color: #234d39;
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .titulo p {
+
+            color: #777;
+
+            font-size: 15px;
+        }
+
+
+
+        /* ==================================================
+           GALERÍA DE FOTOS
+        ================================================== */
+
+        .fotos {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 85px;
+            grid-auto-flow: dense;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .foto {
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            object-fit: cover;
+            cursor: pointer;
+            display: block;
+            border-radius: 6px;
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        /* ===== COLLAGE ===== */
+        .foto:nth-child(1)  { grid-column: span 4; grid-row: span 4; }
+        .foto:nth-child(2)  { grid-column: span 3; grid-row: span 3; }
+        .foto:nth-child(3)  { grid-column: span 5; grid-row: span 3; }
+        .foto:nth-child(4)  { grid-column: span 3; grid-row: span 4; }
+        .foto:nth-child(5)  { grid-column: span 5; grid-row: span 4; }
+        .foto:nth-child(6)  { grid-column: span 4; grid-row: span 3; }
+        .foto:nth-child(7)  { grid-column: span 3; grid-row: span 3; }
+        .foto:nth-child(8)  { grid-column: span 5; grid-row: span 4; }
+        .foto:nth-child(9)  { grid-column: span 4; grid-row: span 3; }
+        .foto:nth-child(10) { grid-column: span 3; grid-row: span 4; }
+        .foto:nth-child(11) { grid-column: span 5; grid-row: span 3; }
+        .foto:nth-child(12) { grid-column: span 4; grid-row: span 4; }
+        .foto:nth-child(13) { grid-column: span 3; grid-row: span 3; }
+        .foto:nth-child(14) { grid-column: span 5; grid-row: span 4; }
+        .foto:nth-child(15) { grid-column: span 4; grid-row: span 3; }
+        .foto:nth-child(16) { grid-column: span 3; grid-row: span 4; }
+        .foto:nth-child(17) { grid-column: span 5; grid-row: span 3; }
+        .foto:nth-child(18) { grid-column: span 4; grid-row: span 4; }
+        .foto:nth-child(19) { grid-column: span 3; grid-row: span 3; }
+        .foto:nth-child(20) { grid-column: span 5; grid-row: span 4; }
+
+        .foto:hover {
+            transform: scale(1.025);
+            filter: brightness(0.88);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+        }
+
+
+        /* ==================================================
+           SIN RESULTADOS
+        ================================================== */
+
+        .sin-resultados {
+
+            display: none;
+
+            text-align: center;
+
+            padding:
+
+                80px 20px;
+
+            color: #777;
+        }
+
+
+        .sin-resultados h2 {
+
+            color: #234d39;
+
+            margin-bottom: 10px;
+        }
+
+
+
+        /* ==================================================
+           VISOR DE FOTOS
+        ================================================== */
+
+        .visor {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+
+                rgba(0,0,0,0.93);
+
+            display: none;
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 9999;
+
+            padding: 30px;
+        }
+
+
+        .visor.activo {
+
+            display: flex;
+        }
+
+
+        .visor img {
+
+            max-width: 90%;
+
+            max-height: 90%;
+
+            object-fit: contain;
+
+            border-radius: 3px;
+        }
+
+
+
+        /* ==================================================
+           BOTÓN CERRAR
+        ================================================== */
+
+        .cerrar {
+
+            position: absolute;
+
+            top: 20px;
+
+            right: 30px;
+
+            color: white;
+
+            font-size: 50px;
+
+            cursor: pointer;
+
+            line-height: 1;
+
+            z-index: 10000;
+        }
+
+
+        .cerrar:hover {
+
+            opacity: 0.7;
+        }
+
+
+
+        /* ==================================================
+           TABLET
+        ================================================== */
+
+        @media (max-width: 1200px) {
+
+            .barra-superior {
+
+                padding:
+
+                    0 45px;
+            }
+
+
+            .fotos {
+
+                grid-template-columns:
+
+                    repeat(4, 1fr);
+            }
+
+        }
+
+
+
+        /* ==================================================
+           TABLET PEQUEÑA
+        ================================================== */
+
+        @media (max-width: 900px) {
+
+            .titulo-liston {
+                font-size: 28px;
+            }
+
+            .fotos {
+                grid-template-columns: repeat(6, 1fr);
+                grid-auto-rows: 80px;
+            }
+
+            .foto:nth-child(n) {
+                grid-column: span 3;
+                grid-row: span 3;
+            }
+
+            .foto:nth-child(1),
+            .foto:nth-child(5),
+            .foto:nth-child(8),
+            .foto:nth-child(12),
+            .foto:nth-child(16),
+            .foto:nth-child(20) {
+                grid-column: span 6;
+                grid-row: span 4;
+            }
+
+            .barra-superior {
+
+                padding:
+
+                    0 30px;
+            }
+
+
+            .fotos {
+
+                grid-template-columns:
+
+                    repeat(3, 1fr);
+            }
+
+
+            .foto {
+
+                height: 200px;
+            }
+
+        }
+
+
+
+        /* ==================================================
+           CELULAR
+        ================================================== */
+
+        @media (max-width: 600px) {
+
+            .barra-superior {
+
+                height: 85px;
+
+                padding:
+
+                    0 15px;
+
+                border-top-width: 5px;
+            }
+
+
+            .logo-cacjsa {
+
+                width: 105px;
+            }
+
+
+            .boton-volver {
+
+                padding:
+
+                    9px 12px;
+
+                font-size: 12px;
+
+                gap: 5px;
+            }
+
+
+            .boton-volver span {
+
+                font-size: 17px;
+            }
+
+
+            .encabezado {
+
+                padding:
+
+                    35px
+                    15px
+                    25px;
+            }
+
+
+            .encabezado h1 {
+
+                font-size: 28px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .buscador input {
+
+                height: 48px;
+
+                font-size: 15px;
+            }
+
+
+            .galeria {
+
+                padding:
+
+                    15px
+                    12px
+                    50px;
+            }
+
+
+            .fotos {
+
+                grid-template-columns:
+
+                    repeat(2, 1fr);
+
+                gap: 8px;
+            }
+
+
+            .foto {
+
+                height: 170px;
+            }
+
+            .fotos {
+                grid-template-columns: repeat(6, 1fr);
+                grid-auto-rows: 70px;
+                gap: 7px;
+            }
+
+            .foto:nth-child(n) {
+                grid-column: span 3;
+                grid-row: span 2;
+            }
+
+            .foto:nth-child(1),
+            .foto:nth-child(4),
+            .foto:nth-child(8),
+            .foto:nth-child(12),
+            .foto:nth-child(16),
+            .foto:nth-child(20) {
+                grid-column: span 6;
+                grid-row: span 3;
+            }
+
+            .titulo-liston {
+                font-size: 22px;
+                max-width: 52%;
+                white-space: normal;
+            }
+
+
+            .titulo {
+
+                margin-bottom: 20px;
+            }
+
+
+            .titulo h2 {
+
+                font-size: 24px;
+            }
+
+
+            .titulo p {
+
+                font-size: 14px;
+            }
+
+
+            .visor {
+
+                padding: 15px;
+            }
+
+
+            .visor img {
+
+                max-width: 96%;
+
+                max-height: 85%;
+            }
+
+
+            .cerrar {
+
+                top: 15px;
+
+                right: 20px;
+
+                font-size: 42px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <!-- ==================================================
+         LISTÓN VERDE SUPERIOR
+    ================================================== -->
+
+    <header class="barra-superior">
+
+        <!-- LOGO -->
+        <img
+            src="../img/Logoatahualpa.png"
+            alt="CACJSA"
+            class="logo-cacjsa"
+        >
+
+        <!-- TÍTULO CENTRADO -->
+        <h1 class="titulo-liston">Galería de Actividades</h1>
+
+        <!-- BOTÓN VOLVER -->
+        <a
+            href="../index.html"
+            class="boton-volver"
+            aria-label="Volver al inicio">
+            <span>←</span>
+            VOLVER
+        </a>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         ENCABEZADO
+    ================================================== -->
+
+    <section class="encabezado">
+
+
+
+        <!-- ==================================================
+             BUSCADOR
+        ================================================== -->
+
+        <div class="buscador">
+
+
+            <input
+                type="text"
+                id="buscador"
+                placeholder="Buscar actividad..."
+                autocomplete="off"
+            >
+
+
+            <!-- OPCIONES -->
+
+            <div
+                class="opciones"
+                id="opciones">
+
+
+                <div
+                    class="opcion opcion-todos"
+                    data-actividad="todos">
+
+                    Todos
+
+                </div>
+
+
+                <div
+                    class="opcion"
+                    data-actividad="2025">
+
+                    Aniversarios 2025
+
+                </div>
+
+
+                <div
+                    class="opcion"
+                    data-actividad="2024">
+
+                    Aniversarios 2024
+
+                </div>
+
+
+                <div
+                    class="opcion"
+                    data-actividad="2023">
+
+                    Aniversarios 2023
+
+                </div>
+
+
+                <div
+                    class="opcion"
+                    data-actividad="2022">
+
+                    Aniversarios 2022
+
+                </div>
+
+
+                <div
+                    class="opcion"
+                    data-actividad="2021">
+
+                    Aniversarios 2021
+
+                </div>
+
+
+                <div
+                    class="opcion"
+                    data-actividad="2020">
+
+                    Aniversarios 2020
+
+                </div>
+
+
+                <div
+                    class="opcion"
+                    data-actividad="pasantias">
+
+                    PASANTÍAS
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         GALERÍA
+    ================================================== -->
+
+    <main class="galeria">
+
+
+
+        <!-- ==================================================
+             ANIVERSARIOS 2025
+        ================================================== -->
+
+        <section
+            class="actividad"
+            data-id="2025">
+
+
+            <div class="titulo">
+
+                <h2>
+                    Aniversarios 2025
+                </h2>
+
+                <p>
+                    20 fotografías
+                </p>
+
+            </div>
+
+
+            <div
+                class="fotos"
+                data-fotos="2025">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ANIVERSARIOS 2024
+        ================================================== -->
+
+        <section
+            class="actividad"
+            data-id="2024">
+
+
+            <div class="titulo">
+
+                <h2>
+                    Aniversarios 2024
+                </h2>
+
+                <p>
+                    20 fotografías
+                </p>
+
+            </div>
+
+
+            <div
+                class="fotos"
+                data-fotos="2024">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ANIVERSARIOS 2023
+        ================================================== -->
+
+        <section
+            class="actividad"
+            data-id="2023">
+
+
+            <div class="titulo">
+
+                <h2>
+                    Aniversarios 2023
+                </h2>
+
+                <p>
+                    20 fotografías
+                </p>
+
+            </div>
+
+
+            <div
+                class="fotos"
+                data-fotos="2023">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ANIVERSARIOS 2022
+        ================================================== -->
+
+        <section
+            class="actividad"
+            data-id="2022">
+
+
+            <div class="titulo">
+
+                <h2>
+                    Aniversarios 2022
+                </h2>
+
+                <p>
+                    20 fotografías
+                </p>
+
+            </div>
+
+
+            <div
+                class="fotos"
+                data-fotos="2022">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ANIVERSARIOS 2021
+        ================================================== -->
+
+        <section
+            class="actividad"
+            data-id="2021">
+
+
+            <div class="titulo">
+
+                <h2>
+                    Aniversarios 2021
+                </h2>
+
+                <p>
+                    20 fotografías
+                </p>
+
+            </div>
+
+
+            <div
+                class="fotos"
+                data-fotos="2021">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ANIVERSARIOS 2020
+        ================================================== -->
+
+        <section
+            class="actividad"
+            data-id="2020">
+
+
+            <div class="titulo">
+
+                <h2>
+                    Aniversarios 2020
+                </h2>
+
+                <p>
+                    20 fotografías
+                </p>
+
+            </div>
+
+
+            <div
+                class="fotos"
+                data-fotos="2020">
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PASANTÍAS
+        ================================================== -->
+
+        <section
+            class="actividad"
+            data-id="pasantias">
+
+
+            <div class="titulo">
+
+                <h2>
+                    PASANTÍAS
+                </h2>
+
+                <p>
+                    20 fotografías
+                </p>
+
+            </div>
+
+
+            <div
+                class="fotos"
+                data-fotos="pasantias">
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         SIN RESULTADOS
+    ================================================== -->
+
+    <div
+        class="sin-resultados"
+        id="sinResultados">
+
+
+        <h2>
+            No se encontraron resultados
+        </h2>
+
+
+        <p>
+            Prueba buscando otro año o actividad.
+        </p>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         VISOR DE FOTOS
+    ================================================== -->
+
+    <div
+        class="visor"
+        id="visor">
+
+
+        <span
+            class="cerrar"
+            id="cerrar">
+
+            &times;
+
+        </span>
+
+
+        <img
+            id="imagenGrande"
+            src=""
+            alt="Foto ampliada">
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+
+        /* ==================================================
+           CANTIDAD DE FOTOS
+        ================================================== */
+
+        /*
+           AQUÍ PUEDES CAMBIAR 20 POR 50
+
+           Ejemplo:
+
+           const cantidadFotos = 50;
+
+        */
+
+        const cantidadFotos = 20;
+
+
+
+        /* ==================================================
+           IMAGEN UTILIZADA EN TODAS LAS FOTOS
+           --------------------------------------------------
+           La opción "Todos" muestra todas las actividades
+           y todas las fotos de cada actividad.
+        ================================================== */
+
+        const imagen =
+            "../img/agroideas.jpg";
+
+
+
+        /* ==================================================
+           CREAR LAS FOTOS AUTOMÁTICAMENTE
+        ================================================== */
+
+        const galerias =
+            document.querySelectorAll(
+                ".fotos"
+            );
+
+
+        galerias.forEach(
+            galeria => {
+
+
+                for (
+                    let i = 0;
+                    i < cantidadFotos;
+                    i++
+                ) {
+
+
+                    const foto =
+                        document.createElement(
+                            "img"
+                        );
+
+
+                    foto.src =
+                        imagen;
+
+
+                    foto.className =
+                        "foto";
+
+
+                    foto.alt =
+                        "Fotografía";
+
+
+                    galeria.appendChild(
+                        foto
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* ==================================================
+           ELEMENTOS DEL BUSCADOR
+        ================================================== */
+
+        const buscador =
+            document.getElementById(
+                "buscador"
+            );
+
+
+        const opciones =
+            document.getElementById(
+                "opciones"
+            );
+
+
+        const actividades =
+            document.querySelectorAll(
+                ".actividad"
+            );
+
+
+        const sinResultados =
+            document.getElementById(
+                "sinResultados"
+            );
+
+
+
+        /* ==================================================
+           MOSTRAR LISTA AL HACER CLICK
+        ================================================== */
+
+        buscador.addEventListener(
+            "focus",
+            () => {
+
+                /*
+                   Volver a mostrar todas
+                   las opciones.
+                */
+
+                document
+                    .querySelectorAll(
+                        ".opcion"
+                    )
+                    .forEach(
+                        opcion => {
+
+                            opcion.style.display =
+                                "block";
+
+                        }
+                    );
+
+
+                opciones.classList.add(
+                    "mostrar"
+                );
+
+            }
+        );
+
+
+
+        /* ==================================================
+           BUSCADOR
+        ================================================== */
+
+        buscador.addEventListener(
+            "input",
+            () => {
+
+
+                const texto =
+                    buscador.value
+                    .toLowerCase()
+                    .trim();
+
+
+                /* ------------------------------------------
+                   FILTRAR OPCIONES
+                ------------------------------------------ */
+
+                document
+                    .querySelectorAll(
+                        ".opcion"
+                    )
+                    .forEach(
+                        opcion => {
+
+
+                            const nombre =
+                                opcion.textContent
+                                .toLowerCase();
+
+
+                            if (
+                                nombre.includes(
+                                    texto
+                                )
+                            ) {
+
+                                opcion.style.display =
+                                    "block";
+
+                            } else {
+
+                                opcion.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+
+                opciones.classList.add(
+                    "mostrar"
+                );
+
+
+
+                /* ------------------------------------------
+                   SI ESTÁ VACÍO
+                ------------------------------------------ */
+
+                if (
+                    texto === ""
+                ) {
+
+
+                    actividades.forEach(
+                        actividad => {
+
+                            actividad.classList.remove(
+                                "oculto"
+                            );
+
+                        }
+                    );
+
+
+                    sinResultados.style.display =
+                        "none";
+
+
+                    return;
+
+                }
+
+
+
+                /* ------------------------------------------
+                   BUSCAR "TODOS"
+                ------------------------------------------ */
+
+                if (
+                    texto === "todos" ||
+                    texto === "todas" ||
+                    texto === "todo"
+                ) {
+
+                    actividades.forEach(
+                        actividad => {
+                            actividad.classList.remove(
+                                "oculto"
+                            );
+                        }
+                    );
+
+                    sinResultados.style.display =
+                        "none";
+
+                    return;
+                }
+
+
+                /* ------------------------------------------
+                   BUSCAR ACTIVIDADES
+                ------------------------------------------ */
+
+                let encontrados = 0;
+
+
+                actividades.forEach(
+                    actividad => {
+
+
+                        const id =
+                            actividad.dataset
+                            .id
+                            .toLowerCase();
+
+
+                        const titulo =
+                            actividad
+                            .querySelector("h2")
+                            .textContent
+                            .toLowerCase();
+
+
+                        if (
+                            id.includes(texto) ||
+                            titulo.includes(texto)
+                        ) {
+
+
+                            actividad.classList.remove(
+                                "oculto"
+                            );
+
+
+                            encontrados++;
+
+
+                        } else {
+
+
+                            actividad.classList.add(
+                                "oculto"
+                            );
+
+                        }
+
+                    }
+                );
+
+
+
+                /* ------------------------------------------
+                   MENSAJE
+                ------------------------------------------ */
+
+                if (
+                    encontrados === 0
+                ) {
+
+                    sinResultados.style.display =
+                        "block";
+
+                } else {
+
+                    sinResultados.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+
+        /* ==================================================
+           SELECCIONAR UNA ACTIVIDAD
+        ================================================== */
+
+        document
+            .querySelectorAll(
+                ".opcion"
+            )
+            .forEach(
+                opcion => {
+
+
+                    opcion.addEventListener(
+                        "click",
+                        () => {
+
+
+                            const actividad =
+                                opcion.dataset
+                                .actividad;
+
+
+                            /* --------------------------------
+                               COLOCAR NOMBRE EN BUSCADOR
+                            -------------------------------- */
+
+                            buscador.value =
+                                opcion.textContent
+                                .trim();
+
+
+
+                            /* --------------------------------
+                               CERRAR LISTA
+                            -------------------------------- */
+
+                            opciones.classList.remove(
+                                "mostrar"
+                            );
+
+
+
+                            /* --------------------------------
+                               MOSTRAR TODAS O SOLO LA SELECCIONADA
+                            -------------------------------- */
+
+                            if (actividad === "todos") {
+
+                                /* Mostrar todas las actividades
+                                   y todas sus imágenes */
+                                actividades.forEach(
+                                    seccion => {
+                                        seccion.classList.remove(
+                                            "oculto"
+                                        );
+                                    }
+                                );
+
+                                sinResultados.style.display =
+                                    "none";
+
+                                setTimeout(
+                                    () => {
+                                        document.querySelector(
+                                            ".galeria"
+                                        ).scrollIntoView({
+                                            behavior: "smooth",
+                                            block: "start"
+                                        });
+                                    },
+                                    100
+                                );
+
+                            } else {
+
+                                actividades.forEach(
+                                    seccion => {
+
+                                        if (
+                                            seccion.dataset
+                                            .id ===
+                                            actividad
+                                        ) {
+
+                                            seccion.classList.remove(
+                                                "oculto"
+                                            );
+
+                                            setTimeout(
+                                                () => {
+                                                    seccion.scrollIntoView({
+                                                        behavior:
+                                                            "smooth",
+                                                        block:
+                                                            "start"
+                                                    });
+                                                },
+                                                100
+                                            );
+
+                                        } else {
+
+                                            seccion.classList.add(
+                                                "oculto"
+                                            );
+
+                                        }
+
+                                    }
+                                );
+
+                                sinResultados.style.display =
+                                    "none";
+                            }
+
+
+                            sinResultados.style.display =
+                                "none";
+
+                        }
+                    );
+
+                }
+            );
+
+
+
+        /* ==================================================
+           CERRAR LISTA AL HACER CLICK AFUERA
+        ================================================== */
+
+        document.addEventListener(
+            "click",
+            e => {
+
+
+                if (
+                    !e.target.closest(
+                        ".buscador"
+                    )
+                ) {
+
+
+                    opciones.classList.remove(
+                        "mostrar"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* ==================================================
+           VISOR DE FOTOS
+        ================================================== */
+
+        const visor =
+            document.getElementById(
+                "visor"
+            );
+
+
+        const imagenGrande =
+            document.getElementById(
+                "imagenGrande"
+            );
+
+
+        const cerrar =
+            document.getElementById(
+                "cerrar"
+            );
+
+
+
+        /* ==================================================
+           ABRIR FOTO
+        ================================================== */
+
+        document.addEventListener(
+            "click",
+            e => {
+
+
+                if (
+                    e.target.classList.contains(
+                        "foto"
+                    )
+                ) {
+
+
+                    imagenGrande.src =
+                        e.target.src;
+
+
+                    visor.classList.add(
+                        "activo"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* ==================================================
+           CERRAR CON X
+        ================================================== */
+
+        cerrar.addEventListener(
+            "click",
+            () => {
+
+                visor.classList.remove(
+                    "activo"
+                );
+
+            }
+        );
+
+
+
+        /* ==================================================
+           CERRAR HACIENDO CLICK AFUERA
+        ================================================== */
+
+        visor.addEventListener(
+            "click",
+            e => {
+
+
+                if (
+                    e.target === visor
+                ) {
+
+
+                    visor.classList.remove(
+                        "activo"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* ==================================================
+           CERRAR CON ESC
+        ================================================== */
+
+        document.addEventListener(
+            "keydown",
+            e => {
+
+
+                if (
+                    e.key === "Escape"
+                ) {
+
+
+                    visor.classList.remove(
+                        "activo"
+                    );
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

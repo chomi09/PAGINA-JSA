@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ya NO se fuerza tamaño ni overflow en body: eso rompía el resto del sitio */
+
+.seccion-proyecto {
+  position: relative;
+  width: 100%;
+  min-height: 960px;
+  background: linear-gradient(135deg, #d8d8d8 0%, #d8d8d8 45%, #d8d8d8 100%);
+  font-family: var(--font-texto);
+  overflow: hidden;
+  padding-top: 80px; /* deja espacio para que el navbar fijo no tape el contenido, ajusta según altura real de tu nav */
+}
+
+/* Caja de texto azul */
+.caja-texto {
+  position: absolute;
+  left: 215px;
+  top: 145px;
+  width: 528px;
+  height: 640px;
+  background-color: #e7e7e7;
+  color: #ffffff;
+  padding: 20px 25px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.caja-texto h1 {
+  font-size: 26px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.caja-texto p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 2;
+    color: #5F6F86;
+    text-align: justify;
+}
+/* Contenedor de imágenes */
+.imagenes {
+  position: absolute;
+  left: 945px;
+  top: 75px;
+  width: 720px;
+  height: 810px;
+}
+
+.imagenes img {
+  position: absolute;
+  width: 380px;
+  height: 220px;
+  object-fit: cover;
+
+}
+
+/* Posiciones en cascada, igual que la referencia */
+.img1 { left: 0px;   top: 0px;   }
+.img2 { left: 290px; top: 145px; }
+.img3 { left: 0px;   top: 290px; }
+.img4 { left: 290px; top: 435px; }
+.img5 { left: 0px;   top: 580px; }
+
