@@ -23,15 +23,15 @@
     --pd-verde-medio : #4f6f3f;   /* texto secundario en verde        */
     --pd-verde-suave : #5e9d27;   /* detalles, bordes activos         */
     --bg-dark:         #0F1E15;
-    --bg-soft:         #F9F7F4;
-    --pd-crema       : #f4f8f2;   /* fondo de bloques claros          */
-    --pd-crema-hondo : #dce8d7;   /* fondo de tarjetas y ficha        */
+    --bg-soft:         #f7f7f7;
+    --pd-crema       : #f3f2ed;   /* fondo de bloques claros          */
+    --pd-crema-hondo : #f6edd8;   /* fondo de tarjetas y ficha        */
     --pd-linea       : #E2DFD5;   /* hairlines y separadores          */
     --pd-blanco      : #ffffff;
     --pd-tinta       : #2a2f2a;   /* cuerpo de texto                  */
     --pd-tinta-suave : #5d6b5d;
     --pd-verdebon    : #328a3c;   /* pies de foto, etiquetas          */
-    --pd-dorado      : var(--accent, #C8973A);
+    --pd-dorado      : var(--accent, #279d57);
 
     /* Escala de espaciado: usa SIEMPRE estos valores, nunca números
        sueltos. Es lo que mantiene el ritmo vertical parejo. */
@@ -174,7 +174,7 @@
     font-weight: 600;
     letter-spacing: .22em;
     text-transform: uppercase;
-    color: var(--pd-dorado);
+    color: #f6edd8;
     margin-bottom: var(--pd-s2);
 }
 
