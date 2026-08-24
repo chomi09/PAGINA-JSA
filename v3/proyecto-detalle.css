@@ -1098,10 +1098,9 @@
     display: block;
     font-family: var(--font-titulo);
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--accent);
 }
 .pd-comp__num {
     display: block;
@@ -1112,7 +1111,9 @@
     line-height: 1;
     margin-top: 10px;
 }
-.pd-comp--oro .pd-comp__num { color: var(--accent); }
+.pd-comp--oro .pd-comp__num { 
+    color: #8a6420; 
+}
 .pd-comp p {
     font-size: 12.5px;
     line-height: 1.5;
@@ -1129,15 +1130,17 @@
 }
 .pd-tipo {
     background: #fff;
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--primary);
+    border: 1px solid var(--pd-blanco);
+    /*border-top: 3px solid var(--primary);*/
     border-radius: var(--r-md);
     overflow: hidden;
     box-shadow: 0 18px 40px -20px rgba(26, 60, 40, .40);
     display: flex;
     flex-direction: column;
 }
-.pd-tipo--oro { border-top-color: var(--accent); }
+.pd-tipo--oro { 
+    /*border-top-color: var(--accent); */
+}
 
 .pd-tipo__cab { padding: 24px 26px 18px; }
 .pd-tipo__eyebrow {
@@ -1203,7 +1206,9 @@
     color: var(--primary);
     line-height: 1;
 }
-.pd-tipo--oro .pd-tipo__num--destaca { color: var(--accent); }
+.pd-tipo--oro .pd-tipo__num--destaca { 
+    color: #8a6420; 
+}
 .pd-tipo__nota {
     display: block;
     font-size: 11.5px;
@@ -1235,4 +1240,152 @@
 }
 @media (prefers-reduced-motion: reduce) {
     .pd-tipo__fotos img { transition: none; }
+}
+
+/* =========================================================
+   PASANTÍAS INTERNAS
+   ========================================================= */
+
+/* ---------- Franja de totales ---------- */
+.pd-totales {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.pd-total-item { padding: 20px 24px 20px 0; }
+.pd-total-item + .pd-total-item {
+    padding-left: 24px;
+    border-left: 1px solid var(--border);
+}
+.pd-total-item__nom {
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.pd-total-item__num {
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    margin-top: 10px;
+}
+.pd-total-item p {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 6px 0 0;
+}
+
+/* ---------- Tarjetas con foto a sangre ---------- */
+.pd-temas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 26px;
+}
+.pd-tema {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 360px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--bg-green);
+    box-shadow: 0 18px 40px -20px rgba(26, 60, 40, .42);
+    transition: transform .4s cubic-bezier(.2, .7, .3, 1), box-shadow .4s;
+}
+.pd-tema:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 58px -22px rgba(26, 60, 40, .5);
+}
+
+.pd-tema__foto {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+}
+.pd-tema__foto img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .7s cubic-bezier(.2, .7, .3, 1);
+}
+.pd-tema:hover .pd-tema__foto img { transform: scale(1.05); }
+
+/* Etiqueta flotante arriba a la izquierda */
+.pd-tema__chip {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    background: rgba(255, 255, 255, .92);
+    color: var(--primary);
+    border-radius: 99px;
+    padding: 6px 13px;
+    font-size: 11.5px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+.pd-tema__chip--oro {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Texto sobre el degradado */
+.pd-tema__cuerpo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 24px 22px 22px;
+    background: linear-gradient(180deg,
+        rgba(15, 30, 21, 0) 0%,
+        rgba(15, 30, 21, .55) 35%,
+        rgba(15, 30, 21, .94) 100%);
+}
+.pd-tema__eyebrow {
+    display: block;
+    font-family: var(--font-titulo);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.pd-tema__cuerpo h3 {
+    font-family: var(--font-titulo);
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.35;
+    margin: 7px 0 0;
+}
+.pd-tema__lugar {
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, .78);
+    margin: 7px 0 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .pd-totales    { grid-template-columns: 1fr; }
+    .pd-total-item { padding: 16px 0; }
+    .pd-total-item + .pd-total-item {
+        padding-left: 0;
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+    .pd-temas { grid-template-columns: 1fr; gap: 14px; }
+    .pd-tema  { min-height: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .pd-tema, .pd-tema__foto img { transition: none; }
 }
