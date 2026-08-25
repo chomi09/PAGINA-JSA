@@ -31,6 +31,7 @@
     --sec-pad-y:     100px;
 
     /* Radios y sombras */
+    --r-xm:          4px;
     --r-sm:          8px;
     --r-md:          16px;
     --r-lg:          24px;
