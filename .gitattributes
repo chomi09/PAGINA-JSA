@@ -1,3 +1,2 @@
-*.MP4 filter=lfs diff=lfs merge=lfs -text
 img/Vetiver/videovet/*.MP4 filter=lfs diff=lfs merge=lfs -text
 img/Vetiver/videovet/*.mp4 filter=lfs diff=lfs merge=lfs -text
