@@ -111,7 +111,7 @@
 <!-- ===== 2 · LA SOLUCIÓN ===== -->
 <section class="vt-sec vt-sec--blanco">
     <div class="vt-wrap">
-        <span class="vt-eyebrow">nuestra solución</span>
+        <!--<span class="vt-eyebrow">nuestra solución</span>-->
         <h2 class="vt-titulo">Una planta que limpia el agua</h2>
         <p class="vt1-texto">
             El lavado del café genera las <strong>aguas mieles</strong>: un efluente cargado
@@ -153,7 +153,7 @@
     <div class="pd-video">
    
     <div class="vt-wrap">
-        <span class="vt-eyebrow">Resultados · 6 meses de monitoreo</span>
+        <!--<span class="vt-eyebrow">Resultados · 6 meses de monitoreo</span>-->
         <h2 class="vt-titulo">Reducción validada en laboratorio</h2>
  
         <div class="vt-res">
@@ -193,7 +193,7 @@
 <!-- ===== 4 · LOS TRES MÓDULOS ===== -->
 <section class="vt-sec vt-sec--blanco">
     <div class="vt-wrap">
-        <span class="vt-eyebrow">Dónde lo probamos</span>
+        <!--<span class="vt-eyebrow">Dónde lo probamos</span>-->
         <h2 class="vt-titulo">Tres parcelas, tres terrenos distintos</h2>
         <p class="vt-texto">
             Probamos el mismo sistema en tres suelos diferentes. Aprendimos que
@@ -260,29 +260,39 @@
 <!-- ===== VIDEO ===== -->
 <section class="vt-sec vt-sec--crema">
     <div class="vtv-wrap">
-        <span class="vt-eyebrow">El sistema en campo</span>
+        <!--<span class="vt-eyebrow">El sistema en campo</span>-->
         <h2 class="vt-titulo">No hay café sostenible sin agua limpia</h2>
     </div>
 
     <div class="pd-video">
-        <div class="pd-video__marco pd-video__marco--yt">
-            <iframe
-                src="https://www.youtube.com/embed/BAkr6fUKNis"
-                title="Barreras de vetiver en campo"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-            </iframe>
+        <div class="pd-video__marco pd-video__marco--yt" id="ytVetiver">
+            <button class="pd-video__portada" type="button" onclick="cargarVideoVetiver()" aria-label="Reproducir video">
+                <img src="../img/Vetiver/vet7.png" alt="Barreras de vetiver instaladas en campo">
+                <span class="pd-video__play"></span>
+            </button>
         </div>
 
         <p class="pd-video__pie">Recorrido por las barreras de vetiver instaladas en las fincas de los socios.</p>
     </div>
 </section>
 
+<script>
+function cargarVideoVetiver() {
+    document.getElementById('ytVetiver').innerHTML =
+        '<iframe src="https://www.youtube.com/embed/BAkr6fUKNis?autoplay=1&rel=0&color=white&playsinline=1" ' +
+        'title="Barreras de vetiver en campo" frameborder="0" ' +
+        'allow="autoplay; encrypted-media; picture-in-picture; web-share" ' +
+        'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+}
+</script>
+
 
 <!-- ===== GALERÍA ===== -->
 <section class="pd-galeria vt-sec--blanco ">
+    <div class="vtv-wrap">
+        <!--<span class="vt-eyebrow">El sistema en campo</span>-->
+        <h2 class="vt-titulo">Registro fotográfico</h2>
+    </div>
     <span class="pd-eyebrow">Registro fotográfico</span>
     <div class="pd-galeria__grid">
         <a href="../img/Vetiver/vet.JPG"><img src="../img/Vetiver/vet.JPG" alt="Parcela con vetiver sembrado en curva de nivel"></a>

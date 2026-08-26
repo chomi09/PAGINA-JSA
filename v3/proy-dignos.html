@@ -575,6 +575,29 @@ window.addEventListener('scroll', alScrollear, { passive: true });
 alScrollear();
 
 document.getElementById('anio').textContent = new Date().getFullYear();
+
+/* ---------- Tabs de Escuelas de Campo ---------- */
+const pdTabs = document.getElementById('pdTabsPasantias');
+if (pdTabs) {
+    const tabs   = Array.from(pdTabs.querySelectorAll('.pd-tab'));
+    const panels = Array.from(pdTabs.querySelectorAll('.pd-panel'));
+
+    function activarTab(indice) {
+        tabs.forEach((tab, i) => tab.setAttribute('aria-selected', i === indice ? 'true' : 'false'));
+        panels.forEach((panel, i) => panel.classList.toggle('is-activo', i === indice));
+    }
+
+    tabs.forEach((tab, indice) => {
+        tab.addEventListener('click', () => activarTab(indice));
+    });
+
+    pdTabs.querySelectorAll('.pd-siguiente-tab').forEach(boton => {
+        boton.addEventListener('click', () => {
+            const actual = panels.findIndex(panel => panel.classList.contains('is-activo'));
+            activarTab((actual + 1) % panels.length);
+        });
+    });
+}
 </script>
 
 </body>
