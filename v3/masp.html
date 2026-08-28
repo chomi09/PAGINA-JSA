@@ -783,7 +783,7 @@ const mapa = L.map(
     "map",
     {
         zoomControl: false,
-
+        scrollWheelZoom: false,
         minZoom: 1.5,
 
         maxZoom: 7,
@@ -1549,9 +1549,9 @@ function mostrarTodosLosDestinos() {
 
     mapa.setView(
 
-        [28, -35],
+        [15, -50],
 
-        1.8,
+        2.5,
 
         {
             animate: false
@@ -1775,6 +1775,187 @@ window.addEventListener(
     }
 
 );
+
+
+
+/* =====================================================
+   BUCLE DE RUTAS
+   Las flechas salen de Junín una tras otra, se quedan
+   completas un momento y vuelven a empezar.
+===================================================== */
+
+/* --- Cuánto dura cada cosa (en segundos) --- */
+
+const DIBUJANDO = 2.2;   // lo que tarda una flecha en llegar
+const QUIETO    = 3.0;   // cuánto se quedan completas
+const DESFASE   = 0.45;  // separación entre una flecha y la otra
+const PAUSA     = 1.0;   // respiro antes de volver a empezar
+
+
+/* --- Guardamos cada ruta apenas se crea --- */
+
+const rutasBucle = [];
+
+const _polylineOriginal = L.polyline;
+
+L.polyline = function(puntos, opciones) {
+
+    const linea = _polylineOriginal(puntos, opciones);
+
+    if (opciones && opciones.className === "ruta-comercial") {
+        rutasBucle.push({
+            linea:   linea,
+            puntos:  puntos.slice(),
+            destino: puntos[puntos.length - 1]
+        });
+    }
+
+    return linea;
+};
+
+
+/* --- Encuentra el punto del país al final de una ruta --- */
+
+function marcadorDeRuta(destino) {
+
+    for (const clave in marcadores) {
+
+        const p = marcadores[clave].getLatLng();
+
+        if (Math.abs(p.lat - destino[0]) < 0.6 &&
+            Math.abs(p.lng - destino[1]) < 0.6) {
+            return marcadores[clave];
+        }
+
+    }
+
+    return null;
+
+}
+
+
+/* --- El bucle --- */
+
+let bucleActivo = true;
+let inicioCiclo = null;
+
+
+function duracionCiclo() {
+
+    const ultima = DESFASE * Math.max(rutasBucle.length - 1, 0);
+
+    return ultima + DIBUJANDO + QUIETO + PAUSA;
+
+}
+
+
+function suavizar(t) {
+    return 1 - Math.pow(1 - t, 3);
+}
+
+
+function pintarCuadro(ahora) {
+
+    if (!bucleActivo) return;
+
+    if (inicioCiclo === null) inicioCiclo = ahora;
+
+    const total = duracionCiclo();
+
+    const t = ((ahora - inicioCiclo) / 1000) % total;
+
+
+    rutasBucle.forEach(function(ruta, i) {
+
+        const arranque = i * DESFASE;
+
+        let avance = (t - arranque) / DIBUJANDO;
+
+        if (avance < 0) avance = 0;
+        if (avance > 1) avance = 1;
+
+        /* Al final del ciclo se apagan todas juntas */
+
+        if (t > (total - PAUSA)) avance = 0;
+
+        const cuantos = Math.round(suavizar(avance) * ruta.puntos.length);
+
+        ruta.linea.setLatLngs(
+            cuantos < 2 ? [] : ruta.puntos.slice(0, cuantos)
+        );
+
+
+        /* El punto del país prende cuando llega la flecha */
+
+        const marca = marcadorDeRuta(ruta.destino);
+
+        if (marca) {
+
+            const el = marca.getElement();
+
+            if (el) {
+                el.style.transition = "opacity .4s ease";
+                el.style.opacity    = avance > 0.95 ? 1 : 0;
+            }
+
+        }
+
+    });
+
+
+    requestAnimationFrame(pintarCuadro);
+
+}
+
+
+/* --- Arranca cuando el mapa ya terminó de armarse --- */
+
+const _mostrarOriginal = mostrarTodosLosDestinos;
+
+mostrarTodosLosDestinos = function() {
+
+    _mostrarOriginal();
+
+    if (bucleActivo) {
+        requestAnimationFrame(pintarCuadro);
+    }
+
+};
+
+
+/* --- Si hace clic en un país, el bucle se detiene y
+       las rutas se quedan dibujadas completas --- */
+
+function detenerBucle() {
+
+    if (!bucleActivo) return;
+
+    bucleActivo = false;
+
+    rutasBucle.forEach(function(ruta) {
+
+        ruta.linea.setLatLngs(ruta.puntos);
+
+        const marca = marcadorDeRuta(ruta.destino);
+
+        if (marca) {
+            const el = marca.getElement();
+            if (el) el.style.opacity = 1;
+        }
+
+    });
+
+}
+
+document.addEventListener("click", detenerBucle);
+
+
+/* --- Si la persona pidió menos movimiento, no animamos --- */
+
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    setTimeout(detenerBucle, 500);
+}
+
 
 </script>
 
