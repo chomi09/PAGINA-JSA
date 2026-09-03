@@ -242,7 +242,11 @@ footer.v3-footer {
     padding-bottom: 35px; 
     border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-brand img { height: 48px; width: auto; margin-bottom: 20px; }
+.footer-brand img { 
+    height: 80px; 
+    width: auto; 
+    margin-bottom: 10px; 
+}
 .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.55); max-width: 300px; margin-bottom: 24px; }
 .social-row { display: flex; gap: 10px; }
 .social-row a {
@@ -270,12 +274,23 @@ footer.v3-footer {
 .news-form input::placeholder { color: rgba(255,255,255,.35); }
 .news-form input:focus { border-color: var(--accent); }
 .news-form button {
-    background: var(--accent); color: #fff; border: none;
-    padding: 10px 16px; border-radius: var(--r-sm);
-    font-family: var(--font-texto); font-size: 13px; font-weight: 700;
-    cursor: pointer; white-space: nowrap; transition: background .25s;
+    background: var(--accent); 
+    color: #fff; 
+    border: none;
+    padding: 10px 16px; 
+    border-radius: var(--r-sm);
+    font-family: var(--font-texto); 
+    font-size: 13px; 
+    font-weight: 700;
+    cursor: pointer; 
+    white-space: nowrap; 
+    transition: background .25s;
 }
-.news-form button:hover { background: #b5862e; }
+.news-form button:hover { 
+    background: #f7f7f7; 
+    color: #2D6A1E;
+    
+}
 .footer-bar {
     padding: 22px 0; display: flex; justify-content: space-between; align-items: center;
     font-size: 13px; color: rgba(255,255,255,.38); flex-wrap: wrap; gap: 8px;
