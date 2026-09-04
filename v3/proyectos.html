@@ -72,12 +72,12 @@
                     </div>
                 </a>
 
-                <a href="proy-moscas.html" class="ejec-card">
+                <a href="" class="ejec-card"> 
                     <img src="../img/moscaspor.jpg" alt="Cría de moscas soldado negra" loading="lazy" decoding="async">
                     <div class="ejec-cap">
                         <span class="ejec-prog">NHMSC</span>
                         <h3>Cría de Moscas Soldado</h3>
-                        <span class="ejec-mas">Ver proyecto <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="ejec-mas">Proyecto en desarrollo <i class=""></i></span>
                     </div>
                 </a>
 
@@ -93,9 +93,9 @@
     <!-- CABECERA -->
     <div class="galeria-header">
 
-        <span class="eyebrow">
+        <!--<span class="eyebrow">
             Historial
-        </span>
+        </span>-->
 
         <h2 class="sec-heading">
             Proyectos Realizados
@@ -150,8 +150,7 @@
         <div class="galeria-grid">
 
 
-        <!-- 1 · Canastas + útiles 
-        <a href="informacion3.html" class="gal-link">-->
+        <!-- 1 · Canastas + útiles -->
         <article class="gal-card" data-categoria="nhmsc">
             <div class="gal-img">
                 <img src="../img/canastutil.png" alt="Canastas navideñas y útiles escolares">
@@ -168,7 +167,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
         <!-- 2 · Pasantías + capacitaciones -->
@@ -188,7 +186,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
         <!-- 3 · Campañas dentales y visuales -->
@@ -208,7 +205,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
         <!-- 4 · Motoguadañas + despulpadoras -->
@@ -229,7 +225,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
 
@@ -251,7 +246,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
         <!-- 6 · Secadoras solares -->
@@ -271,7 +265,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
         <!-- 7 · Cisternas, calaminas y mangueras -->
@@ -292,7 +285,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
         <!-- 8 · Georreferenciación de parcelas -->     
@@ -313,7 +305,6 @@
                 </div>
             </div>
         </article>
-    </a>
 
 
     </div>
@@ -329,6 +320,10 @@
             <span>Abono y enmiendas</span>
         </div>
     </div>-->
+
+</section>
+    </main>
+
     <!-- FOOTER -->
     <footer class="v3-footer">
             <div class="footer-wrap">
@@ -480,7 +475,7 @@
                 const filtro = this.dataset.filtro;
                 document.querySelectorAll('.gal-card').forEach(card => {
                     const show = filtro === 'todos' || card.dataset.categoria.split(' ').includes(filtro);
-                    card.closest('.gal-link').style.display = show ? '' : 'none';
+                    card.style.display = show ? '' : 'none';
                 });
             });
         });
