@@ -166,7 +166,7 @@ ul { list-style: none; }
 }
 .page-hero-ov {
     position: absolute; inset: 0;
-    background: linear-gradient(to left, rgba(8,20,12,.3) 0%, rgba(8,20,12,.78) 100%);
+    background: linear-gradient(to left, rgba(8,20,12,.01) 0%, rgba(8,20,12,.58) 100%);
 }
 .page-hero-cnt { 
     position: relative; 
@@ -236,8 +236,8 @@ footer.v3-footer {
     margin: 0 auto; 
 }
 .footer-grid {
-    display: grid; 
-    grid-template-columns: 2fr 1.3fr 1fr 1fr; 
+    display: grid;
+    grid-template-columns: 2fr 1.3fr 1fr;
     gap: 48px;
     padding-bottom: 35px; 
     border-bottom: 1px solid rgba(255,255,255,.1);

@@ -738,3 +738,80 @@
         min-height: 65px;
     }
 }
+.franja-parallax{
+  position:relative;
+  height:420px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  isolation:isolate;
+}
+
+/* imagen fija: no se mueve con el scroll, el contenido pasa por encima */
+.franja-bg{
+  position:absolute;
+  inset:0;
+  background-image:url('../img/dron.jpg');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  z-index:0;
+}
+
+/* iOS Safari no soporta background-attachment:fixed: usamos scroll normal ahí */
+@supports (-webkit-touch-callout:none){
+  .franja-bg{ background-attachment:scroll; }
+}
+
+.franja-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(8,28,14,.45);
+  z-index:1;
+}
+
+.franja-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1100px;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  gap:24px;
+}
+
+.franja-stat{ text-align:center; }
+
+.franja-num{
+  display:block;
+  font-size:clamp(48px,6vw,84px);
+  font-weight:800;
+  line-height:1;
+  color:#4ADE80;
+  letter-spacing:-.02em;
+}
+
+.franja-label{
+  display:block;
+  margin-top:14px;
+  font-size:clamp(14px,1.4vw,18px);
+  font-weight:500;
+  color:#fff;
+}
+
+.franja-div{
+  width:1px;
+  height:96px;
+  background:rgba(255,255,255,.45);
+  flex:0 0 auto;
+}
+
+@media (max-width:768px){
+  .franja-parallax{ height:auto; padding:64px 0; }
+  .franja-content{ flex-direction:column; gap:40px; }
+  .franja-div{ width:96px; height:1px; }
+}
+
