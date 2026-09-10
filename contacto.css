@@ -87,7 +87,7 @@
 }
 .faq-item.open .faq-chevron { transform: rotate(45deg); border-color: var(--primary); }
 .faq-answer {
-    font-size: 14.5px; color: var(--text-muted); line-height: 1.8;
+    font-size: 14.5px; color: var(--text-muted); line-height: 1.8; text-align: justify;
     max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s;
 }
 .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 22px; }

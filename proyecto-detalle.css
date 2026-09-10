@@ -166,6 +166,11 @@
     max-width: 46ch;
 }
 
+.pd-intro p,
+.pd-verde p {
+    text-align: justify;
+}
+
 /* Etiqueta dorada reutilizable en toda la página */
 .pd-eyebrow {
     display: block;
@@ -249,16 +254,18 @@
     margin: 0 0 20px;
 }
 .vt-texto {
-    font-size: 16px; 
+    font-size: 16px;
     line-height: 1.75;
     color: var(--text-muted);
     margin: 0 0 30px;
+    text-align: justify;
 }
 .vt1-texto {
-    font-size: 16px; 
+    font-size: 16px;
     line-height: 1.75;
     color: var(--text-muted);
     margin: 0 0 10px;
+    text-align: justify;
 }
 
 .vt-texto strong { 
@@ -1524,6 +1531,7 @@
     color: var(--text-muted);
     max-width: 720px;
     margin: 0;
+    text-align: justify;
 }
 
 /* ---------- 1 · TRES PASOS ---------- */

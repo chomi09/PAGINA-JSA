@@ -255,17 +255,26 @@
 /* ===== GRID DE TECNOLOGÍAS (2×3) ===== */
 .tech-sec { padding: 96px 24px; background: var(--bg); text-align: center; }
 .tech-header { max-width: 640px; margin: 0 auto 56px; }
-.tech-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 1060px; margin: 0 auto; text-align: left; }
+.tech-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3,1fr); 
+    gap: 20px; 
+    max-width: 1160px; 
+    margin: 0 auto; 
+    text-align: left; }
 .tech-card {
-    background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-md);
-    overflow: hidden; transition: box-shadow .25s, transform .25s; cursor: default;
+    background: var(--bg); 
+    border: 1px solid var(--border); 
+    border-radius: var(--r-md);
+    overflow: hidden; 
+    transition: box-shadow .25s, transform .25s; cursor: default;
 }
 .tech-card:hover { 
     box-shadow: var(--sh-md); 
     transform: translateY(-4px); 
 }
 .tech-icon-area { 
-    height: 380px; 
+    height: 300px; 
     overflow: hidden; 
 }
 .tech-icon-area img { 
@@ -870,7 +879,7 @@
 
 .eudr-tr{
   position:relative;
-  height:215px;
+  height:480px;
   overflow:hidden;
   margin:0;
 }
@@ -924,7 +933,7 @@
 }
 
 .eudr-txt .sec-body{
-  text-align:left;
+  text-align:justify;
   margin:0 0 28px;
   max-width:54ch;
 }
@@ -961,5 +970,5 @@
     grid-template-columns:1fr;
     gap:44px;
   }
-  .eudr-tr{ height:190px; }
+  .eudr-tr{ height:320px; }
 }
